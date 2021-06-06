@@ -1,21 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { storage, database } from '../FB/Firebase';
 import firebase from '../FB/Firebase';
 const AdminPage = () => {
-    const [image, setImage] = useState(null);
-    const [url, setUrl] = useState("");
+    const [files, setFiles] = useState([]);
+    const [url, setUrl] = useState([]);
     const [progress, setProgress] = useState(0);
     const [price, setPrice] = useState(null);
     const [brandName, setBrandName] = useState(null);
 
     const handleChange = (e) => {
-        if (e.target.files[0]) {
-            setImage(e.target.files[0]);
-        }
-    }
+      for (let i = 0; i < e.target.files.length; i++) {
+        const newFile = e.target.files[i];
+        setFiles(prevState => [...prevState, newFile]);
+    };
+  };
 
+
+    const fireStore = firebase.database().ref("/newVehicle");
+    let data = {
+      brandName: brandName,
+      Price:price,
+      url: [url]
+    };
+
+ 
     const handleUpload = () => {
-        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      const promises = [];
+      files.forEach(file => {
+        const uploadTask = storage.ref(`images/${file.name}`).put(file);
+        promises.push(uploadTask);
         uploadTask.on(
           "state_changed",
           snapshot => {
@@ -30,34 +43,38 @@ const AdminPage = () => {
           () => {
             storage
               .ref("images")
-              .child(image.name)
+              .child(file.name)
               .getDownloadURL()
               .then(url => {
                 setUrl(url);
               });
           }
-        ); 
-
-        const fireStore = firebase.database().ref("/newVehicle")
-        let data = {
-            url:url ,
-            brandName: brandName,
-            Price:price,
-        };
-        fireStore.push(data);
-        console.log("success:", data);
+        );
+      });
+      Promise.all(promises)
+      .then(() => console.log('All files uploaded', url))
     };
+
+    const handleSubmit =  () => {
+     fireStore.push(data);
+     console.log("success:", data)
+    }
 
 
     return (  
         <div>
             <h3>Admin here</h3>
             <br/>
+            <br />
+            <input type="file" multiple onChange={handleChange} />
+            <br />
+            <br />
             <progress value={progress} max="100" />
             <br />
-            <input type="file" onChange={handleChange} />
-            <br />
             
+             <br />
+             <button onClick={handleUpload}>Upload</button>
+             <br />
              <br />
              <label className="label">Brand/Type:</label>
                 <input 
@@ -70,10 +87,12 @@ const AdminPage = () => {
                 placeholder="Price" type="number" value={price} onChange={(e)=>{setPrice(e.target.value)}}
                  />$
                  <br />
-                 <button onClick={handleUpload}>Upload</button>
-                 <br /><br />
+                 <br />
+                 <button onClick={handleSubmit}>Submit</button>
+                 <br />
+                 <br />
                  {url}
-             {/* <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" /> */}
+             <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" />
             </div>
     );
 }

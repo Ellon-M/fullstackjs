@@ -6,6 +6,7 @@ import  {
   HttpLink,
   from
 } from "@apollo/client";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // an apollo client library that catches errors
 import { onError } from '@apollo/client/link/error';
@@ -35,9 +36,12 @@ function App() {
   return (
   <ApolloProvider client={client}>
     {" "}
-    <AdminPage/>
+    <Router>
+    <Route exact path = "/admin">
+       <AdminPage />
+    </Route>
     <NewVehicle /> 
-
+    </Router>
   </ApolloProvider>
   );
 }
