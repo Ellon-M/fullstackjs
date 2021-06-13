@@ -40,7 +40,9 @@ function App() {
     <Route exact path = "/admin">
        <AdminPage />
     </Route>
+    <Route exact path = "/new">
     <NewVehicle /> 
+    </Route>
     </Router>
   </ApolloProvider>
   );

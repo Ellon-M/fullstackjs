@@ -20,7 +20,7 @@ const AdminPage = () => {
     let data = {
       brandName: brandName,
       Price:price,
-      url: [url]
+      url: url
     };
 
  
@@ -46,7 +46,8 @@ const AdminPage = () => {
               .child(file.name)
               .getDownloadURL()
               .then(url => {
-                setUrl(url);
+                setUrl(prevState => [...prevState, url]);
+                console.log('url: ', url);
               });
           }
         );
@@ -92,7 +93,7 @@ const AdminPage = () => {
                  <br />
                  <br />
                  {url}
-             <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" />
+             {/* <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" /> */}
             </div>
     );
 }
