@@ -6,14 +6,6 @@ import database from '../FB/Firebase';
 
 const NewVehicle = () => {
 
-    // const {error, loading, data} = useQuery(newVehicles);
-    // const {newVehicle, setNewVehicle}  = useState(null);
-    // useEffect(() => {
-    //     if (data) {
-    //     console.log(data);
-    //     }
-    // },[data])
-
     const [price, setPrice] = useState(null);
     const [brandName, setBrandName] = useState(null);
     const [url, setUrl] = useState([]);
