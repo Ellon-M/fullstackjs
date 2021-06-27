@@ -1,0 +1,19 @@
+{
+  "newVehicle" : {
+    "-Mc48ogiUBFnJY2vR9MV" : {
+      "Price" : "43245",
+      "brandName" : "wsw",
+      "url" : [ "https://firebasestorage.googleapis.com/v0/b/car-dealer-40c1f.appspot.com/o/images%2Fa-Dolls-house.jpg?alt=media&token=75589ee2-75f9-4b66-b8aa-c3ceeca3b26e", "https://firebasestorage.googleapis.com/v0/b/car-dealer-40c1f.appspot.com/o/images%2Fabsalom-absalom.jpg?alt=media&token=dcee617a-46fd-43e2-b298-68c22ec2657f" ]
+    },
+    "-Mcd9lrTyDHKTZhF-5mK" : {
+      "Price" : "5655",
+      "brandName" : "Goofy",
+      "url" : [ "https://firebasestorage.googleapis.com/v0/b/car-dealer-40c1f.appspot.com/o/images%2Fking-lear.jpg?alt=media&token=c186e513-3d3a-4baf-a8ef-ca18c2bcbd47", "https://firebasestorage.googleapis.com/v0/b/car-dealer-40c1f.appspot.com/o/images%2Fhistory.jpg?alt=media&token=e305cb3f-973c-401b-85dc-023533590cae" ]
+    },
+    "-McegVmAwZwYH_0UnKE4" : {
+      "Price" : "99",
+      "brandName" : "chew",
+      "url" : [ "https://firebasestorage.googleapis.com/v0/b/car-dealer-40c1f.appspot.com/o/images%2Fnostromo.jpg?alt=media&token=2aea6363-1135-472e-8a5e-f070cb495b8a", "https://firebasestorage.googleapis.com/v0/b/car-dealer-40c1f.appspot.com/o/images%2Fblindness.jpg?alt=media&token=38fa4cf8-8681-4ea4-acd0-b94626325ae0", "https://firebasestorage.googleapis.com/v0/b/car-dealer-40c1f.appspot.com/o/images%2Fnjals-saga.jpg?alt=media&token=62cc782b-4ec4-4898-b161-5620af473983" ]
+    }
+  }
+}

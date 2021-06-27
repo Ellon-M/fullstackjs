@@ -95,7 +95,7 @@ const SignUp = () => {
             data  => {
                 for(let [key, value] of Object.entries(data)) {
                     if(key === 'mailError'){
-                        console.log(`${key}: ${value}`);
+                      
                         return fetch('http://localhost:5500/api/register/')
                        .then(
                            mailError => {
