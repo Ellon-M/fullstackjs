@@ -10,6 +10,7 @@ const NewVehicle = () => {
     const [url, setUrl] = useState([]);
     const [key, setKey] = useState([]);
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     const ref = db.collection("newVehicle");
     useEffect(() => {
@@ -24,20 +25,38 @@ const NewVehicle = () => {
           });
         });
         setData(getData);
+        setLoading(false);
+        // console.log(data);
       });
 
      return () => ref();
-    }, []);
+    }, [loading]);
   
-    data.forEach(vehicle => {
-     
-    })
+ 
+    useEffect(() => {
+      data.forEach(vehicle => {
+        for (let [key, value] of Object.entries(vehicle)) {
+          if (key === 'brandName'){
+            setBrandName(`${value}`);
+            setLoading(false);
+          }
+          else if (key === 'price'){
+            setCarPrice(`${value}`);
+            console.log(`${key}:${value}`);
+            setLoading(false);
+          }
+        }
+      })
+    }, [loading])
+    
+
+    
 
 
     
 
     return ( <div>
-
+      
     </div> );
 }
 
