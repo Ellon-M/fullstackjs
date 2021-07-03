@@ -1,18 +1,13 @@
-import { useQuery, gql } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import { newVehicles } from '../GraphQL/Queries';
 import  { db }  from '../FB/Firebase';
 
 const NewVehicle = () => {
-
     const [carPrice, setCarPrice] = useState([]);
     const [brandName, setBrandName] = useState([]);
     const [url, setUrl] = useState([]);
-    const [key, setKey] = useState([]);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     
-    const ref = db.collection("newVehicle");
     useEffect(() => {
       const getData = [];
       const ref = db
@@ -26,9 +21,8 @@ const NewVehicle = () => {
         });
         setData(getData);
         setLoading(false);
-        console.log(data);
+        //console.log(data);
       });
-
      return () => ref();
     }, [loading]);
   
@@ -53,11 +47,6 @@ const NewVehicle = () => {
     }, [loading])
     
     
-    
-
-
-    
-
     return ( <div>
       {brandName}
       {/* <img src={url || "http://via.placeholder.com/100"} alt="firebase-image"/> */}

@@ -12,6 +12,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { onError } from '@apollo/client/link/error';
 import NewVehicle from './Components/NewVehicle';
 import AdminPage from './Components/Admin';
+import NewVehicleDetails from './Components/newVehicleDetails';
+
 
 
 const errorLink = onError(({ graphqlErrors, networkError}) => {
@@ -42,6 +44,9 @@ function App() {
     </Route>
     <Route exact path = "/new">
     <NewVehicle /> 
+    </Route>
+    <Route exact path = "/details/:id">
+       <NewVehicleDetails/>
     </Route>
     </Router>
   </ApolloProvider>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { storage } from '../FB/Firebase';
 import  { db }  from '../FB/Firebase';
+
 const AdminPage = () => {
     const [files, setFiles] = useState([]);
     const [url, setUrl] = useState([]);
@@ -16,7 +17,6 @@ const AdminPage = () => {
   };
 
 
-  
     let data = {
       brandName: brandName,
       Price:price,
