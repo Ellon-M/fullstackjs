@@ -21,12 +21,12 @@ const NewVehicle = () => {
         querySnapshot.forEach((doc) => {
           getData.push({
             ...doc.data(), //spread operator
-            key: doc.id, // `id` given to us by Firebase
+            key: doc.id, 
           });
         });
         setData(getData);
         setLoading(false);
-        // console.log(data);
+        console.log(data);
       });
 
      return () => ref();
@@ -42,21 +42,25 @@ const NewVehicle = () => {
           }
           else if (key === 'price'){
             setCarPrice(`${value}`);
-            console.log(`${key}:${value}`);
+            setLoading(false);
+          }
+          else if (key === 'url'){
+            setUrl(`${value}`);
             setLoading(false);
           }
         }
       })
     }, [loading])
     
-
+    
     
 
 
     
 
     return ( <div>
-      
+      {brandName}
+      {/* <img src={url || "http://via.placeholder.com/100"} alt="firebase-image"/> */}
     </div> );
 }
 

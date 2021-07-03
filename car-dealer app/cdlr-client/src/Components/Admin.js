@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { storage, database } from '../FB/Firebase';
-import firebase from '../FB/Firebase';
+import { useState } from 'react';
+import { storage } from '../FB/Firebase';
+import  { db }  from '../FB/Firebase';
 const AdminPage = () => {
     const [files, setFiles] = useState([]);
     const [url, setUrl] = useState([]);
@@ -16,14 +16,13 @@ const AdminPage = () => {
   };
 
 
-    const fireStore = firebase.database().ref("/newVehicle");
+  
     let data = {
       brandName: brandName,
       Price:price,
       url: url
     };
 
- 
     const handleUpload = () => {
       const promises = [];
       files.forEach(file => {
@@ -56,45 +55,48 @@ const AdminPage = () => {
       .then(() => console.log('All files uploaded', url))
     };
 
-    const handleSubmit =  () => {
-     fireStore.push(data);
-     console.log("success:", data)
+    const handleSubmit =  (e) => {
+      e.preventDefault();
+      db.collection("newVehicle").add(data);
+      console.log("success:", data)
     }
-
 
     return (  
         <div>
-            <h3>Admin here</h3>
+          <h3>Admin here</h3>
             <br/>
-            <br />
+            <br/>
+            <div className="uploadContainer">
             <input type="file" multiple onChange={handleChange} />
-            <br />
-            <br />
-            <progress value={progress} max="100" />
-            <br />
-            
-             <br />
-             <button onClick={handleUpload}>Upload</button>
-             <br />
-             <br />
-             <label className="label">Brand/Type:</label>
-                <input 
-                placeholder="Brand/Type" type="text" value={brandName} onChange={(e)=>{setBrandName(e.target.value)}}
-                 />
-             <br />
-             <br />
-             <label className="label">Price:</label>
-                <input 
-                placeholder="Price" type="number" value={price} onChange={(e)=>{setPrice(e.target.value)}}
-                 />$
-                 <br />
-                 <br />
-                 <button onClick={handleSubmit}>Submit</button>
-                 <br />
-                 <br />
-                 {url}
-             {/* <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" /> */}
-            </div>
+                   <br />
+                   <br />
+                    <progress value={progress} max="100" />
+                     <br />
+                     <br />
+                     <button onClick={handleUpload}>Upload</button>
+                     <br />
+                     <br />
+                     </div>
+              <div className="formContainer">
+                <form onSubmit={handleSubmit}>
+                     <label className="label">Brand/Type:</label>
+                     <input 
+                       placeholder="Brand/Type" type="text" value={brandName} onChange={(e)=>{setBrandName(e.target.value)}}
+                      />
+                      <br />
+                      <br />
+                      <label className="label">Price:</label>
+                      <input 
+                         placeholder="Price" value={price} onChange={(e)=>{setPrice(e.target.value)}}
+                         />$
+                         <br />
+                         <br />
+                         <button>Submit</button>
+                         <br />
+                         <br />
+                </form>
+              </div>
+        </div>
     );
 }
  
