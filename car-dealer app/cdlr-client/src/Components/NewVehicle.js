@@ -30,26 +30,41 @@ const NewVehicle = () => {
     useEffect(() => {
       data.forEach(vehicle => {
         for (let [key, value] of Object.entries(vehicle)) {
-          if (key === 'brandName'){
+          if (key === 'brandName') {
             setBrandName(`${value}`);
             setLoading(false);
           }
-          else if (key === 'price'){
+          else if (key === 'price') {
             setCarPrice(`${value}`);
             setLoading(false);
           }
-          else if (key === 'url'){
+          else if (key === 'url') {
             setUrl(`${value}`);
             setLoading(false);
           }
         }
       })
     }, [loading])
+   
+    console.log(data);
     
     
-    return ( <div>
-      {brandName}
-      {/* <img src={url || "http://via.placeholder.com/100"} alt="firebase-image"/> */}
+    return (
+    <div className="imageGrid">
+    { data && data.map(info => {
+       return (
+        <div className="infoWrap" key={info.key}>
+          <img width="250px" height="auto" src={info.url} alt="firebase-image" />
+          <h3>
+            {info.brandName}
+          </h3>
+          <p>
+            {info.Price}
+          </p>
+        </div>
+       )
+      })
+    }
     </div> );
 }
 
