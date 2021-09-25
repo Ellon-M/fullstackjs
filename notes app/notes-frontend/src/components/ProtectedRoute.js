@@ -9,9 +9,10 @@ const ProtectedRoute
     const authentication = useContext(AuthContext);
     const history = useHistory();
     const data = sessionStorage.getItem('user');
+    console.log(data);
     return ( 
        <Route {...rest} render={({location}) => {
-        if (data) {
+        if (data !== null) {
         return <Component />  
        }
         else {
@@ -22,6 +23,5 @@ const ProtectedRoute
        />
      );
 }
- 
 export default ProtectedRoute
 ;

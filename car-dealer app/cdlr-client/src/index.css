@@ -11,3 +11,55 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+input {
+  margin-top: 10px;
+  display: block;
+  width: 90%;
+  padding: 6px;
+}
+
+.label {
+  display: block;
+}
+
+.adminContainer {
+display: flex;
+}
+
+.formContainer {
+  width: 50%;
+  margin-right: 300px;
+  padding-left: 1.2rem;
+}
+
+.uploadContainer {
+  width: 50%;
+  padding: 1.4rem;
+}
+
+
+.mainImgs {
+  width: 400px;
+  height: auto;
+}
+
+.otherImgs {
+  width: 250px;
+  height: auto;
+}
+
+.imageGrid {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.infoWrap {
+  margin-bottom: 40px;
+  padding: 1.2rem;
+}
+
+.detailImgs {
+  display: inline;
+  padding: 1.3rem;
+}
