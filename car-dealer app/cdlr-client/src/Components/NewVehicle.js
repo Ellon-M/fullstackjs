@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import  { db }  from '../FB/Firebase';
-
+import firebase from 'firebase';
+import { useHistory } from 'react-router';
 
 const NewVehicle = () => {
     const [carPrice, setCarPrice] = useState([]);
@@ -9,7 +10,24 @@ const NewVehicle = () => {
     const [url, setUrl] = useState([]);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const[userSignedIn, setUserSignedIn] = useState(false);
+
+    const history = useHistory();
     
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        return setUserSignedIn(true);
+      }
+      setUserSignedIn(false);
+    })
+
+    const signOut = () => {
+      firebase.auth().signOut();
+      history.push('/signedOut');
+    }
+
+
+
     useEffect(() => {
       const getData = [];
       const ref = db
@@ -50,7 +68,35 @@ const NewVehicle = () => {
     }, [loading])
 
     
-    
+    if (userSignedIn === true) {
+      return (
+      <div>
+        <h2>Signed in</h2>
+        <button onClick={signOut}>Sign Out</button>
+        <div className="imageGrid">
+    { data && data.map(info => {
+       return (
+        <div className="infoWrap" key={info.key}>
+          <img width="250px" height="auto" src={info.mainUrl} alt="firebase-img" />
+          <h3>
+            {info.brandName}
+          </h3>
+          <p>
+            {info.Price}
+          </p>
+
+          <div className="linkWrapDetails">
+          <Link to={`/vehicles/${info.key}`}>Link</Link>
+          </div>
+        </div>
+       )
+      })  
+    }
+    </div>
+      </div>
+      )
+    }  
+
     return (
     <div className="imageGrid">
     { data && data.map(info => {
@@ -69,7 +115,7 @@ const NewVehicle = () => {
           </div>
         </div>
        )
-      })    
+      })  
     }
     </div>);
 }
