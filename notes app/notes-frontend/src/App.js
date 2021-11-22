@@ -12,6 +12,10 @@ import { Children, createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthProvider } from './components/AppContext';
 
+const [loading, setLoading] = useState(true);
+
+
+
 const theme = createMuiTheme({
   palette: {
     primary: {

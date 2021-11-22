@@ -5,15 +5,18 @@ import emailjs from 'emailjs-com';
 import order from './order';
 import firebase from 'firebase';
 import { useHistory } from 'react-router';
+import { BarLoader, BounceLoader, BeatLoader, PuffLoader } from 'react-spinners';
 
 const NewVehicleDetails = () => {
 
     const history = useHistory();
     const [loading, setLoading] = useState(true);
+    const [pending, setPending] = useState(true);
     const [details, setDetails] = useState([]);
     const [imageUrls, setImageUrls] = useState([]);
     const { id } = useParams();
     const [signedInUser, setSignedInUser] = useState(false);
+
 
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -40,12 +43,17 @@ const NewVehicleDetails = () => {
                     if (doc.id === id) {
                         setDetails(doc.data());
                         setImageUrls(doc.data().url);
-                        setLoading(false);
+                        // setLoading(false);
+                        setTimeout(() => {
+                          setPending(false);
+                        }, 1000)
+                        // setPending(false);
                     }
                 }
             )
             
         });
+        // setPending(false);
         setLoading(false);
       }, [loading]);
 
@@ -73,17 +81,22 @@ const NewVehicleDetails = () => {
           }
       }
 
-      if (signedInUser === true) {
+      if (signedInUser) {
         return ( 
             <div>
                  <h2>Signed in</h2>
                  <button onClick={signOut}>Sign Out</button>
                  <br/>
+                
                  {imageUrls && imageUrls.map(path => {
                  return (  
+                    <>
                      <img className="detailImgs" width="250px" height="auto" src={path} alt="firebase-img" />
+                    </>
                  )
-                 })}
+                 })
+                }
+                 
                  
                  <p>
                  {details.brandDesc} 
@@ -121,11 +134,17 @@ const NewVehicleDetails = () => {
 
     return ( 
         <div>
+          <div className="imageContainer" height="50%">
+            {/* {pending && <PuffLoader loading/> } */}
              {imageUrls && imageUrls.map(path => {
              return (  
-                 <img className="detailImgs" width="250px" height="auto" src={path} alt="firebase-img" />
+              <>
+               {pending && <PuffLoader loading/> }
+               <img className="detailImgs" width="250px" height="auto" src={path} alt="firebase-img" />
+              </>
              )
              })}
+             </div>
              <p>
              {details.brandDesc} 
              </p>

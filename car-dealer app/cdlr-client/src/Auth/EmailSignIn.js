@@ -8,6 +8,7 @@ const EmailSignIn = () => {
     const [user, setUser] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [hasAccount, setHasAccount] = useState(false);
@@ -54,6 +55,7 @@ const EmailSignIn = () => {
     }
 
     const handleSignUp = () => {
+        if (confirmPassword === password) {
         clearErrors();
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .catch((err) => {
@@ -68,6 +70,10 @@ const EmailSignIn = () => {
             }
         })
         console.log('user created');
+        }
+        else {
+            setPasswordError('Passwords do not match');
+        }
     }
 
     const authListener = () => {
@@ -84,7 +90,7 @@ const EmailSignIn = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        history.goBack();
+        // history.goBack();
     }
 
     useEffect(() => {
@@ -111,6 +117,11 @@ const EmailSignIn = () => {
                  </>
              ) : (
                  <>
+                 <label>Confirm Password</label>
+             <input type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} 
+             />
+             <p className="errmsg">{passwordError}</p>
+             <br/>
                 <button onClick={handleSignUp}>Sign Up</button>
                 <p>
                     Have an account? <span onClick={() => setHasAccount(!hasAccount)}>Sign In</span>
