@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
     backgroundAttachment: 'fixed',
-    opacity: '0.3',
+    opacity: '0.6',
     marginLeft: '-250px',
     objectFit: 'cover',
   },
@@ -148,6 +148,10 @@ const useStyles = makeStyles((theme) => {
     display: 'flex',
     textAlign: 'center',
     marginTop: '-330px',
+  },
+  testLinks: {
+    textAlign: 'center',
+    zIndex: 20
   }
   }
 })
@@ -888,6 +892,8 @@ const modelsListAnim =  {
 const Models = () => {
 
     const [models, setModels] = useState([]);
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const classes = useStyles();
 
 
@@ -914,29 +920,52 @@ const Models = () => {
         .onSnapshot((querySnapshot) => {
          querySnapshot.forEach((doc) => {
         dataList.push(doc.data());
-        setModels(dataList);
       })
+      setModels(dataList);
+      setLoading(false);
     })
     return () => ref();
-    }, [])
+    }, [loading]);
 
+    
+  
+    
     console.log(models);
+
+
+
+
 
     const str = "Particularize";
 
     const chars = str.split('');
 
-    console.log(chars);
+    console.log(data);
 
     return (<Container className="outerContainer">
 
       <div className={classes.videoContainer}>
 
       <video className={classes.bgVid} src={bgvid} muted="muted" preload="metadata"  loop="loop" autoplay="autoplay" webkit-playsinline="webkit-playsinline" playsinline="playsinline" data-object-fit="cover"></video>
-
       </div>
 
+      <h1 className="mainTextVid">Beyond</h1>
+      <h1 className="mainTextVid2">Expectation</h1>
+
+      <div className="subTextWrap">
+      <h2 className="vidText">Experience prestige, luxury and safety</h2>
+      <h2 className="vidText">High quality deals from the global market</h2>
+      <h2 id="lastTextChild" className="vidText">Stay classy</h2>
+      </div>
+
+      <Link to="" className="vidBtn">
+          Go for a ride
+      </Link>
+
+ 
+
       <div id="modelsWrap">
+
         <motion.div className={classes.modelsWrap} variants={textCont}initial="initial" animate={controls}>
 
         <motion.span className={classes.actualModelsText} variants={letter1} ref={ref}>p</motion.span>
@@ -962,54 +991,56 @@ const Models = () => {
       <motion.article 
       className={classes.modelCardMask} 
       variants={modelItem2} ref={ref} initial={modelsListAnim.init} whileHover={modelsListAnim.anim}>
-
+        <Link to="/vehicles/particular/BMW">
         <motion.article id="modelBMW" className={classes.modelCard}>
           <motion.img className={classes.modelImgSM} src={bmw} alt="" variants={modelItem1img} ref={ref} />
         </motion.article>
+        </Link>
 
          </motion.article>
 
         <motion.article 
            className={classes.modelCardMask} 
           variants={modelItem2}  ref={ref}  initial={modelsListAnim.init} whileHover={modelsListAnim.anim}>
-
+              <Link to="/vehicles/particular/Mercedes">
               <motion.article id="modelMerc" className={classes.modelCard}>
               <motion.img className={classes.modelImg} src={merc} alt="" variants={modelItem2img} ref={ref} />
              </motion.article>
-
+              </Link>
         </motion.article>
 
         <motion.article 
           id="modelAudi" 
           className={classes.modelCardMask} 
           variants={modelItem3}  initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim}>
-
+              <Link to="/vehicles/particular/Audi">
              <motion.article className={classes.modelCard}>
              <motion.img className={classes.modelImg} src={audi} alt=""
                variants={modelItem3img} ref={ref} />
              </motion.article>
-
+              </Link>
              </motion.article>
 
       <motion.article 
       id="modelFerrari" 
       className={classes.modelCardMask} 
       variants={modelItem4}  initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim} >
-
+        <Link to="/vehicles/particular/Ferrari">
         <motion.article id="modelFerrari" className={classes.modelCard}>
           <motion.img className={classes.modelImgSF} src={ferrari} alt="" variants={modelItem4img} ref={ref} />
         </motion.article>
-
+        </Link>
       </motion.article>
 
       <motion.article 
       id="modelNissan" 
       className={classes.modelCardMask} 
       variants={modelItem5}  initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim}>
-
+        <Link to="/vehicles/particular/Nissan">
         <motion.article className={classes.modelCard}>
           <motion.img className={classes.modelImgSM} src={nissan} alt="" variants={modelItem5img} ref={ref} />
         </motion.article>
+        </Link>
 
       </motion.article>
 
@@ -1017,41 +1048,41 @@ const Models = () => {
       id="modelJeep" 
       className={classes.modelCardMask}
       variants={modelItem6} initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim}>
-
+        <Link to="/vehicles/particular/Jeep">
         <motion.article className={classes.modelCard}>
           <motion.img className={classes.modelImgL} src={jeep} alt="" variants={modelItem6img} ref={ref}/>
         </motion.article>
-
+        </Link>
       </motion.article>
 
       <motion.article 
       id="modelKia" 
       className={classes.modelCardMask} 
       variants={modelItem7} initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim}>
-
+        <Link to="/vehicles/particular/KIA">
         <motion.article className={classes.modelCard}>
           <motion.img className={classes.modelImg} src={kia} alt="" variants={modelItem7img} ref={ref} />
         </motion.article>
-
+        </Link>
       </motion.article>
 
       <motion.article id="modelFord" className={classes.modelCardMask} variants={modelItem8} initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim}  >
-
+      <Link to="/vehicles/particular/Ford">
         <motion.article className={classes.modelCard}>
           <motion.img className={classes.modelImgL} src={ford} alt="" variants={modelItem8img} ref={ref}/>
         </motion.article>
-
+      </Link>
       </motion.article>
 
       <motion.article 
       id="modelLandRover" 
       className={classes.modelCardMask} 
       variants={modelItem9} initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim}>
-
+        <Link to="/vehicles/particular/LandRover">
         <motion.article className={classes.modelCard}>
           <motion.img className={classes.modelImgL} src={lr} alt="" variants={modelItem9img} ref={ref} />
         </motion.article>
-
+      </Link>
       </motion.article>
 
       <motion.article 
@@ -1059,33 +1090,33 @@ const Models = () => {
       className={classes.modelCardMask} 
       variants={modelItem10} 
       initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim} >
-
+      <Link to="/vehicles/particular/Porsche">
         <motion.article id="modelPorsche" className={classes.modelCard}>
           <motion.img className={classes.modelImgXM} src={porsche} alt="" variants={modelItem10img} ref={ref} />
         </motion.article>
-
+      </Link>
       </motion.article>
 
       <motion.article 
       id="modelLamborghini" 
       className={classes.modelCardMask} 
       variants={modelItem11} initial={modelsListAnim.init} ref={ref} whileHover={modelsListAnim.anim}>
-
+      <Link to="/vehicles/particular/Lamborghini">
         <motion.article id="modelLamborghini" className={classes.modelCard}>
           <motion.img className={classes.modelImg} src={lamborghini} alt="" variants={modelItem11img} ref={ref} />
         </motion.article>
-
+      </Link>
       </motion.article>
 
       <motion.article 
       id="modelMaserati" 
       className={classes.modelCardMask}
       variants={modelItem12} initial={modelsListAnim.init} whileHover={modelsListAnim.anim}>
-
-        <motion.article id="modelMaserati" className={classes.modelCard}>
+      <Link to="/vehicles/particular/Maserati">
+         <motion.article id="modelMaserati" className={classes.modelCard}>
           <motion.img className={classes.modelImgXM} src={maserati} alt="" variants={modelItem12img}/>
         </motion.article>
-
+      </Link>
       </motion.article>
 
       <motion.article 
@@ -1093,11 +1124,11 @@ const Models = () => {
       className={classes.modelCardMask} 
       variants={modelItem12} initial={modelsListAnim.init} whileHover={modelsListAnim.anim}
      >
-
+        <Link to="/vehicles/particular/VolksWagen">
         <motion.article id="modelVW" className={classes.modelCard}>
           <motion.img className={classes.modelImg} src={vw} alt=""  />
         </motion.article>
-
+        </Link>
       </motion.article>
 
       <motion.article 
@@ -1105,11 +1136,11 @@ const Models = () => {
       className={classes.modelCardMask}
       variants={modelItem12} initial={modelsListAnim.init} whileHover={modelsListAnim.anim}
       >
-
+        <Link to="/vehicles/particular/Subaru">
         <motion.article id="modelSubaru" className={classes.modelCard}>
           <motion.img className={classes.modelImgL} src={subaru} alt="" />
         </motion.article>
-  
+        </Link>
       </motion.article>
 
     </motion.section>

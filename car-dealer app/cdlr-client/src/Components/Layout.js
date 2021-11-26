@@ -9,6 +9,7 @@ const useStyles = makeStyles(() => {
     return {
         navWrap: {
             // marginTop: '15px',
+            position: 'absolute',
             backgroundColor: 'transparent',
             minWidth: '100%!important',
             maxWidth: '100%!important',
@@ -152,7 +153,7 @@ const Layout = ({ children }) => {
             <motion.ul className={classes.navListLinks}
              >
                 <motion.li className="navLinkWrap" variants={item1}>
-                <Link to ="" id="nav-buyNow" className={classes.navLinks}>Buy Now</Link>
+                <Link to ="/vehicles" id="nav-buyNow" className={classes.navLinks}>Buy Now</Link>
                 </motion.li>
                 <motion.li className="navLinkWrap" variants={item2}>
                 <Link to ="" id="nav-deals" className={classes.navLinks}>Deals</Link>

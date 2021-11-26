@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import  { db }  from '../FB/Firebase';
 import firebase from 'firebase';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { css } from '@emotion/react'
 import { ClimbingBoxLoader, BarLoader, BounceLoader, MoonLoader, PuffLoader, RiseLoader, RingLoader, RotateLoader } from 'react-spinners';
 import Img from "react-cool-img";
@@ -10,6 +10,7 @@ import { Container, makeStyles, Typography } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import 'animate.css';
 import Masonry from 'react-masonry-css';
+
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -53,11 +54,6 @@ const useStyles = makeStyles((theme) => {
       textDecoration: 'line-through',
       whiteSpace: 'nowrap',
       fontWeight: '400',
-    },
-    moreInfo: {
-      marginTop: '-40px',
-      textAlign: 'right',
-      color: 'silver',
     }
 
 
@@ -105,12 +101,9 @@ const spinItem = {
   }
 }
 
+const Lr = () => {
+    const [lr, setLr] = useState([]);
 
-const NewVehicle = () => {
-    const [carPrice, setCarPrice] = useState([]);
-    const [brandName, setBrandName] = useState([]);
-    const [url, setUrl] = useState([]);
-    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [pending, setPending] = useState(true);
     const[userSignedIn, setUserSignedIn] = useState(false);
@@ -138,94 +131,71 @@ const NewVehicle = () => {
       500: 1
     }
 
-
     useEffect(() => {
-      const getData = [];
-      const ref = db
-      .collection("newVehicle")
-      .onSnapshot((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          getData.push({
-            ...doc.data(), //spread operator
-            key: doc.id, 
+        const getData = [];
+        const ref = db
+        .collection("newVehicle")
+        .onSnapshot((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+          if (doc.data().brand === "LandRover") {
+            getData.push({
+              ...doc.data(), //spread operator
+              key: doc.id
+            });
+          }
           });
+          setLr(getData);
+          setTimeout(() => {
+            setPending(false);
+          }, 1300);
+          setLoading(false);
         });
-        setData(getData);
-        setTimeout(() => {
-          setPending(false);
-        }, 1300);
-        setLoading(false);
-        console.log(data);
-      });
-     return () => ref();
-    }, [loading]);
-  
- 
-  // test purposes
-    useEffect(() => {
-      data.forEach(vehicle => {
-        for (let [key, value] of Object.entries(vehicle)) {
-          if (key === 'brandName') {
-            setBrandName(`${value}`);
-            setLoading(false);
-          }
-          else if (key === 'price') {
-            setCarPrice(`${value}`);
-            setLoading(false);
-          }
-          else if (key === 'mainUrl') {
-            setUrl(`${value}`);
-            setLoading(false);
-          }
-        }
-      })
-    }, [loading])
+       return () => ref();
+      }, [loading]);
 
 
-    const override = css`
-    margin-left: 80px;
-    justify-self: center;
-    transition-timing-function: ease-out;
-  `;
+      const override = css`
+      margin-left: 80px;
+      justify-self: center;
+      transition-timing-function: ease-out;
+    `;
 
-    
     if (userSignedIn) {
-      return (
-      <div>
-        <h2>Signed in</h2>
-        <button onClick={signOut}>Sign Out</button>
-        <div className="imageGrid">
-    { data && data.map(info => {
-       return (
-         
-        <div className="infoWrap" key={info.key}>
-          <div className="loader">
-           {pending && <PuffLoader color="red" loading={pending}/> }
-           </div>
-          <Img width="250px" height="auto" src={info.mainUrl} alt="firebase-img"/>
-          <h3>
-            {info.brandName}
-          </h3>
-          <p>
-            {info.Price}
-          </p>
-
-          <div className="linkWrapDetails">
-          <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>Link</Link>
+        return (
+        <div>
+          <h2>Signed in</h2>
+          <button onClick={signOut}>Sign Out</button>
+          <div className="imageGrid">
+      { lr && lr.map(info => {
+         return (
+           
+          <div className="infoWrap" key={info.brand}>
+            <div className="loader">
+             {pending && <PuffLoader color="red" loading={pending}/> }
+             </div>
+            <Img width="250px" height="auto" src={info.mainUrl} alt="firebase-img"/>
+            <h3>
+              {info.brandName}
+            </h3>
+            <p>
+              {info.Price}
+            </p>
+  
+            <div className="linkWrapDetails">
+            <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>Link</Link>
+            </div>
           </div>
-        </div>
-       )
-      })  
-    }
-    </div>
+         )
+        })  
+      }
+       </div>
       </div>
       )
-    }  
-
+    }
     return (
-    <Container>
-    <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
-    { data && data.map(info => {
+        <Container>
+        <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+        { lr && lr.map(info => {
        return (
         <motion.div className="infoWrap" key={info.key}  variants={container}>
           <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>
@@ -249,20 +219,16 @@ const NewVehicle = () => {
           <h2 className={classes.oldCarPrice}>
             {info.oldPrice}$
           </h2>
-          <p className={classes.moreInfo}>
-            {info.mileage} | {info.year} | {info.bodyType}
-          </p>
           </div>
           <motion.div className={classes.linkWrapDetails}>
           </motion.div>
           </Link>
         </motion.div>
-       ) 
-      })   
+       )
+      })  
     }
-    </Masonry>
+     </Masonry>
     </Container>);
 }
 
- 
-export default NewVehicle;
+export default Lr;

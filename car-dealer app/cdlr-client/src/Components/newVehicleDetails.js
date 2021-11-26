@@ -43,7 +43,6 @@ const NewVehicleDetails = () => {
                     if (doc.id === id) {
                         setDetails(doc.data());
                         setImageUrls(doc.data().url);
-                        // setLoading(false);
                         setTimeout(() => {
                           setPending(false);
                         }, 1000)

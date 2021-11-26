@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { storage } from '../FB/Firebase';
 import  { db }  from '../FB/Firebase';
 
@@ -27,6 +28,8 @@ const AdminPage = () => {
     const [totalPrice, setTotalPrice] = useState(null);
     const [oldPrice, setOldPrice] = useState(null);
     const [mainUrl, setMainUrl] = useState([]);
+
+    const history = useHistory();
 
     const handleChangeMain = (e) => {
       for (let i = 0; i < e.target.files.length; i++) {
@@ -152,7 +155,9 @@ const AdminPage = () => {
     const handleSubmit =  (e) => {
       e.preventDefault();
       db.collection("newVehicle").add(data);
-      console.log("success:", data)
+      console.log("success:", data);
+      alert('All details uploaded successfully');
+      // history.goBack();
     }
 
 
@@ -242,7 +247,7 @@ const AdminPage = () => {
                          />
                          <br />
                          <br />
-                         <button onClick={()=>{setTotalPrice(parseInt(document.getElementById('freight').value) + parseInt(document.getElementById('insurance').value) + parseInt(document.getElementById('price').value) + parseInt(document.getElementById('inspection').value))}}>Total Price</button> 
+                         <button type="button" onClick={()=>{setTotalPrice(parseInt(document.getElementById('freight').value) + parseInt(document.getElementById('insurance').value) + parseInt(document.getElementById('price').value) + parseInt(document.getElementById('inspection').value))}}>Total Price</button> 
                          <br/>
                          <label className="label">{totalPrice}</label>
                          <br />

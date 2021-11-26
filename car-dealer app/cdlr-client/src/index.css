@@ -71,8 +71,14 @@ display: flex;
 
 .infoWrap {
   margin-bottom: 40px;
-  padding: 1.2rem;
-  display: block;
+  padding: 1rem;
+  transition: ease-in;
+  transition-duration: 0.2s;
+}
+
+.infoWrap:hover {
+  transform: translateY(0.8rem);
+  opacity: 0.6;
 }
 
 .detailImgs {
@@ -84,15 +90,6 @@ display: flex;
 .loader {
   border: 3px blue solid;
 } 
-
-/* #nav-signUp {
-  float: right;
-} */
-
-/* #nav-buyNow {
-  float: left;
-  padding-top: 1.5rem;
-} */
 
 .navLinkWrap {
   text-align: center;
@@ -139,11 +136,11 @@ display: flex;
   transition: 0.5s;
 }
 
-animate__animated.animate__fadeInDownBig {
+animate__animated.animate__backInUp {
     --animate-duration: 3.5s;
     --animate-delay: 4s;
+    
 }
-
 
 /* logos */
 
@@ -216,7 +213,139 @@ animate__animated.animate__fadeInDownBig {
   margin-left: -60px;
 }
 
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -20px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 20px; /* gutter size */
+  background-clip: padding-box;
+}
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 30px;
+}
 
-.outerContainer {
-  /* height: 100vh; */
+.mainTextVid {
+  color: silver;
+  position: absolute;
+  font-size: 7.5rem;
+  margin-left: 300px;
+  margin-top: -950px;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+.mainTextVid2 {
+  color: silver;
+  position: absolute;
+  font-size: 7.5rem;
+  margin-left: 600px;
+  margin-top: -800px;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+.subTextWrap {
+  margin-top: -600px;
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  float: right;
+  margin-left: 630px;
+  z-index: 100;
+}
+
+.subTextWrap > h2 {
+  position: absolute;
+  color: silver;
+  font-size: 2.2rem;
+  top: 0;
+  /* left: calc(10% - 100px); */
+  opacity: 0;
+  animation: display 12s infinite;
+  text-transform: uppercase;
+}
+
+h2:nth-child(2) {
+  animation-delay: 8s;
+}
+h2:nth-child(3) {
+  animation-delay: 16s;
+}
+h2:nth-child(4) {
+  animation-delay: 24s;
+}
+h2:nth-child(5) {
+  animation-delay: 24s;
+}
+
+#lastTextChild {
+  margin-left: 200px;
+}
+
+.vidText {
+  font-weight: 400;
+}
+
+
+
+
+.vidBtn {
+  height: auto;
+  width: 200px;
+  position: absolute;
+  margin-top: -380px;
+  margin-left: 570px;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  border: 3px solid whitesmoke;
+  padding: 20px 40px 20px 40px;
+  animation: btnhover 1s ease-in-out;
+  transition: 0.6s;
+}
+
+@keyframes btnhover {
+  from {
+    color: white;
+  }
+  to {
+    background-color: white;
+    color: black;
+  }
+}
+
+.vidBtn:hover {
+  color: black;
+  background-color: white;
+  transition: 0.6s;
+  opacity: 0.5;
+  transform: scale(0.95);
 }

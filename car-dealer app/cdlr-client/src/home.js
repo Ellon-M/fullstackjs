@@ -14,7 +14,8 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import 'animate.css';
 import Models from './Components/models';
-
+import Zoomed from './Components/zoomed';
+// import Zoomed from './Components/zoomed';
 
 
 
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => {
         // vertical responsiveness -> increase negative margin top for lower window heights
 
         clipped1: {
-            marginTop: '-4%',
+            // marginTop: '-4%',
             width: '100%',
             clipPath: 'polygon(0% 0%, 0% 100%, 40% 100%, 75% 0%)',
             overflow: 'hidden',
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme) => {
         },
 
         clipped3: {
-            marginTop: '-4%',
+            // marginTop: '-4%',
             width: '100%',
             clipPath: 'polygon(30% 0%, 0% 100%, 100% 100%, 100% 0%)',
             height: 'auto',
@@ -332,6 +333,7 @@ const Home = () => {
             <motion.div className={classes.models}>
               <Models/>
             </motion.div>
+            <Zoomed/>
         </motion.Container>
 
      );

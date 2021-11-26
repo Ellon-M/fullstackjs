@@ -18,6 +18,20 @@ import Loader from './Components/loader';
 import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
 import Models from './Components/models';
 import Tests from './tests';
+import Particularized from './Components/particularized';
+import Audi from './Particularized/audi';
+import BMW from './Particularized/bmw';
+import Merc from './Particularized/merc';
+import Ford from './Particularized/ford';
+import Ferrari from './Particularized/ferrari';
+import Jeep from './Particularized/jeep';
+import Lamborghini from './Particularized/lamborghini';
+import Lr from './Particularized/lr';
+import Maserati from './Particularized/maserati';
+import Nissan from './Particularized/nissan';
+import Porsche from './Particularized/porsche';
+import VW from './Particularized/vw';
+import Subaru from './Particularized/subaru';
 
 const theme = createTheme({
     breakpoints: {
@@ -90,6 +104,9 @@ else {
     <Route exact path = "/signin">
     <SignIn />
     </Route>
+    <Route exact path = "/admin">
+    <AdminPage />
+    </Route>
     <Route exact path = "/">
     <AnimateSharedLayout type="crossfade">
     <AnimatePresence>
@@ -122,6 +139,46 @@ else {
     <Route exact path = "/vehicles/:id">
        <NewVehicleDetails/>
     </Route>
+    <Route exact path = "/vehicles/particular/BMW">
+       <BMW/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Mercedes">
+       <Merc/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Audi">
+       <Audi/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Ferrari">
+       <Ferrari/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Ford">
+       <Ford/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Nissan">
+       <Nissan/>
+    </Route>
+    <Route exact path = "/vehicles/particular/LandRover">
+       <Lr/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Jeep">
+       <Jeep/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Subaru">
+       <Subaru/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Lamborghini">
+       <Lamborghini/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Porsche">
+       <Porsche/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Maserati">
+       <Maserati/>
+    </Route>
+    <Route exact path = "/vehicles/particular/VolksWagen">
+       <VW/>
+    </Route>
+
     </Layout>
     </Switch>
     </Router>
