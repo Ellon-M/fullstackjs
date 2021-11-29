@@ -19,11 +19,13 @@ const useStyles = makeStyles((theme) => {
             width: '50%',
             height: '100%',
             float: 'left',
+            overflow: 'hidden'
         },
         rightSide: {
             width: '50%',
             height: '100%',
             float: 'right',
+            overflow: 'hidden'
         },
         zoomed1: {
             width: '100%',
@@ -33,7 +35,7 @@ const useStyles = makeStyles((theme) => {
             zIndex: -1,
             transformOrigin: 'center center',
             "&:hover": {
-             transform: 'scale(1.04)',
+             transform: 'scale(1.07)',
             }
         },
         zoomed1Text: {
@@ -62,7 +64,7 @@ const useStyles = makeStyles((theme) => {
             zIndex: -1,
             transformOrigin: 'center center',
             "&:hover": {
-            transform: 'scale(1.04)',
+            transform: 'scale(1.07)',
             }
         },
 

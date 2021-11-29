@@ -230,21 +230,20 @@ animate__animated.animate__backInUp {
 
 .mainTextVid {
   color: silver;
-  position: absolute;
-  font-size: 7.5rem;
-  margin-left: 300px;
-  margin-top: -950px;
+  position: relative;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
+  font-weight: 700;
+  font-size: 7.5rem;
+  display: 'flex',
 }
 
 .mainTextVid2 {
   color: silver;
-  position: absolute;
+  position: relative;
   font-size: 7.5rem;
-  margin-left: 600px;
-  margin-top: -800px;
   letter-spacing: 0.3rem;
+  font-weight: 700;
   text-transform: uppercase;
 }
 

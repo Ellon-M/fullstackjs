@@ -152,6 +152,21 @@ const useStyles = makeStyles((theme) => {
   testLinks: {
     textAlign: 'center',
     zIndex: 20
+  },
+  vidTextWrap: {
+    position: 'absolute',
+    display: 'flex',
+    height: '100%',
+    // fontSize: '7.5rem',
+    marginLeft: '300px',
+    marginTop: '-1050px'
+  },
+  vidTextWrap2: {
+    position: 'absolute',
+    // fontSize: '7.5rem',
+    display: 'flex',
+    marginLeft: '600px',
+    marginTop: '-900px'
   }
   }
 })
@@ -872,6 +887,280 @@ const letter13= {
   },
 }
 
+
+
+const vidLetter1 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 1,
+      delay: 0
+    }
+  }
+}
+
+const vidLetter2 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 1,
+      delay: 0.2
+    }
+  }
+}
+
+const vidLetter3 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 0.4
+    }
+  }
+}
+
+const vidLetter4 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 0.8
+    }
+  }
+}
+
+const vidLetter5 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 1.0
+    }
+  }
+}
+
+const vidLetter6 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 1.2
+    }
+  }
+}
+
+const vidLetter7 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 1.6
+    }
+  }
+}
+
+const vidLetter8 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 1.7
+    }
+  }
+}
+
+const vidLetter9 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 1.8
+    }
+  }
+}
+
+const vidLetter10 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 1.9
+    }
+  }
+}
+
+const vidLetter11 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 2.0
+    }
+  }
+}
+
+const vidLetter12 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 2.1
+    }
+  }
+}
+
+const vidLetter13 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 2.2
+    }
+  }
+}
+
+const vidLetter14 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 2.3
+    }
+  }
+}
+
+const vidLetter15 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 2.4
+    }
+  }
+}
+
+const vidLetter16 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 2.5
+    }
+  }
+}
+
+const vidLetter17 = {
+  hidden: {
+    opacity: 0,
+    y: 200
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [.2, .01, -.05, .85],
+      duration: 1,
+      delay: 2.6
+    }
+  }
+}
+
 const modelsListAnim =  {
   init: {
     y: 0,
@@ -896,22 +1185,42 @@ const Models = () => {
     const [loading, setLoading] = useState(true);
     const classes = useStyles();
 
-
+// useAnimation hook
     const controls = useAnimation();
-    const {ref, inView} = useInView({
-      triggerOnce: true,
-    });
+    const controlsVid = useAnimation();
 
+
+// video section
+
+const [vidRef, inViewVid] = useInView({
+  triggerOnce: true,
+})
 
     useEffect(() => {
-      if (inView) {
-        controls.start('show');
-        console.log('in view');
+      if (inViewVid) {
+        controlsVid.start('show');
+        console.log('in view vid');
       }
-      if (!inView) {
-        controls.start('hidden');
+      if (!inViewVid) {
+        controlsVid.start('hidden');
       }
-    }, [controls, inView]);
+    }, [controlsVid, inViewVid]);  
+  
+
+// particularize section
+const [ref, inView] = useInView({
+  triggerOnce: true,
+});
+
+useEffect(() => {
+  if (inView) {
+    controls.start('show');
+    console.log('in view');
+  }
+  if (!inView) {
+    controls.start('hidden');
+  }
+}, [controls, inView]);
 
     useEffect(() => {
         const dataList = [];
@@ -934,23 +1243,36 @@ const Models = () => {
 
 
 
-
-
-    const str = "Particularize";
-
-    const chars = str.split('');
-
-    console.log(data);
-
-    return (<Container className="outerContainer">
+    return (<motion.div className="outerContainer">
 
       <div className={classes.videoContainer}>
 
       <video className={classes.bgVid} src={bgvid} muted="muted" preload="metadata"  loop="loop" autoplay="autoplay" webkit-playsinline="webkit-playsinline" playsinline="playsinline" data-object-fit="cover"></video>
       </div>
+      <motion.div className={classes.vidTextWrap} initial="hidden" animate={controlsVid}>
+      <motion.span className="mainTextVid" variants={vidLetter1} ref={vidRef}>B</motion.span>
+      <motion.span className="mainTextVid" variants={vidLetter2} ref={vidRef}>e</motion.span>
+      <motion.span className="mainTextVid" variants={vidLetter3} ref={vidRef}>y</motion.span>
+      <motion.span className="mainTextVid" variants={vidLetter4} ref={vidRef}>o</motion.span>
+      <motion.span className="mainTextVid" variants={vidLetter5} ref={vidRef}>n</motion.span>
+      <motion.span className="mainTextVid" variants={vidLetter6} ref={vidRef}>d</motion.span>
+      </motion.div>
 
-      <h1 className="mainTextVid">Beyond</h1>
-      <h1 className="mainTextVid2">Expectation</h1>
+      <motion.div className={classes.vidTextWrap2} initial="hidden" animate={controlsVid}>
+      <motion.span className="mainTextVid2" variants={vidLetter7} ref={vidRef}>e</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter8} ref={vidRef}>x</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter9} ref={vidRef}>p</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter10} ref={vidRef}>e</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter11} ref={vidRef}>c</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter12} ref={vidRef}>t</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter13} ref={vidRef}>a</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter14} ref={vidRef}>t</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter15} ref={vidRef}>i</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter16} ref={vidRef}>o</motion.span>
+      <motion.span className="mainTextVid2" variants={vidLetter17} ref={vidRef}>n</motion.span>
+      </motion.div>
+      
+      {/* <h1 className="mainTextVid2">Expectation</h1> */}
 
       <div className="subTextWrap">
       <h2 className="vidText">Experience prestige, luxury and safety</h2>
@@ -1146,7 +1468,7 @@ const Models = () => {
     </motion.section>
     </div>
     </div>
-    </Container>);
+    </motion.div>);
 }
  
 export default Models;
