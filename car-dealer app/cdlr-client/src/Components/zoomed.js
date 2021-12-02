@@ -1,7 +1,12 @@
 import { Container, makeStyles } from "@material-ui/core";
+import { Link } from 'react-router-dom';
 import { useHistory } from "react-router";
+
+
 import zoom1 from '../images/others/zoom2ed.jpg';
 import zoom2 from '../images/others/zoom1ed.jpg';
+
+import zoomIcon1 from '../images/zoom/arrow3.png';
 
 
 const useStyles = makeStyles((theme) => {
@@ -42,24 +47,23 @@ const useStyles = makeStyles((theme) => {
             position: 'absolute',
             textAlign: 'center',
             textTransform: 'uppercase',
-            marginLeft: '300px',
-            marginTop: '-280px',
+            marginLeft: '260px',
+            marginTop: '-300px',
             textAlign: 'center',
-            fontSize: '3rem',
+            fontWeight: '300',
+            whiteSpace: 'nowrap',
+            fontSize: '4rem',
         },
-        zoomed1SubText: {
+        zoomed1SubTextWrap: {
             position: 'absolute',
-            textAlign: 'center',
-            textTransform: 'uppercase',
-            display: 'inline-block',
+            display: 'inline',
             marginLeft: '-680px',
             marginTop: '370px',
-            fontSize: '1.2rem'
         },
         zoomed2: {
             width: '100%',
             height: '100%',
-            opacity: '0.8',
+            opacity: '0.6',
             transition: '3s',
             zIndex: -1,
             transformOrigin: 'center center',
@@ -67,17 +71,25 @@ const useStyles = makeStyles((theme) => {
             transform: 'scale(1.07)',
             }
         },
-
+        zoomed2SubTextWrap: {
+            position: 'absolute',
+            display: 'inline',
+            marginLeft: '-550px',
+            marginTop: '370px',
+        },
         zoomed2subText: {
             position: 'absolute',
             textAlign: 'center',
             textTransform: 'uppercase',
             display: 'inline-block',
             marginLeft: '-880px',
-            marginTop: '370px',
-            fontSize: '1.2rem'
+            marginTop: '360px',
+            fontSize: '1.2rem',
+        },
+        zoomedLinks: {
+            color: 'white',
+            textDecoration: 'none',
         }
-
     }
 })
 
@@ -87,14 +99,25 @@ const Zoomed = () => {
     return ( 
         <Container className={classes.zoomedWrap}>
             <section className={classes.leftSide}>
+            <Link className={classes.zoomedLinks} to="/speed">
             <img className={classes.zoomed1} src={zoom1} alt="" />
-            <h2 className={classes.zoomed1Text}>Cruise</h2>
-            <h3 className={classes.zoomed1SubText}>See the pick of the bunch with top speed taken into account</h3>
+            <h2 className="zoomed1Text">Cruise</h2>
+            <div className={classes.zoomed1SubTextWrap}>
+            <h3 className="zoomedOneSubText">See the pick of the bunch with top speed taken into account <img className="zoomedIcon" src={zoomIcon1}></img></h3>
+            </div>
+            </Link>
             </section>
+
             <section className={classes.rightSide}>
+            <Link to="/mileage">
             <img className={classes.zoomed2} src={zoom2} alt="" />
-            <h2 className={classes.zoomed2Text}></h2>
-            <h3 className={classes.zoomed2SubText}></h3>
+            </Link>
+            <Link className={classes.zoomedLinks} to="/mileage">
+            <h2 className="zoomed2Text"> &lt;Mileage </h2>
+            <div className={classes.zoomed2SubTextWrap}>
+            <h3 className="zoomedTwoSubText">If less periodic service is just what you need <img className="zoomedIcon" src={zoomIcon1}></img></h3>
+            </div>
+            </Link>
             </section>
         </Container>
      );

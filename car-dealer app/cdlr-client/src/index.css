@@ -208,7 +208,7 @@ animate__animated.animate__backInUp {
   background-image: url('./images/others/modelback2b.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 110vh;
+  height: 130vh;
   width: 110vw;
   margin-left: -60px;
 }
@@ -312,9 +312,6 @@ h2:nth-child(5) {
   font-weight: 400;
 }
 
-
-
-
 .vidBtn {
   height: auto;
   width: 200px;
@@ -347,4 +344,88 @@ h2:nth-child(5) {
   transition: 0.6s;
   opacity: 0.5;
   transform: scale(0.95);
+}
+
+.zoomed1Text {
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 260px;
+  margin-top: -300px;
+  font-weight: 300;
+  white-space: nowrap;
+  font-size: 4rem;
+}
+
+.zoomed2Text {
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 280px;
+  margin-top: -300px;
+  font-weight: 300;
+  white-space: nowrap;
+  font-size: 4rem;
+}
+
+.zoomedOneSubText * {
+  display: none;
+}
+
+.zoomedTwoSubText * {
+  display: none;
+}
+
+.zoomedOneSubText {
+  position: relative;
+  text-align: center;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: 1s;
+  animation: ease-in-out;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.zoomedTwoSubText {
+  position: relative;
+  text-align: center;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: 1s;
+  animation: ease-in-out;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.zoomedOneSubText:hover {
+  transform: scale(1.1);
+  font-weight: 500;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.zoomedTwoSubText:hover {
+  transform: scale(1.1);
+  font-weight: 500;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.zoomedOneSubText:hover * {
+  display: inline-block;
+}
+
+.zoomedTwoSubText:hover * {
+  display: inline-block;
+}
+
+.zoomedIcon1 {
+  padding-left: 0.6rem;
+  height: 100%;
+  width: auto;
 }

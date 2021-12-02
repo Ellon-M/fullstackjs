@@ -156,7 +156,7 @@ const Layout = ({ children }) => {
                 <Link to ="/vehicles" id="nav-buyNow" className={classes.navLinks}>Buy Now</Link>
                 </motion.li>
                 <motion.li className="navLinkWrap" variants={item2}>
-                <Link to ="" id="nav-deals" className={classes.navLinks}>Deals</Link>
+                <Link to ="/deals" id="nav-deals" className={classes.navLinks}>Deals</Link>
                 </motion.li>
                 <motion.li className="navLinkWrap" variants={item3}>
                 <Link to ="" id="nav-support" className={classes.navLinks}>Support</Link>

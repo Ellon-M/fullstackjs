@@ -1271,8 +1271,6 @@ useEffect(() => {
       <motion.span className="mainTextVid2" variants={vidLetter16} ref={vidRef}>o</motion.span>
       <motion.span className="mainTextVid2" variants={vidLetter17} ref={vidRef}>n</motion.span>
       </motion.div>
-      
-      {/* <h1 className="mainTextVid2">Expectation</h1> */}
 
       <div className="subTextWrap">
       <h2 className="vidText">Experience prestige, luxury and safety</h2>

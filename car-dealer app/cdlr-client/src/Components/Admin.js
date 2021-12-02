@@ -26,6 +26,8 @@ const AdminPage = () => {
     const [insurance, setInsurance] = useState(null);
     const [inspection, setInspection] = useState(null);
     const [totalPrice, setTotalPrice] = useState(null);
+    const [discountPerc, setDiscountPerc] = useState(null);
+    const [canBeDiscounted, setCanBeDiscounted] = useState(false);
     const [oldPrice, setOldPrice] = useState(null);
     const [mainUrl, setMainUrl] = useState([]);
 
@@ -82,6 +84,7 @@ const AdminPage = () => {
       inspection: inspection,
       totalPrice: totalPrice,
       oldPrice: oldPrice,
+      discountPerc: discountPerc,
     };
 
 
@@ -160,6 +163,10 @@ const AdminPage = () => {
       // history.goBack();
     }
 
+    const round = (value, precision) =>  {
+      var multiplier = Math.pow(10, precision);
+      return Math.round(value * multiplier) / multiplier;
+  }
 
 
     return (  
@@ -225,7 +232,7 @@ const AdminPage = () => {
                          <br />
                          <label className="label">Old Price:</label>
                       <input 
-                         placeholder="Old Price ($)" value={oldPrice} onChange={(e)=>{setOldPrice(e.target.value)}}
+                         placeholder="Old Price ($)" id="oldPrice" defaultValue={oldPrice} onChange={(e)=>{setOldPrice(e.target.value)}}
                          />
                          <br />
                          <br />
@@ -247,10 +254,31 @@ const AdminPage = () => {
                          />
                          <br />
                          <br />
-                         <button type="button" onClick={()=>{setTotalPrice(parseInt(document.getElementById('freight').value) + parseInt(document.getElementById('insurance').value) + parseInt(document.getElementById('price').value) + parseInt(document.getElementById('inspection').value))}}>Total Price</button> 
-                         <br/>
-                         <label className="label">{totalPrice}</label>
+                         <button type="button" onClick={
+                           ()=>{setTotalPrice(parseInt(document.getElementById('freight').value) + parseInt(document.getElementById('insurance').value) + parseInt(document.getElementById('price').value) + parseInt(document.getElementById('inspection').value))
+                          setCanBeDiscounted(true);
+                           }}>Total Price
+                        </button> 
+                        <br/>
+                        {
+                          useEffect(() => {
+                            if (parseInt(oldPrice) < parseInt(totalPrice)) {
+                              setDiscountPerc(0);
+                              setCanBeDiscounted(false);
+                            } else {
+                            setDiscountPerc(
+                              round(
+                                ((parseFloat(oldPrice) - parseFloat(totalPrice)) / parseFloat(oldPrice)), 4) * 100);
+                              }
+                            setCanBeDiscounted(false);
+                          }, [canBeDiscounted])
+                        
+                        }
+                        <br/>
+                        <label className="label">{totalPrice}</label>
                          <br />
+                        <label> Discount: {discountPerc} %</label>
+                         <br/>
                          <label className="label">Year:</label>
                       <input 
                          placeholder="Year" value={year} onChange={(e)=>{setYear(e.target.value)}}

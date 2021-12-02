@@ -32,6 +32,9 @@ import Nissan from './Particularized/nissan';
 import Porsche from './Particularized/porsche';
 import VW from './Particularized/vw';
 import Subaru from './Particularized/subaru';
+import Mileage from './Components/mileage';
+import Kmph from './Components/kmph';
+import Deals from './Components/deals';
 
 const theme = createTheme({
     breakpoints: {
@@ -177,6 +180,15 @@ else {
     </Route>
     <Route exact path = "/vehicles/particular/VolksWagen">
        <VW/>
+    </Route>
+    <Route exact path = "/speed">
+       <Kmph/>
+    </Route>
+    <Route exact path = "/mileage">
+       <Mileage/>
+    </Route>
+    <Route exact path = "/deals">
+       <Deals/>
     </Route>
 
     </Layout>
