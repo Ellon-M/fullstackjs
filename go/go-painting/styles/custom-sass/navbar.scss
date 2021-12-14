@@ -1,0 +1,30 @@
+.home-navbar {
+    width: 100%;
+    height: 10vh;
+    margin-top: 0;
+    display: inline-flex;
+}
+
+.nav-logo {
+    position: absolute;
+    margin-top: -24px;
+}
+
+.nav-links-wrap {
+    display: inline-flex;
+    margin-left: 28%;
+    width: 100%;
+    height: auto;
+    list-style-type: none;
+    position: relative;
+}
+
+.nav-link-list {
+    padding: 1.2rem; 
+    position: relative;
+    
+    .nav-link {
+        text-decoration: none;
+        position: relative;
+    }
+}
