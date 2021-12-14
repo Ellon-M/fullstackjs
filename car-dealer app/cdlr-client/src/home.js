@@ -1,24 +1,23 @@
+// modules
+import { Container, makeStyles, Typography } from '@material-ui/core';
+import { motion } from 'framer-motion';
+import 'animate.css';
+
+// images
 import centerImage1 from './images/landing/test3tuned.jpg';
 import centerImage2b from './images/landing/test2copy.jpg';
 import centerImage2X from './images/landing/test2X.jpg';
 import centerImage3 from './images/landing/test4tuned.jpg';
 import centerImage3b from './images/landing/test4.jpg';
 import centerImage3c from './images/landing/test4b.jpg';
-
 import rightArrowBtn from './images/landing/ra3.png';
 
-
-import { Container, makeStyles, Typography } from '@material-ui/core';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import 'animate.css';
+// external components
 import Models from './Components/models';
 import Zoomed from './Components/zoomed';
-// import Zoomed from './Components/zoomed';
 
 
-
+// internal styling
 const useStyles = makeStyles((theme) => {
     return {
         homeWrap: {
@@ -48,10 +47,10 @@ const useStyles = makeStyles((theme) => {
             height: 'auto'
         },
 
-        // clipped
 
         // vertical responsiveness -> increase negative margin top for lower window heights
 
+        // clipped
         clipped1: {
             // marginTop: '-4%',
             width: '100%',
@@ -137,7 +136,6 @@ const useStyles = makeStyles((theme) => {
               },
         },
 
-
         // g class - small phones
         central2B: {
             display: 'none',
@@ -157,9 +155,9 @@ const useStyles = makeStyles((theme) => {
             },
             "@media (min-height: 800px)": {
                  display: 'none',
-              }
-            
+              }    
         },
+
         central2X: {
             display: 'none',
             maxWidth: '100%',
@@ -183,20 +181,23 @@ const useStyles = makeStyles((theme) => {
 
         homeText: {
             position: 'absolute',
-            transform: 'translateY(27vh)',
+            transform: 'translateY(24vh)',
             zIndex: '2',
             color: 'white',
         },
+
         mainHomeText: {
             whiteSpace: 'nowrap',
             display: 'inline-block',
-            fontSize: '15.5rem',
+            fontSize: '22.5rem',
             position: 'relative',
-            marginBottom: '1.2rem',
+            marginBottom: '1rem',
             letterSpacing: '0.5rem',
-            fontWeight: 200,
+            fontWeight: 700,
             textTransform: 'uppercase',
+            marginLeft: '-170px',
         },
+
         subHomeText: {
             whiteSpace: 'nowrap',
             fontWeight: 100,
@@ -214,13 +215,10 @@ const useStyles = makeStyles((theme) => {
 })
 
 const str = "Let's help you find your new car";
-
 const chars = str.split('');
-
 console.log(chars);
 
 // banner variants
-
 const container = {
     show: {
         transition: {
@@ -238,7 +236,7 @@ const mainletters = {
     },
     show: {
         opacity: 0.75,
-        y: -150,
+        y: -100,
         transition: {
         ease: [0.6, 0.01, -0.05, 0.95],
         duration: 2,
@@ -262,8 +260,6 @@ const subletters = {
         transition: {
         duration: 2,
         delay: 2.0,
-        // y: {type: "spring",
-        // stiffness: 100}
         },
         scale: 0.8,
         x: -100
@@ -272,27 +268,14 @@ const subletters = {
 
 
 
-const itemInItems = {
-    hidden: {
-        opacity: 0,
-    },
-    show: {
-        opacity: 1,
-        delay: 3.0,
-    },
-}
-
 const Home = () => {
 
     const classes = useStyles();
 
-
     return ( 
         
         <motion.Container id="homeWrap" className={classes.homeWrap} variants={container}>
-
         <div className={classes.landingWrap}>
-
             <motion.div className={classes.homeText} variants={container} initial='hidden'
              animate='show'>
                 <motion.span layout className={classes.mainHomeText}   variants={mainletters}>
@@ -313,8 +296,7 @@ const Home = () => {
                     <img class="animate__animated animate__lightSpeedInLeft animate__delay-4s" src={rightArrowBtn} alt="" />
                     </div>
                 </div>
-            </motion.div>
-            
+            </motion.div>       
             <motion.div className={classes.centerClippedImgs}
             >   
                 {/* main desktop left */}
@@ -329,13 +311,12 @@ const Home = () => {
                 <img src={centerImage3b} alt="" className={classes.central3b} />
                 <img src={centerImage3c} alt="" className={classes.central3c} />
             </motion.div>
-             </div>
+            </div>
             <motion.div className={classes.models}>
               <Models/>
             </motion.div>
             <Zoomed/>
         </motion.Container>
-
      );
 }
  

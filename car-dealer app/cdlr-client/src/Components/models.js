@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
     backgroundAttachment: 'fixed',
-    opacity: '0.6',
+    opacity: '0.35',
     marginLeft: '-250px',
     objectFit: 'cover',
   },
@@ -1284,7 +1284,7 @@ useEffect(() => {
 
  
 
-      <div id="modelsWrap">
+      <div className="modelsWrap" id="modelsWrap">
 
         <motion.div className={classes.modelsWrap} variants={textCont}initial="initial" animate={controls}>
 

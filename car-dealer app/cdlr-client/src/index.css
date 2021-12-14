@@ -98,18 +98,20 @@ display: flex;
 
 .animate__animated.animate__fadeInLeft {
     --animate-duration: 1.5s;
-    margin-top: -16%;
-    margin-left: 35rem;
+    margin-top: -12%;
+    margin-left: 28rem;
     color: transparent;
+    transition: 1s;
 }
 
 
 .animate__animated.animate__lightSpeedInLeft {
   --animate-duration: 1s;
-    margin-top: 2px;
-    margin-left: -32px;
+    margin-top: 50px;
+    margin-left: -75px;
     position: absolute;
     width: 30px;
+    height: auto;
     z-index: 1;
 }
 
@@ -120,20 +122,25 @@ display: flex;
   opacity: 0.3;
 }
 
-.hexaBtn:hover {
-  opacity: 0.55;
-  transition: 0.5s;
-  z-index: 10;
-}
+/* .hexaBtn:hover {
+  opacity: 0.5;
+} */
 
 .right-icon {
+  position: absolute;
   margin-top: -7.6%;
   margin-left: 6.8%;
+  height: auto;
+  width: 20px;
+  transition: 0.9s;
+  transform-origin: center;
+  color: white;
 }
 
 .right-icon:hover {
-  opacity: 0.55;
-  transition: 0.5s;
+  opacity: 0.8;
+  animation: headShake;
+  animation-duration: 2.2s;
 }
 
 animate__animated.animate__backInUp {
@@ -204,14 +211,28 @@ animate__animated.animate__backInUp {
   z-index: 130;
 }
 
-#modelsWrap {
-  background-image: url('./images/others/modelback2b.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+.modelsWrap {
+  position: relative;
   height: 130vh;
   width: 110vw;
   margin-left: -60px;
 }
+
+.modelsWrap:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background-image: url('./images/others/modelback2b.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: -60px;
+  opacity: 0.4;
+  height: 130vh;
+  width: 110vw;
+  margin-left: -60px;
+  z-index: -1;
+}
+
 
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */

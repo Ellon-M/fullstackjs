@@ -76,7 +76,7 @@ const useStyles = makeStyles(() => {
 const container = {
     show: {
         transition: {
-            staggerChildren: 0.75,
+            staggerChildren: 0.55,
         }
     }
 }
@@ -87,7 +87,7 @@ const item = {
         y: 200,
     },
     show: {
-        opacity: 1,
+        opacity: 0.7,
         y: 0,
         transition: {
             ease: [.2, .01, -.05, .85],
@@ -115,7 +115,7 @@ const itemMain = {
         y: 0,
         transition: {
             ease: [.2, .01, -.05, .85],
-            duration: 1.6,
+            duration: 1.4,
         },
         scale: 1.6
     },
