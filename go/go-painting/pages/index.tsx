@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Landing from '../components/landing'
 import Layout from '../components/layout'
 
 const Home: NextPage = () => {
@@ -10,8 +11,11 @@ const Home: NextPage = () => {
         <title>Go Painting..</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head> */}
-      <div>
-        <Layout/>
+      <div className='home-nav'>
+      <Layout/>
+      </div>
+      <div className='home-landing'>
+      <Landing/>
       </div>
 
     </div>

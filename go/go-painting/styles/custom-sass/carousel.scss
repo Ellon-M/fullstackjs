@@ -1,0 +1,286 @@
+@use './breakpoints';
+@import 'colors';
+
+
+.carousel-inner {
+    width: 100%;
+    position: relative;
+}
+
+.carousel-inner-2 {
+    display: none;
+}
+
+.carousel-inner-3 {
+    display: none;
+}
+
+.image-wrap {
+    width: 100%;
+    height: 85vh;
+    position: relative;
+}
+
+.landing-image {
+    width: 100% !important;
+    z-index: -10;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-wrap-narrow {
+    display: none;
+}
+
+.image-wrap-long {
+    height: 95vh;
+    display: none;
+}
+
+
+
+@include breakpoints.smh {
+    .image-wrap {
+        display: none;
+    }
+    .image-wrap-narrow {
+        display: block;
+        margin-top: 2%;
+        height: 90vh;
+    }
+    .legend-main {
+        margin-top: -20%;
+        font-size: 1rem;
+        margin-left: 32%;
+        letter-spacing: 0.5em; 
+    }
+}
+
+@include breakpoints.xmh {
+    .logo-legend {
+        display: none;
+    }
+}
+
+
+.logo-legend {
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: -32%;
+    margin-left: 40%;
+}
+
+.legend-main {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.6em;
+    position: absolute;
+    color: white;
+    margin-top: -16%;
+    margin-left: 25%;
+}
+
+.landing-button-1 {
+    display: inline-flex;
+    border-radius: 1.5rem;
+    width: 150px;
+    height: 40px;
+    padding-top: 1.2rem;
+    padding-bottom: 2.4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: linear-gradient(45deg, $primary, $secondary);
+    color: white;
+    position: absolute;
+    margin-top: -15%;
+    margin-left: 35%;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+.landing-button-2 {
+    display: inline-flex;
+    border-radius: 1.5rem;
+    width: 150px;
+    height: 40px;
+    padding-top: 1.2rem;
+    padding-bottom: 2.4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: linear-gradient(45deg, $primary, $secondary);
+    color: white;
+    position: absolute;
+    margin-top: -15%;
+    margin-left: 50%;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+
+
+// nest hub & NH MAX dimensions (max 960px)
+@include breakpoints.mdh {
+    .logo-legend {
+        width: 180px;
+        height: 180px;
+        margin-left: 40%;
+        margin-top: -38%;
+    }
+
+    .legend-main {
+        margin-top: -22%;
+        font-size: 1rem;
+        margin-left: 32%;
+        letter-spacing: 0.5em;
+    }
+
+    .landing-button-1 {
+        width: 140px;
+        height: 40px;
+        padding-top: 0.9rem;
+        padding-bottom: 2.1rem;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+        font-size: 1.02rem;
+        margin-top: -18%;
+    }
+
+    .landing-button-2 {
+        width: 140px;
+        height: 40px;
+        padding-top: 0.9rem;
+        padding-bottom: 2.1rem;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+        font-size: 1.02rem;
+        margin-top: -18%;
+    }
+}
+
+@include breakpoints.lgh {
+    .logo-legend {
+        width: 200px;
+        height: 200px;
+        margin-left: 40.5%;
+        margin-top: -38%;
+    }
+
+    .legend-main {
+        margin-top: -22%;
+        font-size: 1.2rem;
+        margin-left: 33%;
+        letter-spacing: 0.5em;
+    }
+
+    .landing-button-1 {
+        width: 140px;
+        height: 40px;
+        padding-top: 1.0rem;
+        padding-bottom: 2.2rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+        font-size: 1.05rem;
+        margin-top: -18%;
+    }
+
+    .landing-button-2 {
+        width: 140px;
+        height: 40px;
+        padding-top: 1.0rem;
+        padding-bottom: 2.2rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+        font-size: 1.05rem;
+        margin-top: -18%;
+    }
+}
+
+// ipad pro
+@include breakpoints.xlh {
+    .image-wrap {
+        display: none;
+    }
+
+    .image-wrap-long {
+        display: block;
+    }
+
+    .logo-legend {
+        margin-top: -85%;
+        margin-left: 40%;
+        width: 220px;
+        height: 220px;
+    }
+
+    .legend-main {
+        margin-top: -64%;
+        font-size: 1.2rem;
+        margin-left: 30%;
+        letter-spacing: 0.5em;
+    }
+
+    .landing-button-1 {
+        margin-top: -59% ;
+        width: 150px;
+        height: 40px;
+        font-size: 1.15rem;
+    }
+
+    .landing-button-2 {
+        margin-top: -59% ;
+        width: 150px;
+        height: 40px;
+        font-size: 1.15rem;
+    }
+}
+
+// ipad (min height 1000px)
+@include breakpoints.mlx {
+ .image-wrap {
+     display: none;
+ }
+ .image-wrap-long {
+     display: block;
+ }
+
+ .logo-legend {
+    margin-top: -92%;
+    margin-left: 38%;
+    width: 180px;
+    height: 180px;
+}
+
+.legend-main {
+    margin-top: -68%;
+    font-size: 1.05rem;
+    margin-left: 28%;
+    letter-spacing: 0.5em;
+}
+
+.landing-button-1 {
+    margin-top: -60% ;
+    width: 150px;
+    height: 35px;
+    font-size: 1.05rem;
+    margin-left: 30%;
+}
+
+.landing-button-2 {
+    margin-top: -60% ;
+    width: 150px;
+    height: 35px;
+    font-size: 1.05rem;
+    margin-left: 55%;
+}
+}
+

@@ -80,11 +80,14 @@ const Layout: FunctionComponent <Props> = () => {
                         padding = '4px'
                         />
                 </a>
-          </div>
-          <div className='nav-logo'>
-          <Image src={logo} width={140} height={140} className='actual-logo' />
-          </div>
-        <ul className='nav-links-wrap'>
+      </div>
+      <div className='nav-logo'>
+          <Image src={logo} width={125} height={125} className='actual-logo' />
+      </div>
+      <div className='nav-logo-larger'>
+          <Image src={logo} width={165} height={165} className='actual-logo' />
+      </div>
+      <ul className='nav-links-wrap'>
             <li className='nav-link-list'>
                 <Link href='/ourservices'><a className='nav-link'>Our Services</a></Link>
             </li>
