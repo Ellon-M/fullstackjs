@@ -71,10 +71,7 @@ const Layout: FunctionComponent <Props> = () => {
     return ( 
     <motion.div variants={layoutVariants} initial={layoutVariants.initial} exit={layoutVariants.exit}>
       <nav className='home-navbar'>
-          <div className='nav-logo'>
-          <Image src={logo} width={140} height={140} className='actual-logo' />
-          </div>
-          <div className='hamburger-wrap'>
+      <div className='hamburger-wrap'>
                 <a onClick={toggleMenu}>
                 <Collapse width={45}
                         lineHeight={1.6}
@@ -83,6 +80,9 @@ const Layout: FunctionComponent <Props> = () => {
                         padding = '4px'
                         />
                 </a>
+          </div>
+          <div className='nav-logo'>
+          <Image src={logo} width={140} height={140} className='actual-logo' />
           </div>
         <ul className='nav-links-wrap'>
             <li className='nav-link-list'>
