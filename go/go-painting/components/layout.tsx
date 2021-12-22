@@ -69,7 +69,7 @@ const Layout: FunctionComponent <Props> = () => {
      
 
     return ( 
-    <motion.div variants={layoutVariants} initial={layoutVariants.initial} exit={layoutVariants.exit}>
+    <motion.div className="nav-wrap" variants={layoutVariants} initial={layoutVariants.initial} exit={layoutVariants.exit} >
       <nav className='home-navbar'>
       <div className='hamburger-wrap'>
                 <a onClick={toggleMenu}>
@@ -85,7 +85,7 @@ const Layout: FunctionComponent <Props> = () => {
           <Image src={logo} width={125} height={125} className='actual-logo' />
       </div>
       <div className='nav-logo-larger'>
-          <Image src={logo} width={165} height={165} className='actual-logo' />
+          <Image src={logo as any} width={160} height={160} className='actual-logo' />
       </div>
       <ul className='nav-links-wrap'>
             <li className='nav-link-list'>

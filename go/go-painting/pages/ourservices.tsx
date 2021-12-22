@@ -18,8 +18,8 @@ const ourServices: FunctionComponent<Props> = () => {
         <header>
             <Link href='/'>
                 <Image src={back}></Image>
-                <p className='backServices'>back</p>
             </Link>
+            <p className='backServices'>back</p>
             <Image src={cancel}></Image>
         </header>
         <section>

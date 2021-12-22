@@ -17,13 +17,18 @@ html {
   color: black;
 }
 
+
 .home-nav {
-  height: 100%;
   width: 100%;
-  z-index: 2;
+  height: 70px;
+  max-height: 10%;
+  z-index: 10;
+  position: relative;
+  background-color: white;
 }
 
 .home-landing {
+  z-index: -10;
   overflow: hidden;
-
+  
 }

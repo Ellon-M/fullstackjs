@@ -1,95 +1,282 @@
 // sizes map
 $breakpoints: (
-  "xs": 0,
-  "sm": 480px,
-  "sml": 580px,
+  "xx": 0,
+  "sss": 250px,
+  "sxs": 270px,
+  "xxs": 300px,
+  "xss": 330px,
+  "xs": 359px,
+  "xms": 375px,
+  "xbs": 395px,
+  "xsm": 415px,
+  "sm": 450px,
+  "sms": 495px,
+  "ssm": 545px,
+  "smm": 605px,
+  "smd": 641px,
+  "sml": 680px,
   "md": 760px,
   "mdl": 860px,
-  "lg": 960px,
-  "lx": 1000px,
-  "xl": 1200px,
-  "xxl": 1280px,
+  "lg": 980px,
+  "lgc": 981px,
+  "lgp": 1025px,
+  "lgx": 1120px,
+  "lx": 1180px,
+  "xl": 1300px,
+  "xxl": 1580px,
+  "sxl": 1900px,
+  "ssl": 2280px,
 );
 
+// width
+
+// super super small
+@mixin sss {
+  @media (max-width: map-get($breakpoints, "sss")) {
+    @content;
+  }
+}
+
+
+// super extra small
+@mixin sxs {
+  @media (max-width: map-get($breakpoints, "sxs")) {
+    @content;
+  }
+}
+
+// extra small small
+@mixin xxs {
+  @media (max-width: map-get($breakpoints, "xxs")) {
+    @content;
+  }
+}
+
+
+// extra small small
+@mixin xss {
+  @media (max-width: map-get($breakpoints, "xss")) and (min-width: map-get($breakpoints, "xxs")) {
+    @content;
+  }
+}
+
+// extra small 
 @mixin xs {
-  @media (min-width: map-get($breakpoints, "xs")) {
+  @media (max-width: map-get($breakpoints, "xs")) {
     @content;
   }
 }
 
-@mixin xsMax {
-  @media (max-width: map-get($breakpoints, "md")) {
+// extra mid small
+@mixin xms {
+  @media (max-width: map-get($breakpoints, "xms")) {
     @content;
   }
 }
 
-@mixin xmh {
-  @media (max-height: map-get($breakpoints, "sm")) {
+// extra mid small (buffer)
+@mixin xbs {
+  @media (max-width: map-get($breakpoints, "xbs")) {
     @content;
   }
 }
 
-@mixin smh {
-  @media (max-height: map-get($breakpoints, "sml")) {
-    @content;
-  }
-}
-
-@mixin mdh {
-  @media (max-height: map-get($breakpoints, "md")) {
-    @content;
-  }
-}
-
-@mixin lgh {
-  @media (min-height: map-get($breakpoints, "md")) {
+// extra mid small
+@mixin xsm {
+  @media (max-width: map-get($breakpoints, "xsm")) {
     @content;
   }
 }
 
 
+// small
 @mixin sm {
-  @media (min-width: map-get($breakpoints, "sm")) {
+  @media (max-width: map-get($breakpoints, "sm")) {
     @content;
   }
 }
 
-@mixin md {
+
+
+// between xsm and sms
+@mixin smx {
+  @media (min-width: map-get($breakpoints, "xsm")) and (max-width: map-get($breakpoints, "sms"))  {
+    @content;
+  }
+}
+
+// sm mid
+@mixin sms {
+  @media (max-width: map-get($breakpoints, "sms")) {
+    @content;
+  }
+}
+
+// sm mid
+@mixin ssm {
+  @media (max-width: map-get($breakpoints, "ssm")) {
+    @content;
+  }
+}
+
+// sm mid
+@mixin smm {
+  @media (max-width: map-get($breakpoints, "smm")) {
+    @content;
+  }
+}
+
+// sm mid
+@mixin sml {
+  @media (max-width: map-get($breakpoints, "sml")) and (max-height: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+
+// mid upper level
+@mixin mdu {
   @media (min-width: map-get($breakpoints, "md")) {
     @content;
   }
 }
 
+// mid lower level
+@mixin mdm {
+  @media (max-width: map-get($breakpoints, "md")) {
+    @content;
+  }
+}
+
+
+// mid
+@mixin md {
+  @media (max-width: map-get($breakpoints, "mdl")) {
+    @content;
+  }
+}
+
+// mid large
 @mixin mdl {
-  @media (min-width: map-get($breakpoints, "mdl")) {
+  @media (max-width: map-get($breakpoints, "lg")) {
     @content;
   }
 }
 
+// large
 @mixin lg {
-  @media (min-width: map-get($breakpoints, "lg")) {
+  @media (max-width: map-get($breakpoints, "lx"))  and (max-height: map-get($breakpoints, "lg")) {
     @content;
   }
 }
 
+@mixin lgw {
+  @media (max-width: map-get($breakpoints, "lx"))  and (max-height: map-get($breakpoints, "smm")) {
+    @content;
+  }
+}
+
+// tad large
+@mixin lx {
+  @media (max-width: map-get($breakpoints, "xl")) and (max-height: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+
+// extra large
 @mixin xl {
-  @media (min-width: map-get($breakpoints, "xl")) {
+  @media (min-width: map-get($breakpoints, "xl")) and (max-height: map-get($breakpoints, "lg")) and (max-width: map-get($breakpoints, "sxl")) {
     @content;
   }
 }
 
-@mixin mlx {
-  @media (max-height: map-get($breakpoints, "xl")) {
+// super extra large
+@mixin sxl {
+  @media (min-width: map-get($breakpoints, "sxl")) {
     @content;
   }
 } 
 
-@mixin xlh {
-  @media (min-height: map-get($breakpoints, "xl")) {
+// super super large
+@mixin ssl {
+  @media (min-width: map-get($breakpoints, "ssl")) {
+    @content;
+  }
+} 
+
+
+// heights
+
+
+@mixin lgh {
+  @media (min-height: map-get($breakpoints, "lg")) and (max-height: map-get($breakpoints, "lx")) and (max-width: map-get($breakpoints, "xxl")) {
     @content;
   }
 }
 
+@mixin lgx {
+  @media (min-height: map-get($breakpoints, "lgx")) and (max-height: map-get($breakpoints, "lx")) and (max-width: map-get($breakpoints, "xxl")) {
+    @content;
+  }
+}
+
+@mixin lhx {
+  @media (min-height: map-get($breakpoints, "lx"))  and (max-height: map-get($breakpoints, "xl")) and (max-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+
+@mixin lghx {
+  @media (min-height: map-get($breakpoints, "lx")) and (min-width: map-get($breakpoints, "lg")) and (max-width: map-get($breakpoints, "xxl")) and (max-height: map-get($breakpoints, "lx")) {
+    @content;
+  }
+}
+
+
+@mixin mlx {
+  @media (min-height: map-get($breakpoints, "lx")) and (min-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+} 
+
+
+@mixin xlh {
+  @media (min-height: map-get($breakpoints, "xl")) and (max-width: map-get($breakpoints, "xxl")) and (max-height: map-get($breakpoints, "lx")) {
+    @content;
+  }
+}
+
+
+@mixin lgc {
+  @media (min-height: map-get($breakpoints, "lg")) and (min-width: map-get($breakpoints, "lgc")) and (max-width: map-get($breakpoints, "lgp"))  {
+    @content;
+  }
+}
+
+// landscape mobiles max height 450px, max width 980px
+@mixin xmh {
+  @media (max-height: map-get($breakpoints, "sm")) and (max-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+
+// max height 450px, max width 680px
+@mixin xmm {
+  @media (max-height: map-get($breakpoints, "sm")) and (max-width: map-get($breakpoints, "sml")) {
+    @content;
+  }
+}
+
+@mixin smd {
+  @media (min-height: map-get($breakpoints, "smd")) {
+    @content;
+  }
+}
+
+@mixin ssh {
+  @media (max-height: map-get($breakpoints, "sml")) and (min-height: map-get($breakpoints, "sms")) and (max-width: map-get($breakpoints, "sms"))  {
+    @content;
+  }
+}
 
 @mixin breakpoint($bp: 0) {
     @media (min-width: $bp) {

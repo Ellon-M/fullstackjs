@@ -1,89 +1,172 @@
 @use './breakpoints';
 @import 'colors';
 
-
+// first image
 .carousel-inner {
     width: 100%;
     position: relative;
-}
-
-.carousel-inner-2 {
+    overflow: hidden;
     display: none;
 }
 
+// second image
+.carousel-inner-2 {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+// third/final image
 .carousel-inner-3 {
     display: none;
 }
 
+// outer div surrounding image
 .image-wrap {
+    display: none;
     width: 100%;
-    height: 85vh;
+    height: auto;
     position: relative;
-}
-
-.landing-image {
-    width: 100% !important;
-    z-index: -10;
     overflow: hidden;
-    position: relative;
+    height: 95vh;
 }
 
+// image itself
+.landing-image {
+    max-width: 100% !important;
+    max-height: 90% !important;
+    z-index: -10 !important;
+    overflow: hidden !important;
+    object-fit: cover !important;
+    background-size: contain !important;
+    position: relative;
+    filter: brightness(80%);
+}
+
+// small height img
 .image-wrap-narrow {
     display: none;
+    overflow: hidden;
 }
 
+
+// small width img
 .image-wrap-long {
     height: 95vh;
     display: none;
+    overflow: hidden;
 }
 
 
-
-@include breakpoints.smh {
-    .image-wrap {
-        display: none;
-    }
-    .image-wrap-narrow {
-        display: block;
-        margin-top: 2%;
-        height: 90vh;
-    }
-    .legend-main {
-        margin-top: -20%;
-        font-size: 1rem;
-        margin-left: 32%;
-        letter-spacing: 0.5em; 
-    }
+// small width img
+.image-wrap-longish {
+    height: 95vh;
+    display: none;
+    overflow: hidden;
 }
 
-@include breakpoints.xmh {
-    .logo-legend {
-        display: none;
-    }
+// small width img
+.image-wrap-longer {
+    height: 95vh;
+    display: none;
+    overflow: hidden;
 }
 
+// smallest width img
+.image-wrap-longest {
+    height: 105vh;
+    display: none;
+    overflow: hidden;
+}
 
+// flipped img
+.image-wrap-inv {
+    height: 105vh;
+    display: none;
+    overflow: hidden;
+}
+
+// flipped img 2
+.image-wrap-inv-2 {
+    display: none;
+    overflow: hidden;
+}
+
+// full res img
+.image-wrap-full {
+    height: 105vh;
+    display: none;
+    overflow: hidden;
+}
+
+// floating legend
+.over-image {
+    margin-top: -45%;
+    margin-left: 32%;
+    display: inline-block;
+    position: absolute;
+    align-items: center;
+}
+
+.over-image-2 {
+    margin-top: -48%;
+    margin-left: 55%;
+    display: block;
+    position: absolute;
+    align-items: right;
+}
+
+// logo 
 .logo-legend {
     width: 250px;
     height: 250px;
     text-align: center;
     align-self: center;
     justify-content: center;
-    position: absolute;
-    margin-top: -32%;
-    margin-left: 40%;
-}
-
-.legend-main {
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.6em;
-    position: absolute;
-    color: white;
-    margin-top: -16%;
+    position: relative;
     margin-left: 25%;
 }
 
+// text
+.legend-main {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.6em;
+    position: relative;
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+
+
+// text 2nd slide
+.legend-main-2 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    position: relative;
+    color: white;
+    text-align: right;
+    align-items: flex-end;
+    padding-right: 3.5rem;
+}
+
+// outer button div
+.button-group {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+// outer button div -2 
+.button-group-2 {
+    position: relative;
+    margin: 2rem;
+    align-items: flex-start;
+    text-align: right;
+    align-content: flex-end;
+    left: 60%;
+}
+
+// left btn
 .landing-button-1 {
     display: inline-flex;
     border-radius: 1.5rem;
@@ -95,16 +178,17 @@
     padding-right: 1rem;
     background: linear-gradient(45deg, $primary, $secondary);
     color: white;
-    position: absolute;
-    margin-top: -15%;
-    margin-left: 35%;
+    position: relative;
     text-align: center;
     justify-content: center;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.15rem;
+    margin-left: 3rem;
+    margin-right: 2.5rem;
 }
 
+// right btn
 .landing-button-2 {
     display: inline-flex;
     border-radius: 1.5rem;
@@ -116,171 +200,842 @@
     padding-right: 1rem;
     background: linear-gradient(45deg, $primary, $secondary);
     color: white;
-    position: absolute;
-    margin-top: -15%;
-    margin-left: 50%;
+    position: relative;
     text-align: center;
     justify-content: center;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.15rem;
+    margin-left: 3rem;
+}
+
+//left btn 2nd slide 
+#landing-2-button-1 {
+    @extend .landing-button-1;
+    display: block;
+    margin: 1rem;
+}
+
+#landing-2-button-2 {
+    @extend .landing-button-1;
+    display: block;
+    margin: 1rem;
 }
 
 
-
-// nest hub & NH MAX dimensions (max 960px)
-@include breakpoints.mdh {
+// at 480px height logo disappears
+@include breakpoints.xmh {
     .logo-legend {
-        width: 180px;
-        height: 180px;
-        margin-left: 40%;
-        margin-top: -38%;
+        display: none;
     }
 
-    .legend-main {
-        margin-top: -22%;
-        font-size: 1rem;
-        margin-left: 32%;
-        letter-spacing: 0.5em;
-    }
-
-    .landing-button-1 {
-        width: 140px;
-        height: 40px;
-        padding-top: 0.9rem;
-        padding-bottom: 2.1rem;
-        padding-left: 0.7rem;
-        padding-right: 0.7rem;
-        font-size: 1.02rem;
-        margin-top: -18%;
-    }
-
-    .landing-button-2 {
-        width: 140px;
-        height: 40px;
-        padding-top: 0.9rem;
-        padding-bottom: 2.1rem;
-        padding-left: 0.7rem;
-        padding-right: 0.7rem;
-        font-size: 1.02rem;
-        margin-top: -18%;
+    .legend-main-2 {
+        display: none;
     }
 }
 
-@include breakpoints.lgh {
-    .logo-legend {
-        width: 200px;
-        height: 200px;
-        margin-left: 40.5%;
-        margin-top: -38%;
-    }
+// width breakpoints
 
-    .legend-main {
-        margin-top: -22%;
-        font-size: 1.2rem;
-        margin-left: 33%;
-        letter-spacing: 0.5em;
-    }
-
-    .landing-button-1 {
-        width: 140px;
-        height: 40px;
-        padding-top: 1.0rem;
-        padding-bottom: 2.2rem;
-        padding-left: 0.8rem;
-        padding-right: 0.8rem;
-        font-size: 1.05rem;
-        margin-top: -18%;
-    }
-
-    .landing-button-2 {
-        width: 140px;
-        height: 40px;
-        padding-top: 1.0rem;
-        padding-bottom: 2.2rem;
-        padding-left: 0.8rem;
-        padding-right: 0.8rem;
-        font-size: 1.05rem;
-        margin-top: -18%;
-    }
-}
-
-// ipad pro
-@include breakpoints.xlh {
+// extremely large > 1580px
+@include breakpoints.sxl {
     .image-wrap {
+        display: none;
+    }
+    .image-wrap-full {
+        display: block;
+    }
+    .over-image {
+        margin-left: 38%;
+        margin-top: -50%;
+    }
+}
+
+@include breakpoints.ssl {
+    .over-image {
+        margin-left: 42%;
+        margin-top: -32%;
+    }
+}
+
+
+// at xl 1300px min
+@include breakpoints.xl {
+    .over-image {
+        margin-top: -40%;
+        margin-left: 32%;
+    }
+
+    .over-image-2 {
+        margin-top: -48%;
+        margin-left: 55%;
+    }
+
+    .image-wrap {
+        display: block;
+    }
+}
+
+// at 1180px xl min and 1300px max
+@include breakpoints.lx {
+    .over-image {
+        margin-top: -45%;
+        margin-left: 28%;
+    }
+
+    .over-image-2 {
+        margin-top: -58%;
+        margin-left: 48%;
+    }
+    
+    .image-wrap {
+        display: block;
+    }
+}
+
+// At 1180px max and 980px min
+@include breakpoints.lg {
+    .over-image {
+        margin-top: -56%;
+        margin-left: 24%;
+    }
+
+    .over-image-2 {
+        margin-top: -60%;
+        margin-left: 48%;
+    }
+
+    .legend-main-2 {
+        font-size: 3.6rem;
+    }
+
+    .button-group-2 {
+        left: 55%;
+    }
+
+    .image-wrap {
+        display: none;
+    }
+
+    .image-wrap-longish {
+        display: block;
+    }
+}
+
+@include breakpoints.lgw {
+    .over-image {
+        margin-top: -56%;
+        margin-left: 24%;
+    }
+
+    .over-image-2 {
+        margin-top: -60%;
+        margin-left: 48%;
+    }
+
+    .legend-main-2 {
+        font-size: 3.6rem;
+    }
+
+    .button-group-2 {
+        left: 55%;
+    }
+
+    .image-wrap {
+        display: none;
+    }
+
+    .image-wrap-longish {
+        display: block;
+    }
+}
+
+// At 980px max and 860px min
+@include breakpoints.mdl {
+    .over-image {
+        margin-top: -64%;
+        margin-left: 20%;
+    }
+
+    .over-image-2 {
+        margin-top: -70%;
+        margin-left: 45%;
+    }
+
+    .button-group-2 {
+        left: 50%;
+    }
+
+    .image-wrap-longish {
         display: none;
     }
 
     .image-wrap-long {
         display: block;
     }
+    
+}
 
-    .logo-legend {
-        margin-top: -85%;
-        margin-left: 40%;
-        width: 220px;
-        height: 220px;
+// At 860px max and 760px min
+@include breakpoints.md {
+    .over-image {
+        margin-top: -72%;
+        margin-left: 15%;
+    }
+
+    .over-image-2 {
+        margin-top: -82%;
+        margin-left: 42%;
+    }
+
+    .legend-main-2 {
+        font-size: 3.3rem;
+    }
+
+    .button-group-2 {
+        left: 45%;
     }
 
     .legend-main {
-        margin-top: -64%;
-        font-size: 1.2rem;
-        margin-left: 30%;
+        font-size: 1.1rem;
         letter-spacing: 0.5em;
+        margin-left: 10%;
     }
 
+    .logo-legend {
+        margin-left: 30%;
+    }
+
+}
+
+//At 760px max
+@include breakpoints.mdm {
+    .over-image {
+        margin-top: -90%;
+        margin-left: 12%;
+    }
+
+    .over-image-2 {
+        margin-top: -88%;
+        margin-left: 40%;
+    }
+
+    .legend-main-2 {
+        font-size: 3.0rem;
+    }
+
+    .button-group-2 {
+        left: 38%;
+    }
+}
+
+//At 680px max
+@include breakpoints.sml {
+    .over-image {
+        margin-top: -100%;
+        margin-left: 6%;
+    }
+
+    .over-image-2 {
+        margin-top: -95%;
+        margin-left: 36%;
+    }
+
+    .legend-main-2 {
+        font-size: 2.8rem;
+    }
+
+    .button-group-2 {
+        left: 36%;
+    }
+
+    .image-wrap-long {
+        display: none;
+    }
+
+    .image-wrap-longer {
+        display: block;
+    }
+
+}
+
+// At 605px max
+@include breakpoints.smm {
+    .over-image {
+        margin-top: -115%;
+        margin-left: 0%;
+    }
+
+    .over-image-2 {
+        margin-top: -105%;
+        margin-left: 32%;
+    }
+
+    .legend-main-2 {
+        font-size: 2.5rem;
+    }
+
+    .button-group-2 {
+        left: 32%;
+    }
+}
+
+
+// At 545px max
+@include breakpoints.ssm {
+    .over-image {
+        margin-top: -125%;
+        margin-left: -3%;
+    }
+
+    .over-image-2 {
+        margin-top: -110%;
+        margin-left: 30%;
+    }
+
+    .legend-main-2 {
+        font-size: 2.4rem;
+    }
+
+    .button-group-2 {
+        left: 30%;
+    }
+
+
     .landing-button-1 {
-        margin-top: -59% ;
-        width: 150px;
-        height: 40px;
-        font-size: 1.15rem;
+        width: 140px;
+        height: 30px;
+        font-size: 0.95rem;
+        padding-top: 1rem;
+        padding-bottom: 2.2rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
     }
 
     .landing-button-2 {
-        margin-top: -59% ;
-        width: 150px;
-        height: 40px;
-        font-size: 1.15rem;
+        width: 140px;
+        height: 30px;
+        font-size: 0.95rem;
+        padding-top: 1rem;
+        padding-bottom: 2.2rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+
+    .legend-main {
+            font-size: 0.95rem;
+            letter-spacing: 0.4em;
+            margin-left: 15%;
+    }
+
+}
+
+
+// At 495px max
+@include breakpoints.sms {
+    .over-image {
+        margin-top: -130%;
+        margin-left: -10%;
+    }
+
+    .over-image-2 {
+        margin-top: -115%;
+        margin-left: 28%;
+    }
+
+    .button-group-2 {
+        left: 25%;
     }
 }
 
-// ipad (min height 1000px)
+
+// At 450px max
+@include breakpoints.sm {
+    .image-wrap-longer {
+        display: none;
+    }
+
+    .image-wrap-longest {
+        display: block;
+    }
+
+    .over-image {
+        margin-top: -145%;
+        margin-left: -1%;
+    }
+
+    .over-image-2 {
+        margin-top: -130%;
+        margin-left: 25%;
+    }
+
+    .legend-main-2 {
+        font-size: 2rem;
+    }
+
+    .button-group-2 {
+        left: 20%;
+    }
+
+    .logo-legend {
+        width: 150px;
+        height: 150px;
+        margin-left: 40%;
+    }
+
+    .legend-main {
+        font-size: 0.85rem;
+        letter-spacing: 0.4em;
+        margin-left: 15%;
+    }
+
+    .button-group {
+        margin: 1.2rem;
+    }
+
+    .landing-button-1 {
+        width: 120px;
+        height: 20px;
+        font-size: 0.85rem;
+        padding-top: 0.8rem;
+        padding-bottom: 2rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+        margin-left: 2.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .landing-button-2 {
+        width: 120px;
+        height: 20px;
+        font-size: 0.85rem;
+        padding-top: 0.8rem;
+        padding-bottom: 2rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+        margin-left: 2rem;
+    }
+}
+
+// At 415px max
+@include breakpoints.xsm {
+    .over-image {
+        margin-top: -155%;
+        margin-left: -3%;
+    }
+
+    .over-image-2 {
+        margin-top: -155%;
+        margin-left: 22%;
+    }
+
+}
+
+// At 395px (buffer)
+@include breakpoints.xbs {
+    .over-image {
+        margin-top: -160%;
+        margin-left: -9%;
+    }
+}
+
+// At 375px max
+@include breakpoints.xms {
+    .over-image {
+        margin-top: -170%;
+        margin-left: -14%;
+    }
+
+    .over-image-2 {
+        margin-top: -165%;
+        margin-left: 18%;
+    }
+
+    .legend-main-2 {
+        font-size: 1.6rem;
+    }
+
+    .button-group-2 {
+        left: 18%;
+    }
+
+    .landing-button-1 {
+        width: 120px;
+        height: 20px;
+        font-size: 0.85rem;
+        padding-top: 0.8rem;
+        padding-bottom: 2rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+        margin-left: 3.5rem;
+        margin-right: 1.2rem;
+    }
+
+    #landing-2-button-1, #landing-2-button-2{
+        width: 100px;
+        font-size: 0.75rem;
+        padding-top: 0.6rem;
+        padding-bottom: 1.6rem;
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+    }
+}
+
+
+// At 360px max
+@include breakpoints.xs {
+    .over-image {
+        margin-top: -165%;
+        margin-left: -3%;
+    }
+
+    .over-image-2 {
+        margin-top: -175%;
+        margin-left: 18%;
+    }
+
+    .button-group-2 {
+        left: 15%;
+    }
+
+    .logo-legend {
+        margin-left: 35%;
+    }
+
+    .legend-main {
+        font-size: 0.7rem;
+        letter-spacing: 0.4em;
+        margin-left: 20%;
+        margin-top: -4%;
+    }
+
+    .button-group {
+        margin: 1rem;
+    }
+
+    .landing-button-1 {
+        margin-right: -0.2rem;
+        width: 90px;
+        height: 15px;
+        font-size: 0.75rem;
+        padding-top: 0.6rem;
+        padding-bottom: 1.6rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+
+    .landing-button-2 {
+        width: 90px;
+        height: 15px;
+        font-size: 0.75rem;
+        padding-top: 0.6rem;
+        padding-bottom: 1.6rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
+    }
+}
+
+// At 330px max 
+@include breakpoints.xss {
+    .over-image {
+        margin-top: -185%;
+        margin-left: -8%;
+    }
+
+    .over-image-2 {
+        margin-top: -185%;
+        margin-left: 12%;
+    }
+
+    .button-group-2 {
+        left: 12%;
+    }
+
+}
+
+// At 300px max 
+@include breakpoints.xxs {
+    .over-image {
+        margin-top: -220%;
+        margin-left: -14%;
+    }
+
+    .over-image-2 {
+        margin-top: -190%;
+        margin-left: 10%;
+    }
+
+    .button-group-2 {
+        left: 9%;
+    }
+}
+
+// At 270px max 
+@include breakpoints.sxs {
+    .over-image {
+        margin-top: -250%;
+        margin-left: -18%;
+    }
+
+    .over-image-2 {
+        margin-top: -200%;
+        margin-left: 9%;
+    }
+
+    .button-group-2 {
+        left: 3%;
+    }
+}
+
+// < 250px
+@include breakpoints.sss {
+    .logo-legend {
+        display: none;
+    }
+
+    .over-image-2 {
+        margin-top: -240%;
+        margin-left: 9%;
+    }
+
+    .legend-main-2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .button-group-2 {
+        left: -8%;
+    }
+
+    .legend-main {
+        display: none;
+    }
+
+    .button-group {
+        display: block;
+        padding: 3rem;
+        margin-top: -50%;
+        position: relative;
+    }
+
+    .landing-button-1 {
+        margin-bottom: 2rem;
+    }
+
+    #landing-2-button-1 {
+        margin-bottom: 1rem;
+    }
+
+    .landing-button-2 {
+        margin-left: 3.5rem;
+    }
+}
+
+
+// heights > 980px < 1180px
+@include breakpoints.lgh {
+    .image-wrap-long {
+        display: none;
+    }  
+
+    .image-wrap-full {
+        display: none;
+     }  
+
+    .image-wrap-inv {
+        display: block;
+        width: 100%;
+        height: 95vh;
+    }
+
+    .image-wrap-inv-2 {
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .over-image {
+        margin-top: -90%;
+        margin-left: 14%;
+    }  
+    
+    .over-image-2 {
+        margin-top: -110%;
+        margin-left: 15%;
+    }
+
+    .button-group-2 {
+        left: 55%;
+    }
+}
+
+@include breakpoints.lgx {
+    .over-image {
+        margin-top: -105%;
+        margin-left: 10%;
+    }   
+}
+
+@include breakpoints.lhx {
+    .image-wrap-long {
+        display: none;
+    }  
+
+    .image-wrap-full {
+        display: none;
+     }  
+
+    .image-wrap-inv {
+        display: block;
+        width: 100%;
+        height: 95vh;
+    }
+
+    .image-wrap-inv-2 {
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .over-image {
+        margin-top: -105%;
+        margin-left: 15%;
+    }  
+
+    .over-image-2 {
+        margin-top: -120%;
+        margin-left: 15%;
+    }
+
+    .button-group-2 {
+        left: 60%;
+    }
+
+}
+
+// heights > 1180px
+@include breakpoints.lghx {
+    .image-wrap-long {
+        display: none;
+    }  
+
+    .image-wrap-full {
+        display: none;
+     }  
+
+    .image-wrap-inv {
+        display: block;
+        width: 100%;
+        height: 95vh;
+    }
+
+    .image-wrap-inv-2 {
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .over-image {
+        margin-top: -90%;
+        margin-left: 22%;
+    }
+
+    .over-image-2 {
+        margin-top: -100%;
+        margin-left: 15%;
+    }
+
+    .button-group-2 {
+        left: 70%;
+    }
+}
+
+// to be changed
+// add very large placeholder image
 @include breakpoints.mlx {
- .image-wrap {
-     display: none;
- }
- .image-wrap-long {
-     display: block;
- }
-
- .logo-legend {
-    margin-top: -92%;
-    margin-left: 38%;
-    width: 180px;
-    height: 180px;
+    .image-wrap-full {
+        display: block;
+        width: 100%;
+        height: 95vh;
+    }
 }
 
-.legend-main {
-    margin-top: -68%;
-    font-size: 1.05rem;
-    margin-left: 28%;
-    letter-spacing: 0.5em;
+@include breakpoints.lgc {
+
+    .image-wrap-inv-2 {
+        display: none;
+    }
+
+    .image-wrap-inv-2 {
+        display: block;
+        width: 100%;
+        height: 95vh;
+    }
+
+    .over-image-2 {
+        margin-top: -100%;
+        margin-left: 30%;
+    }
 }
 
-.landing-button-1 {
-    margin-top: -60% ;
-    width: 150px;
-    height: 35px;
-    font-size: 1.05rem;
-    margin-left: 30%;
+
+// heights > 1300px
+@include breakpoints.xlh {
+    .image-wrap-longish {
+       display: none;
+    }  
+
+    .image-wrap-full {
+        display: none;
+     }  
+
+    .image-wrap-inv {
+        display: block;
+        width: 100%;
+        height: 95vh;
+    }
+
+    .image-wrap-inv-2 {
+        display: block;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .over-image {
+        margin-top: -85%;
+    }
 }
 
-.landing-button-2 {
-    margin-top: -60% ;
-    width: 150px;
-    height: 35px;
-    font-size: 1.05rem;
-    margin-left: 55%;
+// heights < 450px
+// landscape mobiles
+@include breakpoints.xmh {
+    .over-image {
+        margin-top: -30%;
+    }
+
+    .over-image-2 {
+        margin-top: -45%;
+        margin-left: 20%;
+    }
 }
+
+@include breakpoints.xmm {
+    .over-image {
+        margin-top: -40%;
+        margin-left: 1%;
+    }
+
+    .over-image-2 {
+        margin-top: -45%;
+        margin-left: 20%;
+    }
+}
+
+// btwn 450px and 600px... height
+// iphone SE 
+@include breakpoints.ssh {
+    .over-image-2 {
+        margin-top: -155%;
+        margin-left: 12%;
+    }
 }
 

@@ -1,20 +1,36 @@
 @use 'breakpoints';
 
+.nav-wrap {
+    position: relative;
+    height: 10vh;
+    z-index: 10;
+    background-color: white;
+}
+
 .home-navbar {
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     margin-top: 0;
     display: inline-flex;
     position: relative;
     margin-bottom: 1.5%;
+    background-color: white;
+}
+
+
+.nav-logo-larger {
+    position: relative;   
+}
+
+.actual-logo {
+    margin-top: -22% !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 5px !important;
+    position: relative;
 }
 
 .nav-logo {
-    position: absolute;
-    width: 200px !important;
-}
-
-.nav-logo-larger {
     display: none;
 }
 
@@ -23,16 +39,15 @@
 }
 
 .nav-links-wrap {
-    display: none;
-    height: auto;
+    display: inline-flex;
     list-style-type: none;
-    position: relative;
-    align-content: flex-end;
-    margin-left: 28%;
+    position: absolute;
+    padding: 0;
+    margin-left: 32%;
 }
 
 .nav-link-list {
-    padding: 1rem; 
+    padding: 0.4rem 1rem 1rem 1rem; 
     position: relative;
       
     .nav-link {
@@ -43,15 +58,18 @@
     }
 }
 
+
 .menu-slider {
     width: 75%;
-    height: 90vh;
+    height: 95vh;
+    margin-top: 2vh;
     position: relative;
     z-index: 2;
-    margin-top: -2%;
     overflow: hidden;
-    background-color: #E7E7E7;
+    background: rgba(233, 233, 233, 0.712);
     border-radius: 0px 40px 0px 40px;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
 }
 
 .nav-links-wrap-menu {
@@ -81,136 +99,80 @@
 
 
 // refer to mixin from the module name
-@include breakpoints.xs {
-    .home-navbar {
-        width: 100%;
-        height: 12vh;
-        margin-top: 0;
-        
-    }
-    .nav-logo {
-        position: relative;
-        text-align: center;
-        align-self: center;
-        justify-content: center;
-        justify-self: center;
-        margin-left: 30%;
-    }  
-}
 
-@include breakpoints.xsMax {
+@include breakpoints.md {
 
     .hamburger-wrap {
         display: inline-flex;
-        position: absolute;
+        position: relative;
         margin-top: 3%;
-        padding: 1.2rem;
-       }
-
-}
-
-@include breakpoints.md {  
-    .nav-logo {
-        position: absolute;
-        margin-top: -24px;
-        margin-left: 20px;
-    }
-
-    .home-navbar {
-        width: 100%;
-        height: 10vh;
-        margin-top: 0;
-        display: block;
-        position: relative;
-    }
-    
-    .nav-links-wrap {
-        display: inline-flex;
-        height: auto;
-        list-style-type: none;
-        position: absolute;
-        padding: 0;
-    }
-    
-    .nav-link-list {
-        position: relative;
-          
-        .nav-link {
-            text-decoration: none;
-            position: relative;
-            font-size: larger;
-            font-weight: 500;
-        }
-    }
-    .menu-slider {
-        display: none;
-    }
-}
-
-
-@include breakpoints.lg {
-    .nav-logo {
-        position: absolute;
-        margin-top: -1%;
-
+        padding: 1rem;
+        justify-self: center;
+        align-self: center;
     }
 
     .nav-links-wrap {
-        display: inline-flex;
-        height: auto;
-        list-style-type: none;
-        position: relative;
-        padding: 0;
-    }
-}
-
-@include breakpoints.xlh {
-    .home-navbar {
-        width: 100%;
-        height: 5vh;
-    }
-}
-
-// ipad
-@include breakpoints.mlx {
-    .home-navbar {
-        width: 100%;
-        height: 10vh;
-    }
-    .nav-links-wrap {
-        margin-left: 26%;
-    }
-
-    .nav-logo {
-        margin-left: -2%;
-        margin-top: -1%;
-    }
-}
-
-// ipad pro
-@include breakpoints.xlh {
-    .home-navbar {
-        width: 100%;
-        height: 10vh;
-    }
-
-    .nav-links-wrap {
-        margin-top: 6%;
-        font-size: larger;
-    }
-
-    .nav-logo {
         display: none;
     }
 
     .nav-logo-larger {
-        display: inline-flex;
-        margin-top: 1%;
-        margin-left: 2%;
-        position: absolute;
-        width: 200px !important;
+        display: none;
     }
 
+    .nav-logo {
+        width: 80%;
+        display: inline-block;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        justify-self: center;
+        
+    }
 
-
+    .actual-logo {
+        margin-top: -20% !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
+
+@include breakpoints.xsm {
+    .nav-logo {
+        width: 60%;
+        display: inline-block;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        justify-self: center;
+        
+    }
+}
+
+@include breakpoints.smx {
+    .nav-logo {
+        width: 70%;
+    }
+}
+
+@include breakpoints.xxs {
+    .nav-logo {
+        width: 40%;
+    }
+}
+
+@include breakpoints.xss {
+    .nav-logo {
+        width: 45%;
+    }
+}
+
+@include breakpoints.smd {
+    .menu-slider {
+        margin-top: 1vh;
+    }
+}
+
+
+
+
+
