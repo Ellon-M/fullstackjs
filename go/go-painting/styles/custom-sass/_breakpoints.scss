@@ -190,7 +190,7 @@ $breakpoints: (
 }
 
 // super extra large
-@mixin sxl {
+@mixin xxl {
   @media (min-width: map-get($breakpoints, "sxl")) {
     @content;
   }
@@ -208,7 +208,7 @@ $breakpoints: (
 
 
 @mixin lgh {
-  @media (min-height: map-get($breakpoints, "lg")) and (max-height: map-get($breakpoints, "lx")) and (max-width: map-get($breakpoints, "xxl")) {
+  @media (min-height: map-get($breakpoints, "lg")) and (max-height: map-get($breakpoints, "lx")) and (max-width: map-get($breakpoints, "lgp")) {
     @content;
   }
 }
@@ -226,14 +226,20 @@ $breakpoints: (
 }
 
 @mixin lghx {
-  @media (min-height: map-get($breakpoints, "lx")) and (min-width: map-get($breakpoints, "lg")) and (max-width: map-get($breakpoints, "xxl")) and (max-height: map-get($breakpoints, "lx")) {
+  @media (min-height: map-get($breakpoints, "lx")) and (min-width: map-get($breakpoints, "lg")) and (max-width: map-get($breakpoints, "lgp")) {
     @content;
   }
 }
 
 
 @mixin mlx {
-  @media (min-height: map-get($breakpoints, "lx")) and (min-width: map-get($breakpoints, "xl")) {
+  @media (min-height: map-get($breakpoints, "lg")) and (min-width: map-get($breakpoints, "lgp")) {
+    @content;
+  }
+} 
+
+@mixin mxx {
+  @media (min-height: map-get($breakpoints, "lg")) and (min-width: map-get($breakpoints, "xl")) {
     @content;
   }
 } 
@@ -273,7 +279,7 @@ $breakpoints: (
 }
 
 @mixin ssh {
-  @media (max-height: map-get($breakpoints, "sml")) and (min-height: map-get($breakpoints, "sms")) and (max-width: map-get($breakpoints, "sms"))  {
+  @media (max-height: map-get($breakpoints, "sml")) and (min-height: map-get($breakpoints, "sms")) and (max-width: map-get($breakpoints, "sms")) and (min-width: map-get($breakpoints, "xxs"))   {
     @content;
   }
 }

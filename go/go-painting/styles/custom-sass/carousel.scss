@@ -14,6 +14,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+    // display: none;
 }
 
 // third/final image
@@ -131,7 +132,7 @@
 .legend-main {
     font-size: 1.4rem;
     font-weight: 400;
-    letter-spacing: 0.6em;
+    letter-spacing: 0.5em;
     position: relative;
     color: white;
     text-align: center;
@@ -216,6 +217,7 @@
     margin: 1rem;
 }
 
+// right btn 2nd slide
 #landing-2-button-2 {
     @extend .landing-button-1;
     display: block;
@@ -236,8 +238,8 @@
 
 // width breakpoints
 
-// extremely large > 1580px
-@include breakpoints.sxl {
+// extremely large > 1025px
+@include breakpoints.xxl {
     .image-wrap {
         display: none;
     }
@@ -279,7 +281,7 @@
 @include breakpoints.lx {
     .over-image {
         margin-top: -45%;
-        margin-left: 28%;
+        margin-left: 32%;
     }
 
     .over-image-2 {
@@ -379,7 +381,7 @@
 @include breakpoints.md {
     .over-image {
         margin-top: -72%;
-        margin-left: 15%;
+        margin-left: 18%;
     }
 
     .over-image-2 {
@@ -397,7 +399,7 @@
 
     .legend-main {
         font-size: 1.1rem;
-        letter-spacing: 0.5em;
+        letter-spacing: 0.4em;
         margin-left: 10%;
     }
 
@@ -484,7 +486,7 @@
 @include breakpoints.ssm {
     .over-image {
         margin-top: -125%;
-        margin-left: -3%;
+        margin-left: 3.5%;
     }
 
     .over-image-2 {
@@ -523,7 +525,7 @@
 
     .legend-main {
             font-size: 0.95rem;
-            letter-spacing: 0.4em;
+            letter-spacing: 0.3em;
             margin-left: 15%;
     }
 
@@ -584,7 +586,7 @@
 
     .legend-main {
         font-size: 0.85rem;
-        letter-spacing: 0.4em;
+        letter-spacing: 0.3em;
         margin-left: 15%;
     }
 
@@ -703,7 +705,7 @@
 
     .legend-main {
         font-size: 0.7rem;
-        letter-spacing: 0.4em;
+        letter-spacing: 0.3em;
         margin-left: 20%;
         margin-top: -4%;
     }
@@ -760,7 +762,7 @@
     }
 
     .over-image-2 {
-        margin-top: -190%;
+        margin-top: -200%;
         margin-left: 10%;
     }
 
@@ -855,7 +857,7 @@
 
     .over-image {
         margin-top: -90%;
-        margin-left: 14%;
+        margin-left: 16%;
     }  
     
     .over-image-2 {
@@ -871,7 +873,7 @@
 @include breakpoints.lgx {
     .over-image {
         margin-top: -105%;
-        margin-left: 10%;
+        margin-left: 14%;
     }   
 }
 
@@ -898,7 +900,7 @@
 
     .over-image {
         margin-top: -105%;
-        margin-left: 15%;
+        margin-left: 18%;
     }  
 
     .over-image-2 {
@@ -936,7 +938,7 @@
 
     .over-image {
         margin-top: -90%;
-        margin-left: 22%;
+        margin-left: 25%;
     }
 
     .over-image-2 {
@@ -945,7 +947,7 @@
     }
 
     .button-group-2 {
-        left: 70%;
+        left: 60%;
     }
 }
 
@@ -956,6 +958,23 @@
         display: block;
         width: 100%;
         height: 95vh;
+    }
+
+    .over-image-2 {
+        margin-top: -80%;
+        margin-left: 15%;
+    }
+}
+
+@include breakpoints.mxx {
+    .over-image {
+        margin-top: -60%;
+        margin-left: 32%;
+    }
+
+    .over-image-2 {
+        margin-top: -50%;
+        margin-left: 15%;
     }
 }
 
@@ -1021,7 +1040,7 @@
 @include breakpoints.xmm {
     .over-image {
         margin-top: -40%;
-        margin-left: 1%;
+        margin-left: 12%;
     }
 
     .over-image-2 {
