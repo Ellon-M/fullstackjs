@@ -1,12 +1,13 @@
 @use './breakpoints';
 @import 'colors';
 
+
 // first image
 .carousel-inner {
     width: 100%;
     position: relative;
     overflow: hidden;
-    display: none;
+    // display: none;
 }
 
 // second image
@@ -19,7 +20,10 @@
 
 // third/final image
 .carousel-inner-3 {
-    display: none;
+    // display: none;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 // outer div surrounding image
@@ -75,7 +79,7 @@
 
 // smallest width img
 .image-wrap-longest {
-    height: 105vh;
+    height: 95vh;
     display: none;
     overflow: hidden;
 }
@@ -89,6 +93,7 @@
 
 // flipped img 2
 .image-wrap-inv-2 {
+    height: 105vh;
     display: none;
     overflow: hidden;
 }
@@ -149,6 +154,11 @@
     text-align: right;
     align-items: flex-end;
     padding-right: 3.5rem;
+}
+
+.legend-main-3 {
+    @extend .legend-main-2;
+    font-size: 3.6rem;
 }
 
 // outer button div
@@ -310,6 +320,10 @@
         font-size: 3.6rem;
     }
 
+    .legend-main-3 {
+        font-size: 3.0rem;
+    }
+
     .button-group-2 {
         left: 55%;
     }
@@ -338,6 +352,10 @@
         font-size: 3.6rem;
     }
 
+    .legend-main-3 {
+        font-size: 2.9rem;
+    }
+
     .button-group-2 {
         left: 55%;
     }
@@ -361,6 +379,10 @@
     .over-image-2 {
         margin-top: -70%;
         margin-left: 45%;
+    }
+
+    .legend-main-3 {
+        font-size: 2.9rem;
     }
 
     .button-group-2 {
@@ -391,6 +413,10 @@
 
     .legend-main-2 {
         font-size: 3.3rem;
+    }
+
+    .legend-main-3 {
+        font-size: 2.8rem;
     }
 
     .button-group-2 {
@@ -425,6 +451,11 @@
         font-size: 3.0rem;
     }
 
+    .legend-main-3 {
+        font-size: 2.6rem;
+    }
+
+
     .button-group-2 {
         left: 38%;
     }
@@ -444,6 +475,10 @@
 
     .legend-main-2 {
         font-size: 2.8rem;
+    }
+
+    .legend-main-3 {
+        font-size: 2.2rem;
     }
 
     .button-group-2 {
@@ -476,6 +511,10 @@
         font-size: 2.5rem;
     }
 
+    .legend-main-3 {
+        font-size: 2rem;
+    }
+
     .button-group-2 {
         left: 32%;
     }
@@ -496,6 +535,10 @@
 
     .legend-main-2 {
         font-size: 2.4rem;
+    }
+
+    .legend-main-3 {
+        font-size: 1.8rem;
     }
 
     .button-group-2 {
@@ -572,6 +615,10 @@
 
     .legend-main-2 {
         font-size: 2rem;
+    }
+
+    .legend-main-3 {
+        font-size: 1.5rem;
     }
 
     .button-group-2 {
@@ -654,6 +701,10 @@
 
     .legend-main-2 {
         font-size: 1.6rem;
+    }
+
+    .legend-main-3 {
+        font-size: 1.2rem;
     }
 
     .button-group-2 {
@@ -802,6 +853,10 @@
     .legend-main-2 {
         font-size: 1.2rem;
         font-weight: 600;
+    }
+
+    .legend-main-3 {
+        font-size: 0.9rem;
     }
 
     .button-group-2 {
