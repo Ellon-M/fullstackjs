@@ -219,14 +219,13 @@ animate__animated.animate__backInUp {
 }
 
 .modelsWrap:before {
-  content: ' ';
-  display: block;
+  content: '';  
   position: absolute;
   background-image: url('./images/others/modelback2b.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   margin-left: -60px;
-  opacity: 0.4;
+  opacity: 0.4; 
   height: 130vh;
   width: 110vw;
   margin-left: -60px;
