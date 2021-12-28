@@ -123,7 +123,23 @@ const carouselInner3Variants = {
     },
 }
 
- 
+// container variants
+const landingVariants = {
+    initial: {
+        y: 0,
+        scale: 1,
+    },
+    exit: {
+        y: -200,
+        scale: 0.9,
+        transition: {
+            ease: 'easeInOut',
+            duration: 0.7
+        }
+    }
+}
+
+
 const Landing: FunctionComponent<LandingProps> = () => {
 
     const controls: AnimationControls = useAnimation();
@@ -177,10 +193,10 @@ const Landing: FunctionComponent<LandingProps> = () => {
     }, [inView])
 
     return ( 
-        <motion.div className='landing-wrap'>
-             <AnimatePresence >
+        <motion.div className='landing-wrap' variants={landingVariants} initial={landingVariants.initial} exit={landingVariants.exit}>
+            <AnimatePresence>
              {!unmountFirstImage && 
-                <motion.div className='carousel-inner' variants={carouselInnerVariants} animate={controls} exit={carouselInnerVariants.exit}>
+                <motion.div className='carousel-inner' variants={carouselInnerVariants} animate=    {controls} exit={carouselInnerVariants.exit}>
                     <Fade triggerOnce>
                   <div className='image-wrap'>
                     <Image src={landing1} className='landing-image'/>
@@ -321,7 +337,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
                     </div>
                 </motion.div>
                 }
-                </AnimatePresence>
+        </AnimatePresence>
         </motion.div>
      );
 }

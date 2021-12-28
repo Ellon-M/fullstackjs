@@ -14,21 +14,21 @@ interface LeftCardProps {
     setIsOpened?: void
 }
 
-interface TitleProps {
+interface LeftTitleProps {
     title: string
     isOpened: boolean
 }
 
-const Title: FC<TitleProps> = ({
+const LeftTitle: FC<LeftTitleProps> = ({
     title, 
     isOpened
 }) => {
     return (
-        <div className='title-wrap'>
+        <div className='left-title-wrap'>
             {isOpened ? (
-            <span className='card-title-opened'>{title} Services</span>
+            <span className='left-card-title-opened'>{title} Services</span>
             ) : (
-            <span className='card-title'>{title}</span>
+            <span className='left-card-title'>{title}</span>
             )}
         </div>
     )
@@ -52,8 +52,6 @@ const LeftCard = memo(({
     const [isOpened, setIsOpened] = useState(false);
     const y = useMotionValue(0);
     const zIndex = useMotionValue(isOpened ? 2 : 0);
-    const openSpring = { type: "spring", stiffness: 200, damping: 30 };
-    const closeSpring = { type: "spring", stiffness: 300, damping: 35 };
 
 
     const openCard = () => {
@@ -68,6 +66,7 @@ const LeftCard = memo(({
         }
     }
 
+    // TODO
     const checkTapToDismiss = () => {
 
     }
@@ -102,7 +101,7 @@ const LeftCard = memo(({
         animate={isOpened ? {x: -20, y: -20} : {x: -pointOfInterest, y: 0, transition: {ease: 'easeOut', duration: 0.5}}}
         layout>
             <motion.article className="left-card">
-                <Title title='Painting' isOpened={isOpened}/>
+                <LeftTitle title='Painting' isOpened={isOpened}/>
                 {!isOpened &&
                 <Image src={bucketIcon} width={72} height={72} className='left-card-icon'/>
                 }

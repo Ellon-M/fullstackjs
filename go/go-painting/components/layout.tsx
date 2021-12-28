@@ -92,7 +92,7 @@ const Layout: FunctionComponent <Props> = () => {
                 <Link href='/ourservices'><a className='nav-link'>Our Services</a></Link>
             </li>
             <li className='nav-link-list'>
-                <Link href=''><a className='nav-link'>Work Gallery</a></Link>
+                <Link href='/gallery'><a className='nav-link'>Work Gallery</a></Link>
             </li>
             <li className='nav-link-list'>
                 <Link href=''><a className='nav-link'>Blog</a></Link>

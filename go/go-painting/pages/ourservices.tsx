@@ -1,19 +1,46 @@
 import React, {FunctionComponent} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+const { motion, AnimatePresence } = require('framer-motion')
 
 import back from '../public/back1.png'
 import back1 from '../public/back1rev.png'
 import ceilingsbg from '../public/ceilingsbg.jpg'
 import Leftcard from '../components/leftcard'
+import Rightcard from '../components/rightcard'
 
 interface Props {
     
 }
+
+const servicesVariants = {
+    initial: {
+      y: 1000,
+      scale: 0.7
+    },
+    animate: {
+      y: 0,
+      scale: 1,
+      transition: {
+        ease: 'easeIn',
+        duration: 0.7,
+        staggerChildren: 0.5
+    }
+    },
+    exit: {
+        y: -1000,
+        scale: 0.7,
+        transition: {
+            ease: 'easeInOut',
+            duration: 0.4
+        }
+    }
+}
  
 const ourServices: FunctionComponent<Props> = () => {
-    return ( <div>
-        <header className='our-services-top'>
+    return ( 
+    <motion.div variants={servicesVariants} initial={servicesVariants.initial} animate={servicesVariants.animate} exit={servicesVariants.exit}>
+        <motion.header className='our-services-top' variants={servicesVariants}>
             <Link href='/'>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="100.000000pt" height="100.000000pt" viewBox="0 0 100.000000 100.000000" preserveAspectRatio="xMidYMid meet" className='our-services-top-icon'>
 
@@ -25,12 +52,16 @@ const ourServices: FunctionComponent<Props> = () => {
             <Link href='/'>
             <p className='our-services-top-text'>back</p>
             </Link>
-        </header>
-        <div className='floating-articles'>
+        </motion.header>
+        <motion.div className='articles' variants={servicesVariants}>
+        <div className='floating-article-left'>
             <Leftcard/>
         </div>
-       
-    </div> );
+        <div className='floating-article-right'>
+            <Rightcard/>
+        </div>
+        </motion.div>
+    </motion.div> );
 }
  
 export default ourServices;
