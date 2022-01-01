@@ -1,41 +1,18 @@
 import React, {FunctionComponent} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-const { motion, AnimatePresence } = require('framer-motion')
+const { motion } = require('framer-motion')
 
-import back from '../public/back1.png'
-import back1 from '../public/back1rev.png'
-import ceilingsbg from '../public/ceilingsbg.jpg'
 import Leftcard from '../components/leftcard'
 import Rightcard from '../components/rightcard'
+import { servicesVariants } from '../utils/servicesvariants'
+
+import goLogo from '../public/gologo2.png';
 
 interface Props {
     
 }
 
-const servicesVariants = {
-    initial: {
-      y: 1000,
-      scale: 0.7
-    },
-    animate: {
-      y: 0,
-      scale: 1,
-      transition: {
-        ease: 'easeIn',
-        duration: 0.7,
-        staggerChildren: 0.5
-    }
-    },
-    exit: {
-        y: -1000,
-        scale: 0.7,
-        transition: {
-            ease: 'easeInOut',
-            duration: 0.4
-        }
-    }
-}
  
 const ourServices: FunctionComponent<Props> = () => {
     return ( 
@@ -52,6 +29,9 @@ const ourServices: FunctionComponent<Props> = () => {
             <Link href='/'>
             <p className='our-services-top-text'>back</p>
             </Link>
+            <div className='services-logo'>
+                <Image src={goLogo} width={120} height={120}></Image>
+            </div>
         </motion.header>
         <motion.div className='articles' variants={servicesVariants}>
         <div className='floating-article-left'>

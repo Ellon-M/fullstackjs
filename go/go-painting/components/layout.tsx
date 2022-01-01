@@ -8,50 +8,12 @@ const { Transition } = require('react-transition-group')
 import 'animate.css'
 
 import logo from '../public/gologo2.png'
+import { layoutVariants } from '../utils/layoutvariants';
+import { slider } from '../utils/slidervariants';
 
 interface Props {
     
 }
-
-const layoutVariants = {
-    initial: {
-        y: 0,
-        scale: 1
-    },
-    exit: {
-        y: -200,
-        scale: 0.9,
-        transition: {
-            ease: 'easeInOut',
-            duration: 0.7
-        }
-    }
-}
-
-const slider = {
-    initial: {
-        opacity: 0,
-        x: -100
-    },
-    show: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            ease: 'linear',
-            duration: 0.2
-        },
-    },
-    exit: {
-        opacity: 0,
-        x: -100,
-        transition: {
-            ease: 'easeOut',
-            duration: 0.25
-        },
-    }
-}
-
-
 
 const Layout: FunctionComponent <Props> = () => {
 
@@ -66,8 +28,6 @@ const Layout: FunctionComponent <Props> = () => {
         }
     }
    
-     
-
     return ( 
     <motion.div className="nav-wrap" variants={layoutVariants} initial={layoutVariants.initial} exit={layoutVariants.exit} >
       <nav className='home-navbar'>
@@ -114,7 +74,7 @@ const Layout: FunctionComponent <Props> = () => {
                              <Link href='/ourservices'><a className='nav-link-menu'>Our Services</a></Link>
                          </li>
                          <li className='nav-link-list-menu'>
-                            <Link href=''><a className='nav-link-menu'>Work Gallery</a></Link>
+                            <Link href='/gallery'><a className='nav-link-menu'>Work Gallery</a></Link>
                          </li>
                         <li className='nav-link-list-menu'>
                             <Link href=''><a className='nav-link-menu'>Blog</a></Link>

@@ -1,0 +1,23 @@
+{
+  "id": "4a2988cc-7792-4ff2-bc94-1b07d9235f4a",
+  "uid": "nemo-aut-repudiandae",
+  "type": "galleryimage",
+  "data": {
+    "imageitem": {
+      "dimensions": {
+        "width": null,
+        "height": null
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=null&h=null&fit=crop"
+    },
+    "imagetag": [
+      {
+        "type": "paragraph",
+        "text": "Dolor aute in tempor officia fugiat ipsum. Exercitation consequat non enim tempor fugiat tempor do amet ex mollit cupidatat velit ut irure mollit. Exercitation laborum velit pariatur proident.",
+        "spans": []
+      }
+    ]
+  }
+}

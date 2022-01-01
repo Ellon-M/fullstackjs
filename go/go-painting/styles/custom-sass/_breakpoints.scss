@@ -6,7 +6,7 @@ $breakpoints: (
   "xxs": 300px,
   "xss": 330px,
   "xs": 359px,
-  "xms": 375px,
+  "xms": 374px,
   "xbs": 395px,
   "xsm": 415px,
   "sm": 450px,
@@ -16,6 +16,7 @@ $breakpoints: (
   "smd": 641px,
   "sml": 680px,
   "md": 760px,
+  "mdx": 800px,
   "mdl": 860px,
   "lg": 980px,
   "lgc": 981px,
@@ -23,6 +24,7 @@ $breakpoints: (
   "lgx": 1120px,
   "lx": 1180px,
   "xl": 1300px,
+  "xgl": 1367px,
   "xxl": 1580px,
   "sxl": 1900px,
   "ssl": 2280px,
@@ -76,7 +78,7 @@ $breakpoints: (
 
 // extra mid small (buffer)
 @mixin xbs {
-  @media (max-width: map-get($breakpoints, "xbs")) {
+  @media (max-width: map-get($breakpoints, "xbs")) and (min-width: map-get($breakpoints, "xms")) {
     @content;
   }
 }
@@ -119,16 +121,46 @@ $breakpoints: (
   }
 }
 
+@mixin ssmd {
+  @media (max-width: map-get($breakpoints, "ssm")) and (min-width: map-get($breakpoints, "sms")) and (min-height: map-get($breakpoints, "sm")){
+    @content;
+  }
+}
+
+@mixin ssmm {
+  @media (max-width: map-get($breakpoints, "smm")) and (min-width: map-get($breakpoints, "ssm")) and (min-height: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin smmm {
+  @media (max-width: map-get($breakpoints, "sms")) and (min-width: map-get($breakpoints, "sm")) and (min-height: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin smsm {
+  @media (max-width: map-get($breakpoints, "sm")) and (min-width: map-get($breakpoints, "xsm")) and (min-height: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin smdm {
+  @media (max-width: map-get($breakpoints, "md")) and (min-width: map-get($breakpoints, "smm")) and (min-height: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
 // sm mid
 @mixin smm {
-  @media (max-width: map-get($breakpoints, "smm")) {
+  @media (max-width: map-get($breakpoints, "smm")) and (min-height: map-get($breakpoints, "sm")) {
     @content;
   }
 }
 
 // sm mid
 @mixin sml {
-  @media (max-width: map-get($breakpoints, "sml")) and (max-height: map-get($breakpoints, "lg")) {
+  @media (max-width: map-get($breakpoints, "sml")) and (max-height: map-get($breakpoints, "lg")) and (min-height: map-get($breakpoints, "sm")) {
     @content;
   }
 }
@@ -157,7 +189,7 @@ $breakpoints: (
 
 // mid large
 @mixin mdl {
-  @media (max-width: map-get($breakpoints, "lg")) {
+  @media (max-width: map-get($breakpoints, "lg")) and (min-height: map-get($breakpoints, "sm")) {
     @content;
   }
 }
@@ -169,8 +201,14 @@ $breakpoints: (
   }
 }
 
+@mixin lgmw {
+  @media (max-width: map-get($breakpoints, "lx")) and (min-height: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
 @mixin lgw {
-  @media (max-width: map-get($breakpoints, "lx"))  and (max-height: map-get($breakpoints, "smm")) {
+  @media (max-width: map-get($breakpoints, "lx")) and  (min-width: map-get($breakpoints, "lgc")) and (max-height: map-get($breakpoints, "smm")) and (min-height: map-get($breakpoints, "sm")) {
     @content;
   }
 }
@@ -238,12 +276,17 @@ $breakpoints: (
   }
 } 
 
+@mixin mpx {
+  @media (max-height: map-get($breakpoints, "lgp")) and (max-width: map-get($breakpoints, "mdx")) and (min-width: map-get($breakpoints, "md")) and (min-height: map-get($breakpoints, "sm")) {
+    @content;
+  }
+} 
+
 @mixin mxx {
   @media (min-height: map-get($breakpoints, "lg")) and (min-width: map-get($breakpoints, "xl")) {
     @content;
   }
 } 
-
 
 @mixin xlh {
   @media (min-height: map-get($breakpoints, "xl")) and (max-width: map-get($breakpoints, "xxl")) and (max-height: map-get($breakpoints, "lx")) {
@@ -278,9 +321,28 @@ $breakpoints: (
   }
 }
 
+@mixin smdx {
+  @media (max-width: map-get($breakpoints, "smd")) {
+    @content;
+  }
+}
+
+
 @mixin ssh {
   @media (max-height: map-get($breakpoints, "sml")) and (min-height: map-get($breakpoints, "sms")) and (max-width: map-get($breakpoints, "sms")) and (min-width: map-get($breakpoints, "xxs"))   {
     @content;
+  }
+}
+
+@mixin xhm {
+  @media (min-height: map-get($breakpoints, "mdx")) and (max-width: map-get($breakpoints, "xbs")) {
+    @content
+  }
+}
+
+@mixin xgl {
+  @media (min-height: map-get($breakpoints, "xgl"))  {
+    @content
   }
 }
 

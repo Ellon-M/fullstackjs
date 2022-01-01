@@ -1,0 +1,31 @@
+{
+  "id": "aboutus",
+  "label": "AboutUs",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "what-we-do"
+        }
+      },
+      "about-details": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "preformatted,heading1,heading2,heading3,heading4,heading5,heading6,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "about-details"
+        }
+      },
+      "about-image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "about-image"
+        }
+      }
+    }
+  },
+  "status": true
+}

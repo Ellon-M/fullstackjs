@@ -15,8 +15,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "outDir": "pages/js"
+    "outDir": "pages/js",
+    "useUnknownInCatchVariables": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "prismicConfiguration.ts", "utils/prismichelpers.js"],
   "exclude": ["node_modules"]
 }

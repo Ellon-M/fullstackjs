@@ -1,4 +1,4 @@
-import React, {FunctionComponent, memo, useState, FC} from 'react'
+import React, {memo, useState, FC} from 'react'
 import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import Image from 'next/image'
 import Link from 'next/link'
@@ -33,6 +33,8 @@ const RightTitle: FC<RightTitleProps> = ({
     )
 }
 
+// TODO //
+
 const Overlay: FC<RightcardProps> = ({
     isOpened,
     setIsOpened
@@ -64,7 +66,9 @@ const Rightcard = memo(({
         }
     }
 
-    // TODO
+    // TODO //
+
+    
     const checkTapToDismiss = () => {
 
     }
@@ -84,8 +88,8 @@ const Rightcard = memo(({
     }
 
     return ( 
+        <AnimatePresence>
         <div className='card-item'>
-            <AnimatePresence>
             <Overlay isOpened={isOpened}/>
             <motion.div 
             className={`right-card-container ${isOpened && "open"}`} 
@@ -163,8 +167,8 @@ const Rightcard = memo(({
             }
             </motion.article>
         </motion.div>
-    </AnimatePresence>
         </div> 
+        </AnimatePresence>
     );
 })
  

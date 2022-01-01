@@ -1,6 +1,6 @@
 // top card in smaller screens
 
-import { FunctionComponent, FC, memo, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,7 +9,7 @@ import bucketIcon from '../public/paint-bucket-icon.png'
 import toIcon from '../public/back1rev.png'
 
 interface LeftCardProps {
-    pointOfInterest?: number;
+    pointOfInterest?: number
     isOpened?: boolean,
     setIsOpened?: void
 }
@@ -33,6 +33,8 @@ const LeftTitle: FC<LeftTitleProps> = ({
         </div>
     )
 }
+
+// TODO //
 
 const Overlay: FC<LeftCardProps> = ({
     isOpened,
@@ -66,7 +68,8 @@ const LeftCard = memo(({
         }
     }
 
-    // TODO
+    // TODO //
+
     const checkTapToDismiss = () => {
 
     }
@@ -171,5 +174,4 @@ const LeftCard = memo(({
 }
 );
 
- 
 export default memo(LeftCard);

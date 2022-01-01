@@ -1,0 +1,23 @@
+{
+  "slices": {
+    "GalleryItem": {
+      "default-slice": {
+        "primary": {},
+        "items": {
+          "gallery-tags": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "gallery-image": {
+            "content": "https://images.unsplash.com/photo-1502691876148-a84978e59af8"
+          }
+        }
+      }
+    }
+  },
+  "_cts": {
+    "galleryimage": {}
+  }
+}
