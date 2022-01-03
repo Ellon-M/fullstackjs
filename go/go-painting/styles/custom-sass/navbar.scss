@@ -5,6 +5,8 @@
     height: 10vh;
     z-index: 10;
     background-color: white;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.404);
+    box-shadow: rgb(82, 81, 81);
 }
 
 .home-navbar {
@@ -171,6 +173,27 @@
     }
 }
 
+@include breakpoints.xmh {
+    .nav-wrap {
+        position: relative;
+        height: 17vh;
+        z-index: 10;
+        background-color: white;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.404);
+        box-shadow: rgb(82, 81, 81);
+    }
+}
+
+@include breakpoints.lghx {
+    .nav-wrap {
+        position: relative;
+        height: 8vh;
+        z-index: 10;
+        background-color: white;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.404);
+        box-shadow: rgb(82, 81, 81);
+    }
+}
 
 
 

@@ -2,14 +2,17 @@ import React, { FunctionComponent, useState, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+
 const { Collapse } = require('react-burgers')
 const { motion, AnimatePresence } = require('framer-motion')
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 const { Transition } = require('react-transition-group')
 import 'animate.css'
 
 import logo from '../public/gologo2.png'
 import { layoutVariants } from '../utils/layoutvariants';
 import { slider } from '../utils/slidervariants';
+
 
 interface Props {
     
@@ -27,9 +30,20 @@ const Layout: FunctionComponent <Props> = () => {
         setIsActive(false);
         }
     }
+
+const targetElement: Element = document.querySelector('body') as HTMLBodyElement;
+
+if (isActive) {
+    disableBodyScroll(targetElement);
+}
+else if (!isActive) {
+    enableBodyScroll(targetElement);
+}
+
+
    
     return ( 
-    <motion.div className="nav-wrap" variants={layoutVariants} initial={layoutVariants.initial} exit={layoutVariants.exit} >
+    <motion.div className="nav-wrap" variants={layoutVariants} initial={layoutVariants.initial} animate={layoutVariants.animate} exit={layoutVariants.exit} >
       <nav className='home-navbar'>
       <div className='hamburger-wrap'>
                 <a onClick={toggleMenu}>
@@ -68,7 +82,7 @@ const Layout: FunctionComponent <Props> = () => {
     </nav>
     <AnimatePresence>
     {isActive && 
-                <motion.section className='menu-slider' variants={slider} initial={slider.initial} animate={slider.show} exit={slider.exit} layout>
+                <motion.section id="menu-slider" className='menu-slider' variants={slider} initial={slider.initial} animate={slider.show} exit={slider.exit} layout>
                     <ul className='nav-links-wrap-menu'>
                          <li className='nav-link-list-menu'>
                              <Link href='/ourservices'><a className='nav-link-menu'>Our Services</a></Link>

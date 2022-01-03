@@ -199,7 +199,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
                 <motion.div className='carousel-inner' variants={carouselInnerVariants} animate=    {controls} exit={carouselInnerVariants.exit}>
                     <Fade triggerOnce>
                   <div className='image-wrap'>
-                    <Image src={landing1} className='landing-image'/>
+                    <Image src={landingfull} className='landing-image'/>
                     </div>
                     </Fade>
                     <Fade triggerOnce>

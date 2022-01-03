@@ -13,7 +13,10 @@ export const linkResolver = (doc:PrismicDocument) => {
     return `/${doc.uid}`;
   }
   else if (doc.type === 'galleryimage') {
-    return `/gallery`;
+    return `/`;
+  }
+  else if (doc.type === 'aboutus') {
+    return `/`;
   }
   return '/';
 }
@@ -22,6 +25,10 @@ export const Router = {
   routes: [
     {
       "type":"galleryimage",
+      "path":"/"
+    },
+    {
+      "type":"aboutus",
       "path":"/"
     },
   ]

@@ -1,1 +1,296 @@
+@use './breakpoints';
 @import 'masonry';
+@import 'colors';
+
+
+#gallery-top {
+   height:5vh;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   display: block;
+   position: sticky;
+   margin-bottom: 20px;
+   margin-top: -10px;
+}
+
+.gallery-heading {
+    align-self: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    background: -webkit-linear-gradient($primary, $secondary);
+    background-clip: unset;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+
+.gallery-image-wrap {
+    max-width: 100%;
+    position: relative;
+}
+
+.gallery-tags-wrap {
+    position: absolute;
+    margin-left: 0vw;
+    margin-top: -6.5vh;
+    z-index: 3;
+    background-color: rgba(204, 204, 204, 0.7);
+    width: auto;
+    padding-right: 30px;
+    padding-left: 20px;
+    border-radius: 0px 20px 20px 0px;
+    overflow: hidden;
+}
+
+.gallery-tags {
+    position: relative;
+    z-index: 3;
+    text-align: right;
+    justify-self: center;
+    font-size: smaller;
+    font-weight: 800;
+}
+
+@include breakpoints.sm {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 8px;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -4vh;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+@include breakpoints.sm {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 7px;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -4.6vh;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+@include breakpoints.xss {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 6px !important;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -5.2vh !important;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+@include breakpoints.xxs {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 6px !important;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -5vh;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+@include breakpoints.xmh {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 9.5px !important;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -13vh !important;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+@include breakpoints.lhx {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 12.5px;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -4vh;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+@include breakpoints.lgh {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 12.5px;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -6vh;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+@include breakpoints.lghx {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 12.5px;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -4.5vh;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+
+@include breakpoints.mdm {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 8px;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -6vh;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}
+
+@include breakpoints.lgnh {
+    .gallery-tags {
+        position: relative;
+        z-index: 3;
+        text-align: right;
+        justify-self: center;
+        font-size: 10px;
+        font-weight: 800;
+    }
+
+    .gallery-tags-wrap {
+        position: absolute;
+        margin-left: 0vw;
+        margin-top: -8vh;
+        z-index: 3;
+        background-color: rgba(204, 204, 204, 0.7);
+        width: auto;
+        padding-right: 30px;
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 0px;
+        overflow: hidden;
+    }
+}

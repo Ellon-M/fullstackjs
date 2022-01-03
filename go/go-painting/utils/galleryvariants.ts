@@ -1,6 +1,6 @@
 export const galleryVariants = {
     initial: {
-        y: -1000,
+        y: 1000,
         scale: 1
       },
       animate: {
@@ -15,6 +15,7 @@ export const galleryVariants = {
       exit: {
           y: -1000,
           scale: 0.7,
+          opacity: 0,
           transition: {
               ease: 'easeInOut',
               duration: 0.4

@@ -1,10 +1,22 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import Landing from '../components/landing'
-import Layout from '../components/layout'
+import dynamic from 'next/dynamic'
+import React, {FunctionComponent} from 'react';
+import { client }  from '../utils/prismichelpers';
+import { GetStaticProps } from 'next';
 
-const Home: NextPage = () => {
+import Landing from '../components/landing'
+import About from '../components/about'
+
+
+const Layout = dynamic(() =>  import('../components/layout'), { ssr: false })
+
+interface Homeprops {
+  aboutContent: any
+}
+
+
+const Home: FunctionComponent<Homeprops> = ({aboutContent}) => {
   return (
     <>
       <Head>
@@ -17,8 +29,20 @@ const Home: NextPage = () => {
       <div className='home-landing'>
       <Landing/>
       </div>
+      <div className='home-about'>
+        <About aboutContent={aboutContent}/>
+      </div>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const aboutContent = await client.getSingle('aboutus');
+  return {
+      props: {
+          aboutContent
+      }
+  }
 }
 
 export default Home

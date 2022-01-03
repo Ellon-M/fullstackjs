@@ -334,17 +334,26 @@ $breakpoints: (
   }
 }
 
+@mixin lgnh {
+  @media (max-width: map-get($breakpoints, "lgp")) and (min-width: map-get($breakpoints, "md")) {
+    @content
+  }
+}
+
 @mixin xhm {
   @media (min-height: map-get($breakpoints, "mdx")) and (max-width: map-get($breakpoints, "xbs")) {
     @content
   }
 }
 
+
+
 @mixin xgl {
   @media (min-height: map-get($breakpoints, "xgl"))  {
     @content
   }
 }
+
 
 @mixin breakpoint($bp: 0) {
     @media (min-width: $bp) {
