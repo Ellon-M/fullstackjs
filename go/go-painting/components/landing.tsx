@@ -27,7 +27,7 @@ import landing3b from '../public/golanding3.jpg'
 import landing3c from '../public/golanding3longish.jpg'
 import landing3d from '../public/golanding3long.jpg'
 import landing3e from '../public/golanding3longer.jpg'
-import landing3f from '../public/golanding3longest.jpg'
+import landing3f from '../public/golanding3longer.jpg'
 
 // logo images
 import logo from '../public/gologo2.png'

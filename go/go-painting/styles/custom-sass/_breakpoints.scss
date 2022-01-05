@@ -241,7 +241,13 @@ $breakpoints: (
 
 // super extra large
 @mixin xxl {
-  @media (min-width: map-get($breakpoints, "sxl")) {
+  @media (min-width: map-get($breakpoints, "xxl")) {
+    @content;
+  }
+} 
+
+@mixin xxlh {
+  @media (min-height: map-get($breakpoints, "xxl")) {
     @content;
   }
 } 

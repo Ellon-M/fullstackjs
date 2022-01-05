@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react'
+import React, { FunctionComponent } from 'react'
 import Masonry from 'react-masonry-css'
 const { motion } = require('framer-motion')
 import Image from 'next/image'
@@ -27,9 +27,12 @@ const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {
         450: 2,
     }
     
+    if (blurredURLs.length === images.length) {
     return (
         <>
+        <div className='gallery-nav'>
         <Layout/>
+        </div>
         <motion.div className="gallery-wrap" variants={galleryVariants} initial={galleryVariants.initial} animate={galleryVariants.animate} exit={galleryVariants.exit}>
         <header id="gallery-top">
             <h2 className='gallery-heading'>Work Gallery</h2>
@@ -37,7 +40,8 @@ const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {
         <Masonry 
         className='my-masonry-grid' columnClassName='my-masonry-grid_column'
         breakpointCols={galleryBreakpoints}>
-            {images.map((image: any, i: number) => {      
+            { 
+            images.map((image: any, i: number) => {      
             return (
             <div className='gallery-image-wrap'>
             <Image src={image.data.imageitem.url} width={image.data.imageitem.dimensions.width}  height={image.data.imageitem.dimensions.height} blurDataURL={blurredURLs[i]} placeholder="blur" ></Image>
@@ -53,6 +57,16 @@ const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {
         </motion.div> 
         </>
     );
+    }
+    else {
+        return (
+            <>
+            <div className="timeout-gallery">
+                <h2 className='timeout-error-msg'>Request timeout. Try again later</h2>
+            </div>
+            </>
+        )
+    }
 }
 
 export const getStaticProps: GetStaticProps = async () => {

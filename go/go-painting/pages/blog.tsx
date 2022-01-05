@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
 
 interface BlogProps {
@@ -25,7 +25,8 @@ const Blog: FunctionComponent<BlogProps> = () => {
         </span>
             </h1>
         </div>
-    </div> );
+    </div>
+     );
 }
  
 export default Blog;

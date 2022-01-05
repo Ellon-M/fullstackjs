@@ -40,7 +40,7 @@
 .landing-image {
     max-width: 100% !important;
     max-height: 90% !important;
-    z-index: -10 !important;
+    z-index: -3 !important;
     overflow: hidden !important;
     object-fit: cover !important;
     background-size: contain !important;
@@ -79,14 +79,14 @@
 
 // smallest width img
 .image-wrap-longest {
-    height: 95vh;
+    height: 105vh;
     display: none;
     overflow: hidden;
 }
 
 // flipped img
 .image-wrap-inv {
-    height: 105vh;
+    height: 115vh;
     display: none;
     overflow: hidden;
 }
@@ -248,14 +248,29 @@
 
 // width breakpoints
 
-// extremely large > 1025px
+// extremely large > 1580px
 @include breakpoints.xxl {
     .image-wrap {
         display: none;
     }
     .image-wrap-full {
-        display: block;
+        display: none !important;
     }
+
+    .over-image {
+        margin-left: 38%;
+        margin-top: -50%;
+    }
+}
+
+@include breakpoints.xxlh {
+    .image-wrap-long {
+        display: none !important;
+    }
+    .image-wrap-inv {
+        display: none !important;
+    }
+
     .over-image {
         margin-left: 38%;
         margin-top: -50%;
@@ -266,6 +281,13 @@
     .over-image {
         margin-left: 42%;
         margin-top: -32%;
+    }
+
+    .image-wrap {
+        display: none;
+    }
+    .image-wrap-full {
+        display: none;
     }
 }
 
@@ -790,7 +812,7 @@
 // At 330px max 
 @include breakpoints.xss {
     .over-image {
-        margin-top: -185%;
+        margin-top: -165%;
         margin-left: -8%;
     }
 
@@ -901,7 +923,7 @@
     .image-wrap-inv {
         display: block;
         width: 100%;
-        height: 95vh;
+        height: 100vh;
     }
 
     .image-wrap-inv-2 {
@@ -944,7 +966,7 @@
     .image-wrap-inv {
         display: block;
         width: 100%;
-        height: 95vh;
+        height: 100vh;
     }
 
     .image-wrap-inv-2 {
@@ -982,7 +1004,7 @@
     .image-wrap-inv {
         display: block;
         width: 100%;
-        height: 95vh;
+        height: 100vh;
     }
 
     .image-wrap-inv-2 {

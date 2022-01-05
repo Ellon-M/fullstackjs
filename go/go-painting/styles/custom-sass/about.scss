@@ -41,7 +41,7 @@
     justify-content: right;
     margin-left: 5vw;
     margin-top: 0%;
-    z-index: -1;
+    z-index: -5;
     opacity: 0.6;
     border-radius: 0 0 0 30px;
     filter: brightness(109%);
@@ -89,7 +89,7 @@
         justify-content: right;
         margin-left: 5vw;
         margin-top: 0%;
-        z-index: -1;
+        z-index: -5;
         opacity: 1;
         border-radius: 0 0 0 30px;
         filter: brightness(109%);
@@ -124,7 +124,7 @@
         justify-content: right;
         margin-left: 5vw;
         margin-top: 0%;
-        z-index: -1;
+        z-index: -5;
         opacity: 0.6;
         border-radius: 0 0 0 30px;
         filter: brightness(109%);
@@ -162,7 +162,7 @@
         justify-content: right;
         margin-left: 2vw;
         margin-top: 0%;
-        z-index: -1;
+        z-index: -5;
         opacity: 0.6;
         border-radius: 0 0 0 30px;
         filter: brightness(109%);
@@ -194,7 +194,7 @@
         max-width: 120% !important;
         margin-left: 45vw;
         margin-top: -105vh !important;
-        z-index: -1;
+        z-index: -5;
         opacity: 0.25;
         border-radius: 0 0 0 30px;
         filter: brightness(109%);
@@ -202,14 +202,47 @@
     }
 } 
 
+
+@include breakpoints.xhm {
+    .about-wrap {
+        display: block;
+    }
+
+    .blob-about {
+        display: none;
+    }
+
+    .about-us-details {
+        max-width: 70% !important;
+        margin-left: 3vw;
+    }
+
+    .about-us-text {
+        display: table;
+        font-weight: 300;
+        font-size: 18px;
+    }
+    .about-us-image {
+        position: absolute;
+        max-width: 120% !important;
+        margin-left: 45vw;
+        margin-top: -90vh !important;
+        z-index: -5;
+        opacity: 0.25;
+        border-radius: 0 0 0 30px;
+        filter: brightness(109%);
+        overflow: hidden;
+    }
+}
+
 @include breakpoints.xxs {
 
     .about-us-image {
         position: absolute;
         max-width: 120% !important;
         margin-left: 45vw;
-        margin-top: -120vh !important;
-        z-index: -1;
+        margin-top: -130vh !important;
+        z-index: -5;
         opacity: 0.25;
         border-radius: 0 0 0 30px;
         filter: brightness(109%);
@@ -224,7 +257,7 @@
         max-width: 120% !important;
         margin-left: 45vw;
         margin-top: -120vh !important;
-        z-index: -1;
+        z-index: -5;
         opacity: 0.25;
         border-radius: 0 0 0 30px;
         filter: brightness(109%);
@@ -269,7 +302,7 @@
         justify-content: right;
         margin-left: 5vw;
         margin-top: 0%;
-        z-index: -1;
+        z-index: -5;
         opacity: 1;
         border-radius: 0 0 0 30px;
         filter: brightness(109%);
@@ -293,7 +326,7 @@
         justify-content: right;
         margin-left: 5vw;
         margin-top: 0%;
-        z-index: -1;
+        z-index: -5;
         opacity: 1;
         border-radius: 0 0 0 30px;
         filter: brightness(109%);

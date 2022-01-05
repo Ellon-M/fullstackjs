@@ -1,15 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import React, {FunctionComponent, useState} from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { client }  from '../utils/prismichelpers';
 import { GetStaticProps } from 'next';
 import FloatingWhatsApp from 'react-floating-whatsapp'
 
 import Landing from '../components/landing'
 import About from '../components/about'
-import { ChildButton, MainButton, FloatingMenu, Directions
- } from '../utils/react-floating-button/src';
 
 const Layout = dynamic(() =>  import('../components/layout'), { ssr: false })
 const FloatingWidget = dynamic(() =>  import('../components/floatingwidget'), { ssr: false })
@@ -20,7 +18,6 @@ interface Homeprops {
 
 
 const Home: FunctionComponent<Homeprops> = ({aboutContent}) => {
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
