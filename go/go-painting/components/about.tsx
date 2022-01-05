@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react'
-import { Fade, AttentionSeeker } from 'react-awesome-reveal'
+import { Fade, AttentionSeeker,Zoom } from 'react-awesome-reveal'
 import {LoremIpsum} from 'react-lorem-ipsum'
 import Image from 'next/image';
+import Link from 'next/link'
 import * as prismic from '@prismicio/client';
 import { PrismicRichText } from "@prismicio/react";
 
@@ -12,8 +13,6 @@ interface AboutProps {
 }
  
 const About: FunctionComponent<AboutProps> = ({aboutContent}) => {
-    
-    console.log(aboutContent.data['about-image'].url);
     return (
         <div className='about-wrap'>
             <section className='about-us-details'>

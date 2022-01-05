@@ -1,0 +1,283 @@
+@use './breakpoints';
+@import 'colors';
+
+.blog-wrapper {
+    background-image: url('../../public/gocomingsoon2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.coming-soon-text-wrap {
+    max-width: 100%;
+    height: 100vh;
+    margin-top: -6vh;
+    position: relative;
+
+}
+
+.coming-soon-text {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 2.8rem;
+    opacity: 0.5;
+    text-align: center;
+    margin-top: 30vh;
+    margin-left: 52vh;
+    position: absolute;
+    letter-spacing: 0.45em;
+    max-width: 45%;
+}
+
+@include breakpoints.lx {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 2.8rem;
+        opacity: 0.5;
+        text-align: center;
+        margin-top: 30vh;
+        margin-left:30vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 55%;
+    }
+}
+
+@include breakpoints.lxm {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 2.8rem;
+        opacity: 0.5;
+        text-align: center;
+        margin-top: 30vh;
+        margin-left:24vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 55%;
+    }
+}
+
+@include breakpoints.xlm {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 3rem;
+        opacity: 0.5;
+        text-align: center;
+        margin-top: 30vh;
+        margin-left:36vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 55%;
+    }
+}
+
+
+@include breakpoints.lg {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 2.8rem;
+        opacity: 0.5;
+        text-align: center;
+        margin-top: 30vh;
+        margin-left:35vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 55%;
+    }
+}
+
+@include breakpoints.mdl {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 2.2rem;
+        opacity: 0.5;
+        text-align: center;
+        margin-top: 30vh;
+        margin-left:24vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 60%;
+    }
+}
+
+@include breakpoints.md {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 2.1rem;
+        opacity: 0.5;
+        text-align: center;
+        margin-top: 33vh;
+        margin-left:18vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 60%;
+    }
+}
+
+@include breakpoints.smdx {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 2.1rem;
+        opacity: 0.5;
+        text-align: center;
+        margin-top: 33vh;
+        margin-left:7vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 80%;
+    }
+}
+
+@include breakpoints.ssm {
+    .blog-wrapper {
+        background-image: url('../../public/go-wave-small.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.4rem;
+        opacity: 0.7;
+        text-align: center;
+        margin-top: 33vh;
+        margin-left:7.5vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 80%;
+    }
+
+}
+
+@include breakpoints.xms {
+    .blog-wrapper {
+        background-image: url('../../public/go-wave-small.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.5rem;
+        opacity: 0.7;
+        text-align: center;
+        margin-top: 33vh;
+        margin-left:3.5vh !important;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 80%;
+    }
+}
+
+@include breakpoints.xsm {
+    .blog-wrapper {
+        background-image: url('../../public/go-wave-small.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.7rem;
+        opacity: 0.7;
+        text-align: center;
+        margin-top: 33vh;
+        margin-left:5.5vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 80%;
+    }
+
+}
+
+@include breakpoints.xss {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.3rem;
+        opacity: 0.7;
+        text-align: center;
+        margin-top: 33vh;
+        margin-left:5.5vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 80%;
+    }
+}
+
+@include breakpoints.xxs {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1rem;
+        opacity: 0.7;
+        text-align: center;
+        margin-top: 33vh;
+        margin-left:4.5vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 80%;
+    }
+
+}
+
+@include breakpoints.xhm {
+    .blog-wrapper {
+        background-image: url('../../public/go-wave-small.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.6rem;
+        opacity: 0.7;
+        text-align: center;
+        margin-top: 35vh;
+        margin-left:4vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 80%;
+    }
+
+}
+
+@include breakpoints.lghx {
+    .coming-soon-text {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 2.8rem;
+        opacity: 0.7;
+        text-align: center;
+        margin-top: 35vh;
+        margin-left:8vh;
+        position: absolute;
+        letter-spacing: 0.45em;
+        max-width: 80%;
+    }
+}

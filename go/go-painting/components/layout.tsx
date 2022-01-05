@@ -69,10 +69,10 @@ else if (!isActive) {
                 <Link href='/gallery'><a className='nav-link'>Work Gallery</a></Link>
             </li>
             <li className='nav-link-list'>
-                <Link href=''><a className='nav-link'>Blog</a></Link>
+                <Link href='/blog'><a className='nav-link'>Blog</a></Link>
             </li>
             <li className='nav-link-list'>
-                <Link href=''><a className='nav-link'>Shop</a></Link>
+                <Link href='/shop'><a className='nav-link'>Shop</a></Link>
             </li>
             <li className='nav-link-list'>
                 <Link href='/contactus'><a className='nav-link'>Contact us</a></Link>

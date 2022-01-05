@@ -11,9 +11,11 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@material-ui/icons": "^4.11.2",
     "@prismicio/client": "^6.0.0-beta.5",
     "@prismicio/helpers": "^2.0.0-beta.8",
     "@prismicio/react": "^2.0.2",
+    "@types/styled-components": "^5.1.19",
     "animate.css": "^4.1.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "framer-motion": "^5.1.0",
@@ -32,14 +34,19 @@
     "react-awesome-reveal": "^3.8.1",
     "react-burgers": "^1.3.0",
     "react-dom": "17.0.2",
+    "react-floating-whatsapp": "^4.0.5",
     "react-grid-gallery": "^0.5.5",
     "react-intersection-observer": "^8.33.1",
     "react-lorem-ipsum": "^1.4.9",
     "react-masonry-css": "^1.0.16",
     "react-responsive-carousel": "^3.2.22",
+    "react-simple-typewriter": "^3.0.1",
+    "react-sticky-el": "^2.0.9",
+    "react-tiny-fab": "^4.0.4",
     "react-transition-group": "^4.4.2",
     "sass": "^1.45.0",
-    "sharp": "^0.29.3"
+    "sharp": "^0.29.3",
+    "styled-components": "^4.1.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

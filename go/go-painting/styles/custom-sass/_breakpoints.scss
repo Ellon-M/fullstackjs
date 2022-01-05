@@ -220,9 +220,21 @@ $breakpoints: (
   }
 }
 
+@mixin lxm {
+  @media (max-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+}
+
 // extra large
 @mixin xl {
   @media (min-width: map-get($breakpoints, "xl")) and (max-height: map-get($breakpoints, "lg")) and (max-width: map-get($breakpoints, "sxl")) {
+    @content;
+  }
+}
+
+@mixin xlm {
+  @media (min-width: map-get($breakpoints, "xl")) and (max-width: map-get($breakpoints, "sxl")) {
     @content;
   }
 }

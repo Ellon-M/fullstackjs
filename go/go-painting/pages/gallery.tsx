@@ -2,12 +2,11 @@ import React, {FunctionComponent} from 'react'
 import Masonry from 'react-masonry-css'
 const { motion } = require('framer-motion')
 import Image from 'next/image'
-import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import * as prismic from '@prismicio/client';
 import { PrismicRichText } from "@prismicio/react";
 import { client }  from '../utils/prismichelpers';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, GetServerSideProps } from 'next';
 import { getPlaiceholder } from 'plaiceholder';
 import { galleryVariants } from '../utils/galleryvariants'
 
@@ -60,6 +59,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const images = await client.getAllByType("galleryimage");
 
+    if (!images) {
+        alert('The gallery currently has no images');
+    }
+
     const getTransformedImage: () => Promise<Array<string>> = async () => {
         const blur64Images: Array<string> = [];
         return new Promise(async(resolve) => {
@@ -76,7 +79,7 @@ export const getStaticProps: GetStaticProps = async () => {
         const promises: Array<Promise<Array<string>>> = [];
 
         for (const image of images) {
-            promises.push(getTransformedImage());
+             promises.push(getTransformedImage());
         }
 
         const blurredImages = await Promise.all(promises).then(
