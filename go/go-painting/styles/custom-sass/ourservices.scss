@@ -1,10 +1,14 @@
 @use './breakpoints';
 @import 'colors';
 
+.services-wrapper {
+    max-height: 80vh;
+    max-width: 100%;
+}
 
 .our-services-top {
     width: 100%;
-    max-width: 100vw;
+    max-width:  95vw;
     height: 10vh;
     margin-left: 1.5rem;
     position: relative;
@@ -49,6 +53,7 @@
     display: table;
     grid-template-columns: auto auto;
     width: 100%;
+    height: 100vh;
 }
 
 
@@ -74,7 +79,7 @@
 .card-item {
     position: relative;
     max-width: 100%;
-    height: 100%;
+    height: 50%;
 }
 
 
@@ -226,7 +231,7 @@
       @extend .right-card-container;
       position: fixed !important;
       height: 80vh !important;
-      margin-left: 0% !important;
+      margin-left: 3% !important;
       margin-top: 2.5vh;
       margin-bottom: 5vh;
       background-image: url('../../public/tp-paintingbg.png');
@@ -473,7 +478,7 @@
             width: 65%;  
             position: absolute !important;
             height: 80vh !important;
-            margin-left: 70% !important;
+            margin-left: 65% !important;
             margin-top: -45vh;
             margin-bottom: 5vh;
             background-image: url('../../public/tp-paintingbg.png');
@@ -1012,7 +1017,7 @@
             width: 85% !important;
             position: fixed !important;
             height: 80vh !important;
-            margin-left: 115% !important;
+            margin-left: 120% !important;
             margin-top: -40vh !important;
             margin-bottom: 5vh;
             background-image: url('../../public/tp-paintingbg.png');
@@ -1079,7 +1084,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 128% !important;
+        margin-left: 135% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1335,7 +1340,7 @@
         width: 75% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 25% !important;
+        margin-left: 35% !important;
         margin-top: 10vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1392,7 +1397,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 124% !important;
+        margin-left: 130% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1559,7 +1564,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 160% !important;
+        margin-left: 170% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1627,7 +1632,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 144% !important;
+        margin-left: 150% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1690,7 +1695,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 90% !important;
+        margin-left: 94% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1747,7 +1752,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 85% !important;
+        margin-left: 95% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1804,7 +1809,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 100% !important;
+        margin-left: 110% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1861,7 +1866,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 112% !important;
+        margin-left: 122% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -1918,7 +1923,7 @@
         width: 80% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 77% !important;
+        margin-left: 87% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -2039,7 +2044,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 65% !important;
+        margin-left: 68% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -2274,7 +2279,7 @@
         width: 85% !important;
         position: fixed !important;
         height: 80vh !important;
-        margin-left: 52% !important;
+        margin-left: 53% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
         background-image: url('../../public/tp-paintingbg.png');
@@ -2347,7 +2352,7 @@
           width: 60%;
           position: fixed !important;
           height: 80vh !important;
-          margin-left: 12% !important;
+          margin-left: 5% !important;
           margin-top: 2.5vh;
           margin-bottom: 5vh;
           background-image: url('../../public/tp-paintingbg.png');

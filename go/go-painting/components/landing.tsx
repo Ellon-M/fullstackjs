@@ -248,10 +248,10 @@ const Landing: FunctionComponent<LandingProps> = () => {
                     </Zoom>
                     <div className='button-group'>
                     <Zoom cascade triggerOnce delay={1200} duration={600}>
-                    <Link href=''>
+                    <Link href='/contactus'>
                         <a className='landing-button-1' onClick={toggle}>Contact Us</a>
                     </Link>
-                    <Link href=''>
+                    <Link href='/ourservices'>
                         <a className='landing-button-2'>Our Services</a>
                     </Link>
                     </Zoom>
@@ -286,10 +286,10 @@ const Landing: FunctionComponent<LandingProps> = () => {
                     <Bounce cascade triggerOnce duration={1000}>
                     <p className="legend-main-2">Guaranteed of Quality workmanship and Durability</p>
                     <div className='button-group-2'>
-                    <Link href=''>
+                    <Link href='/contactus'>
                         <a id='landing-2-button-1' onClick={toggle}>Contact Us</a>
                     </Link>
-                    <Link href=''>
+                    <Link href='/ourservices'>
                         <a id='landing-2-button-2'>Our Services</a>
                     </Link>
                     </div>
@@ -326,10 +326,10 @@ const Landing: FunctionComponent<LandingProps> = () => {
                     </AttentionSeeker>
                     <div className='button-group-2'>
                     <JackInTheBox cascade triggerOnce>
-                    <Link href=''>
+                    <Link href='/contactuss'>
                         <a id='landing-2-button-1' onClick={toggle}>Contact Us</a>
                     </Link>
-                    <Link href=''>
+                    <Link href='/ourservices'>
                         <a id='landing-2-button-2' ref={unmountRef}>Our Services</a>
                     </Link>
                     </JackInTheBox>

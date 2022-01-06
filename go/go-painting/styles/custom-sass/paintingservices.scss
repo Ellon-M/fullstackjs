@@ -1,0 +1,741 @@
+@use './breakpoints';
+@import 'colors';
+
+.service-layout {
+    width: 100%;
+    height: 70px;
+    max-height: 10%;
+    z-index: 2000;
+    position: relative;
+    background-color: white;
+    position: fixed;
+  }
+
+.painting-services-wrap {
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    height: 100vh;
+}
+
+.side-heading {
+    color: #222222;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-align: center;
+}
+
+.side-links {
+    height: 100vh;
+    float: right;
+    width: 20vw;
+    padding: 1rem;
+    margin-top: 10vh;
+}
+
+.side-content {
+    text-align: center;
+    line-height: 20px;
+}
+
+.sec-center {
+    position: relative;
+    max-width: 100%;
+    text-align: center;
+    z-index: 200;
+  }
+
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sec-center {
+    text-align: left;
+    margin-left: 0;
+    
+}
+
+.dropdown:checked + label,
+.dropdown:not(:checked) + label{
+  position: relative;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  border-radius: 4px;
+  width: 18vw;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  color: black;
+  box-shadow: 0 12px 35px 0 rgba(255,235,167,.15);
+  
+}
+
+.dropdown-mui {
+    margin-right: 10px;
+}
+
+.dark-light:checked ~ .sec-center .for-dropdown{
+  background-color: #102770;
+  color: #ffeba7;
+  box-shadow: 0 12px 35px 0 rgba(16,39,112,.25);
+  text-align: center;
+}
+.dropdown:checked + label:before,
+.dropdown:not(:checked) + label:before{
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  cursor: auto;
+  pointer-events: none;
+}
+.dropdown:checked + label:before{
+  pointer-events: auto;
+}
+.dropdown:not(:checked) + label .uil {
+  font-size: 24px;
+  margin-left: 10px;
+  transition: transform 100ms linear;
+}
+.dropdown:checked + label .uil {
+  transform: rotate(180deg);
+  font-size: 24px;
+  margin-left: 10px;
+  transition: transform 100ms linear;
+}
+.section-dropdown {
+  position: absolute;
+  padding: 5px;
+  background-color: rgba(193, 252, 229,.21);
+  top: 70px;
+  left: 0;
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+  box-shadow: 0 14px 35px 0 rgba(9,9,12,0.4);
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 200ms linear;
+  -webkit-backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(3px);
+}
+.dark-light:checked ~ .sec-center .section-dropdown {
+  background-color: #fff;
+  box-shadow: 0 14px 35px 0 rgba(9,9,12,0.15);
+}
+.dropdown:checked ~ .section-dropdown{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.section-dropdown:before {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  content: '';
+  display: block;
+  z-index: 1;
+}
+.section-dropdown:after {
+  position: absolute;
+  top: -7px;
+  left: 30px;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent; 
+  border-bottom: 8px solid #111;
+  content: '';
+  display: block;
+  z-index: 2;
+  transition: all 200ms linear;
+}
+.dark-light:checked ~ .sec-center .section-dropdown:after {
+  border-bottom: 8px solid #fff;
+}
+
+#dropdown-links {
+  position: relative;
+  color: black;
+  transition: all 200ms linear;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 2px;
+  padding: 15px 0;
+  padding-left: 20px;
+  padding-right: 15px;
+  margin-bottom: 32px;
+  text-align: left;
+  text-decoration: none;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: space-between;
+    -ms-flex-pack: distribute;
+}
+.dark-light:checked ~ .sec-center .section-dropdown a {
+  color: #102770;
+}
+#dropdown-links:hover {
+  color: #102770;
+  background-color: $primary;
+}
+.dark-light:checked ~ .sec-center .section-dropdown a:hover {
+  color: $primary;
+  background-color: #102770;
+}
+a .uil {
+  font-size: 22px;
+}
+.dropdown-sub:checked + label,
+.dropdown-sub:not(:checked) + label{
+  position: relative;
+  color: black;
+  transition: all 200ms linear;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 2px;
+  padding: 5px 0;
+  padding-left: 20px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  text-align: left;
+  text-decoration: none;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: space-between;
+    -ms-flex-pack: distribute;
+    cursor: pointer;
+}
+.dropdown-sub:checked + label .uil,
+.dropdown-sub:not(:checked) + label .uil{
+  font-size: 20px;
+}
+.dropdown-sub:not(:checked) + label .uil {
+  transition: transform 200ms linear;
+}
+.dropdown-sub:checked + label .uil {
+  transform: rotate(135deg);
+  transition: transform 200ms linear;
+}
+.dropdown-sub:checked + label:hover,
+.dropdown-sub:not(:checked) + label:hover{
+  color: #102770;
+  background-color: $primary;
+}
+.dark-light:checked ~ .sec-center .section-dropdown .for-dropdown-sub{
+  color: #102770;
+}
+.dark-light:checked ~ .sec-center .section-dropdown .for-dropdown-sub:hover{
+  color: $primary;
+  background-color: #102770;
+}
+
+.section-dropdown-sub {
+  position: relative;
+  display: block;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0;
+  max-height: 0;
+  padding-left: 10px;
+  padding-right: 3px;
+  overflow: hidden;
+  transition: all 200ms linear;
+}
+.dropdown-sub:checked ~ .section-dropdown-sub{
+  pointer-events: auto;
+  opacity: 1;
+  max-height: 999px;
+}
+.section-dropdown-sub a {
+  font-size: 14px;
+}
+.section-dropdown-sub a .uil {
+  font-size: 20px;
+}
+.logo {
+	position: fixed;
+	top: 50px;
+	left: 40px;
+	display: block;
+	z-index: 11000000;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+	transition: all 250ms linear;
+}
+.logo:hover {
+  background-color: transparent;
+}
+.logo img {
+	height: 26px;
+	width: auto;
+	display: block;
+  transition: all 200ms linear;
+}
+.dark-light:checked ~ .logo img{
+  filter: brightness(10%);
+}
+
+@media screen and (max-width: 991px) {
+.logo {
+	top: 30px;
+	left: 20px;
+}
+.dark-light:checked + label,
+.dark-light:not(:checked) + label{
+  top: 20px;
+  right: 20px;
+}
+}
+  
+  .service-details {
+      width: 78vw;
+      display: table-cell;
+  }
+  
+  .service-heading {
+      font-size: 135px;
+      font-weight: 800;
+      text-align: center;
+      padding-right: 15px;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: -2px !important;
+      margin-top: 80px !important;
+  
+      &-2 {
+          margin-top: 0;
+          font-size: 40px;
+          font-weight: 500;
+          text-align: right;
+          padding-right: 55px;
+          letter-spacing: -0.01em;
+          text-transform: uppercase;
+          margin-bottom: 4vh !important;
+      }
+  }
+  
+  
+  
+  .inner-service {
+      display: inline-flex;
+  }
+  
+  .service-image-wrap {
+      width: 45%;
+      height: 60%;
+      float: right;
+      margin-left: 5vw;
+  }
+  
+  .service-main-text {
+      width: 50%;
+      font-weight: 300;
+      font-size: 20px;
+      margin-left: 15px;
+      text-align: justify;
+      margin-top: 0;
+  }
+  
+  .actual-service-image {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 0 0 0 110px;
+  }
+
+  @include breakpoints.lgmw {
+    .service-heading {
+        font-size: 75px;
+        font-weight: 800;
+        text-align: center;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        margin-bottom: -2px !important;
+        margin-top: 100px !important;
+        width: 100%;
+    
+        &-2 {
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: right;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            margin-bottom: 4vh !important;
+        }
+    }
+  }
+
+
+
+
+@include breakpoints.mdl {
+    .side-links {
+        height: 100vh;
+        float: right;
+        width: 30vw;
+        padding: 1rem;
+    }
+
+    .dropdown:checked + label,
+    .dropdown:not(:checked) + label{
+        position: relative;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 2;
+        height: 50px;
+        transition: all 200ms linear;
+        border-radius: 4px;
+        width: 22vw;
+        letter-spacing: 1px;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        text-transform: uppercase;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        color: black;
+        box-shadow: 0 12px 35px 0 rgba(255,235,167,.15);
+}
+
+.service-heading {
+    font-size: 55px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: -2px !important;
+    margin-top: 100px !important;
+    width: 100%;
+
+    &-2 {
+        margin-top: 0;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: right;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        margin-bottom: 4vh !important;
+    }
+}
+}
+
+@include breakpoints.ssm {
+    .painting-services-wrap {
+        background-image: url('../../public/servicesbgsmall.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 100%;
+        height: 100vh;
+    }
+    .side-links {
+        height: 5vh;
+        float: right;
+        width: 80vw;
+        padding: 1rem;
+        background-color: white;
+    }
+
+    .service-heading {
+        font-size: 55px;
+        font-weight: 800;
+        text-align: center;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        margin-bottom: -2px !important;
+        margin-top: 30px !important;
+        width: 100%;
+    
+        &-2 {
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: right;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            margin-bottom: 4vh !important;
+        }
+    }
+    #dropdown-links {
+        position: relative;
+        color: black;
+        transition: all 200ms linear;
+        font-weight: 400;
+        font-size: 14px;
+        border-radius: 2px;
+        padding: 15px 0;
+        margin: 1px 0;
+        padding-left: 15px;
+        text-align: right;
+        text-decoration: none;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: space-between;
+          -ms-flex-pack: distribute;
+      }
+
+      .dropdown:checked + label,
+      .dropdown:not(:checked) + label{
+        position: relative;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 2;
+        height: 50px;
+        transition: all 200ms linear;
+        border-radius: 4px;
+        width: 50vw;
+        letter-spacing: 1px;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        text-transform: uppercase;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        color: #102770;
+        box-shadow: 0 12px 35px 0 rgba(255,235,167,.15);
+      }
+
+
+      .dropdown-sub:checked + label,
+.dropdown-sub:not(:checked) + label{
+  position: relative;
+  color: black;
+  transition: all 200ms linear;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 2px;
+  padding: 5px 0;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  text-align: left;
+  text-decoration: none;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: space-between;
+    -ms-flex-pack: distribute;
+    cursor: pointer;
+}
+
+.dropdown2-mui {
+    margin-left: 15px;
+}
+
+.service-details {
+    width: 100vw;
+}
+
+}
+
+
+@include breakpoints.xsm {
+
+    .painting-services-wrap {
+        background-image: url('../../public/servicesbgsmall.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 100%;
+        height: 100vh;
+    }
+    .side-links {
+        height: 5vh;
+        float: right;
+        width: 80vw;
+        padding: 1rem;
+        background-color: white;
+    }
+
+    #dropdown-links {
+        position: relative;
+        color: black;
+        transition: all 200ms linear;
+        font-weight: 600;
+        font-size: 14px;
+        border-radius: 2px;
+        padding: 15px 0;
+        margin: 1px 0;
+        padding-left: 15px;
+        text-align: right;
+        text-decoration: none;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: space-between;
+          -ms-flex-pack: distribute;
+      }
+
+      .dropdown:checked + label,
+      .dropdown:not(:checked) + label{
+        position: relative;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 2;
+        height: 50px;
+        transition: all 200ms linear;
+        border-radius: 4px;
+        width: 50vw;
+        letter-spacing: 1px;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        text-transform: uppercase;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        color: #102770;
+        box-shadow: 0 12px 35px 0 rgba(255,235,167,.15);
+      }
+
+
+      .dropdown-sub:checked + label,
+.dropdown-sub:not(:checked) + label{
+  position: relative;
+  color: black;
+  transition: all 200ms linear;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 2px;
+  padding: 5px 0;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  text-align: left;
+  text-decoration: none;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: space-between;
+    -ms-flex-pack: distribute;
+    cursor: pointer;
+}
+
+.dropdown2-mui {
+    margin-left: 15px;
+}
+
+.service-details {
+    width: 100vw;
+}
+
+.service-heading {
+    font-size: 55px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: -2px !important;
+    margin-top: 20px !important;
+    width: 100%;
+
+    &-2 {
+        margin-top: 0;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: right;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        margin-bottom: 4vh !important;
+    }
+}
+}
+
+@include breakpoints.xmh {
+    .service-heading {
+        font-size: 55px;
+        font-weight: 800;
+        text-align: center;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        margin-bottom: -2px !important;
+        margin-top: 50px !important;
+        width: 100%;
+    
+        &-2 {
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: right;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            margin-bottom: 4vh !important;
+        }
+    }
+
+
+}
+

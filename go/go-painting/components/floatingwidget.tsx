@@ -39,11 +39,10 @@ const FloatingWidget: FunctionComponent<FloatingWidgetProps> = () => {
     <>
     <Fab
         mainButtonStyles={{background: "linear-gradient(#2BED6D, #2589FF)"}}
-        style={{bottom: 90, right: 10}}
+        style={{bottom: 90, right: 10, zIndex: '0'}}
         icon={ <MdAdd/> }
         event='click'
-        alwaysShowTitle={true}
-        // onClick={toggleFab}
+        alwaysShowTitle={true}  
         >
         <Action
           text="Email"

@@ -7,7 +7,7 @@ interface IndustrialProps {
  
 const Industrial: FunctionComponent<IndustrialProps> = () => {
     return ( 
-        <div>
+        <div className='painting-services-wrap'>
 
         </div> 
     );

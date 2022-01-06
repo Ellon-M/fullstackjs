@@ -14,11 +14,12 @@ const FloatingWidget = dynamic(() =>  import('../components/floatingwidget'), { 
 
 interface Homeprops {
   aboutContent: any
+  whatsappWidget: any
 }
 
 
-const Home: FunctionComponent<Homeprops> = ({aboutContent}) => {
-
+const Home: FunctionComponent<Homeprops> = ({aboutContent, whatsappWidget}) => {
+  console.log(whatsappWidget.data['repeated-notification']);
   return (
     <>
       <Head>
@@ -35,16 +36,29 @@ const Home: FunctionComponent<Homeprops> = ({aboutContent}) => {
         <About aboutContent={aboutContent}/>
       </div>
       <FloatingWidget/>
-      <FloatingWhatsApp phoneNumber='+254706528027' accountName='Ellon' />
+      <FloatingWhatsApp 
+         phoneNumber={`+${whatsappWidget.data['whatsapp-number']}`} 
+         accountName={whatsappWidget.data['whatsapp-username'][0].text}
+         statusMessage={whatsappWidget.data['status-message'][0].text}
+         chatMessage={whatsappWidget.data['chat-message'][0].text}
+         placeholder={whatsappWidget.data['chat-placeholder'][0].text}
+         avatar={whatsappWidget.data['avatar-image'].url}
+         notification={whatsappWidget.data['repeated-notification']}
+         darkMode={whatsappWidget.data['darkmode']} 
+         allowClickAway={true}
+         styles={{zIndex: '12'}}/>
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const aboutContent = await client.getSingle('aboutus');
+  const whatsappWidget = await client.getSingle('whatsapp_widget');
+
   return {
       props: {
-          aboutContent
+          aboutContent,
+          whatsappWidget
       }
   }
 }

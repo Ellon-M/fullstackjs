@@ -55,12 +55,17 @@ else if (!isActive) {
                         />
                 </a>
       </div>
+      <Link href='/'>
       <div className='nav-logo'>
           <Image src={logo} width={125} height={125} className='actual-logo' />
       </div>
+      </Link>
+      <Link href='/'>
       <div className='nav-logo-larger'>
           <Image src={logo as any} width={160} height={160} className='actual-logo' />
       </div>
+      </Link>
+      
       <ul className='nav-links-wrap'>
             <li className='nav-link-list'>
                 <Link href='/ourservices'><a className='nav-link'>Our Services</a></Link>

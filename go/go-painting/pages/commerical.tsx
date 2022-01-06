@@ -6,7 +6,7 @@ interface CommericialProps {
  
 const Commericial: FunctionComponent<CommericialProps> = () => {
     return ( 
-        <div>
+        <div className='painting-services-wrap'>
             
         </div> 
     );

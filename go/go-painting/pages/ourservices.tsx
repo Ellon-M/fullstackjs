@@ -16,7 +16,7 @@ interface Props {
  
 const ourServices: FunctionComponent<Props> = () => {
     return ( 
-    <motion.div variants={servicesVariants} initial={servicesVariants.initial} animate={servicesVariants.animate} exit={servicesVariants.exit}>
+    <motion.div variants={servicesVariants} initial={servicesVariants.initial} animate={servicesVariants.animate} exit={servicesVariants.exit} className="services-wrapper">
         <motion.header className='our-services-top' variants={servicesVariants}>
             <Link href='/'>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="100.000000pt" height="100.000000pt" viewBox="0 0 100.000000 100.000000" preserveAspectRatio="xMidYMid meet" className='our-services-top-icon'>
