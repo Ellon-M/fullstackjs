@@ -704,7 +704,7 @@
 // At 395px (buffer)
 @include breakpoints.xbs {
     .over-image {
-        margin-top: -160%;
+        margin-top: -150%;
         margin-left: -9%;
     }
 }
@@ -712,7 +712,7 @@
 // At 375px max
 @include breakpoints.xms {
     .over-image {
-        margin-top: -170%;
+        margin-top: -140%;
         margin-left: -14%;
     }
 

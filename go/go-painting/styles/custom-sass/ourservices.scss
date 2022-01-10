@@ -2,7 +2,7 @@
 @import 'colors';
 
 .services-wrapper {
-    max-height: 80vh;
+    max-height: 75vh;
     max-width: 100%;
 }
 
@@ -96,6 +96,8 @@
     text-align: center;
     margin-left: 20%;
     margin-top: 20%;
+    z-index: 0;
+    box-shadow: 12px 12px 15px 0px rgba(0,0,0,.55);
 
     &.open {
       @extend .left-card-container;
@@ -106,7 +108,7 @@
       background-image: url('../../public/tp-paintingbg.png');
       background-repeat: no-repeat;
       background-size: cover;
-
+      z-index: 10;
     }
 }
 
@@ -116,6 +118,7 @@
     position: relative;
     justify-items: center;
     overflow: hidden;
+    
 
     &-icon {
         position: absolute;
@@ -212,6 +215,25 @@
 
 }
 
+.ourservices-overlay {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    position: absolute;
+}
+
+.ourservices-overlay-right {
+    height: 100vh;
+    width: 150vw;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    position: absolute;
+    margin-left: -100vw;
+    // margin-top: 100vh;
+}
+
+
 
 // right card styles
 
@@ -226,6 +248,8 @@
     text-align: center;
     margin-left: 15%;
     margin-top: 20%;
+    z-index: 0;
+    box-shadow: 12px 12px 15px 0px rgba(0,0,0,.55);
 
     &.open {
       @extend .right-card-container;
@@ -234,9 +258,10 @@
       margin-left: 3% !important;
       margin-top: 2.5vh;
       margin-bottom: 5vh;
-      background-image: url('../../public/tp-paintingbg.png');
+      background-image: url('../../public/ceilingsbg.png');
       background-repeat: no-repeat;
       background-size: cover;
+      z-index: 10;
     }
 }
 
@@ -476,12 +501,12 @@
 
         &.open {  
             width: 65%;  
-            position: absolute !important;
+            position: fixed !important;
             height: 80vh !important;
             margin-left: 65% !important;
             margin-top: -45vh;
             margin-bottom: 5vh;
-            background-image: url('../../public/tp-paintingbg.png');
+            background-image: url('../../public/ceilingsbg.png');
             background-repeat: no-repeat;
             background-size: cover;
           }
@@ -510,6 +535,25 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    .card-item {
+        position: relative;
+        max-width: 100%;
+        height: 50%;
+    }
+    
+
+    .ourservices-overlay-right {
+        height: 100vh;
+        width: 200vw;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 2;
+        position: absolute;
+        margin-left: -100vw;
+        margin-top: -40vh;
+    }
+    
+    
     
 }
 
@@ -975,7 +1019,7 @@
             margin-top: 2.5vh;
             margin-left: 12vw !important;
             margin-bottom: 5vh;
-            background-image: url('../../public/tp-paintingbg.png');
+            background-image: url('../../public/tp-paintingbg2.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -1020,7 +1064,7 @@
             margin-left: 120% !important;
             margin-top: -40vh !important;
             margin-bottom: 5vh;
-            background-image: url('../../public/tp-paintingbg.png');
+            background-image: url('../../public/ceilingsbg.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -1068,6 +1112,24 @@
                 }
             }
         }
+
+        .ourservices-overlay {
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 2;
+            position: absolute;
+        }
+        
+        .ourservices-overlay-right {
+            height: 100vh;
+            width: 200vw;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 2;
+            position: absolute;
+            margin-left: -100vw;
+            margin-top: -45vh;
+        }
 }
 
 @include breakpoints.xms {
@@ -1087,7 +1149,7 @@
         margin-left: 135% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1343,7 +1405,7 @@
         margin-left: 35% !important;
         margin-top: 10vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1394,15 +1456,16 @@
 
 @include breakpoints.xbs {
     .right-card-container.open {
-        width: 85% !important;
+        width: 80% !important;
         position: fixed !important;
         height: 80vh !important;
         margin-left: 130% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
+        overflow-x: hidden;
     }
 
     .right-card-title-opened {
@@ -1444,7 +1507,7 @@
     
             &-icon {
                 padding: 1.7rem;
-                font-size: 0.8rem;
+                font-size: 1.9rem;
             }
         }
     }
@@ -1555,7 +1618,7 @@
         margin-top: 2.5vh;
         margin-left: 15vw !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/tp-paintingbg2.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1567,7 +1630,7 @@
         margin-left: 170% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1635,7 +1698,7 @@
         margin-left: 150% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1698,7 +1761,7 @@
         margin-left: 94% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1755,7 +1818,7 @@
         margin-left: 95% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1812,7 +1875,7 @@
         margin-left: 110% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1863,19 +1926,19 @@
 
 @include breakpoints.smsm {
     .right-card-container.open {
-        width: 85% !important;
+        width: 80% !important;
         position: fixed !important;
         height: 80vh !important;
         margin-left: 122% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
 
     .right-card-title-opened {
-        font-size: 2.1rem;
+        font-size: 1.7rem;
         font-weight: 300;
         padding-top: 1.5rem;
         position: absolute;
@@ -1900,19 +1963,19 @@
             align-items: flex-end;
             position: absolute;
             opacity: 0.9;
-            margin-left: 60vw;
+            margin-left: 50vw;
         }
     
         &-item {
             padding: 1.5rem;
             text-decoration: none;
-            font-size: 2rem;
+            font-size: 1.5rem;
             text-align: left;
             font-weight: 300;
     
             &-icon {
                 padding: 1.4rem;
-                font-size: 2rem;
+                font-size: 0.2rem;
             }
         }
     }
@@ -1926,7 +1989,7 @@
         margin-left: 87% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -1972,6 +2035,112 @@
                 font-size: 2rem;
             }
         }
+    }
+}
+
+@include breakpoints.mpxh {
+    .left-card-container.open {
+        width: 80%;
+        position: absolute !important;
+        height: 80vh !important;
+        margin-top: 2.5vh;
+        margin-left: 11vw !important;
+        margin-bottom: 5vh;
+        background-image: url('../../public/ceilingsbg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .right-card-container.open {
+        width: 85% !important;
+        position: fixed !important;
+        height: 80vh !important;
+        margin-left: 65% !important;
+        margin-top: -40vh !important;
+        margin-bottom: 5vh;
+        background-image: url('../../public/ceilingsbg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .ourservices-overlay-right {
+        height: 100vh;
+        width: 200vw;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 2;
+        position: absolute;
+        margin-left: -100vw;
+        margin-top: -45vh;
+    }
+}
+
+@include breakpoints.mpxx {
+    .left-card-container.open {
+        width: 80%;
+        position: absolute !important;
+        height: 80vh !important;
+        margin-top: 2.5vh;
+        margin-left: 11vw !important;
+        margin-bottom: 5vh;
+        background-image: url('../../public/tp-paintingbg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .right-card-container.open {
+        width: 85% !important;
+        position: fixed !important;
+        height: 80vh !important;
+        margin-left: 73% !important;
+        margin-top: -40vh !important;
+        margin-bottom: 5vh;
+        background-image: url('../../public/ceilingsbg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .painting-list {
+        display: block;
+        list-style-type: none;
+        position: absolute;
+        align-items: flex-start;
+        opacity: 0.8;
+        width: 100%;
+    
+        &-icons {
+            display: block;
+            list-style-type: none;
+            align-items: flex-end;
+            position: absolute;
+            opacity: 0.9;
+            margin-left: 55vw;
+        }
+    
+        &-item {
+            padding: 1.5rem;
+            text-decoration: none;
+            font-size: 2rem;
+            text-align: left;
+            font-weight: 300;
+    
+            &-icon {
+                padding: 1.4rem;
+                font-size: 2rem;
+            }
+        }
+    }
+    
+    
+
+    .ourservices-overlay-right {
+        height: 100vh;
+        width: 200vw;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 2;
+        position: absolute;
+        margin-left: -100vw;
+        margin-top: -45vh;
     }
 }
 
@@ -2035,7 +2204,7 @@
         margin-top: 2.5vh;
         margin-left: 10vw !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/tp-paintingbg2.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -2047,7 +2216,7 @@
         margin-left: 68% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -2282,7 +2451,7 @@
         margin-left: 53% !important;
         margin-top: -40vh !important;
         margin-bottom: 5vh;
-        background-image: url('../../public/tp-paintingbg.png');
+        background-image: url('../../public/ceilingsbg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -2331,6 +2500,16 @@
         }
     }
 
+    .ourservices-overlay-right {
+        height: 100vh;
+        width: 200vw;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 2;
+        position: absolute;
+        margin-left: -100vw;
+        margin-top: -45vh;
+    }
+
 }
 
 @include breakpoints.lgw {
@@ -2355,7 +2534,7 @@
           margin-left: 5% !important;
           margin-top: 2.5vh;
           margin-bottom: 5vh;
-          background-image: url('../../public/tp-paintingbg.png');
+          background-image: url('../../public/ceilingsbg.png');
           background-repeat: no-repeat;
           background-size: cover;
         }

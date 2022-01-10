@@ -6,14 +6,13 @@ import { motion, AnimatePresence, useAnimation, AnimationControls } from 'framer
 import { useInView } from 'react-intersection-observer';
 
 // first image
-import landing1 from '../public/golanding1wider.jpg'
-import landing1b from '../public/golanding1wide.jpg'
-import landing1c from '../public/golanding1longish.jpg'
-import landing1d from '../public/golanding1narrowish.jpg'
-import landing1e from '../public/golanding1narrowmid.jpg'
-import landing1f from '../public/golanding1narrowwer.jpg'
-import landing1g from '../public/golanding1inv.jpg'
-import landingfull from '../public/golanding1full.jpg'
+import landing1b from '../public/newlanding1.jpg'
+import landing1c from '../public/newlanding1.jpg'
+import landing1d from '../public/newlanding1narrow.jpg'
+import landing1e from '../public/newlanding1narrow.jpg'
+import landing1f from '../public/newlanding1narrower.jpg'
+import landing1g from '../public/newlanding1.jpg'
+import landingfull from '../public/newlanding1.jpg'
 
 // second image
 import landing2 from '../public/golanding2norm.jpg'
@@ -326,7 +325,7 @@ const Landing: FunctionComponent<LandingProps> = () => {
                     </AttentionSeeker>
                     <div className='button-group-2'>
                     <JackInTheBox cascade triggerOnce>
-                    <Link href='/contactuss'>
+                    <Link href='/contactus'>
                         <a id='landing-2-button-1' onClick={toggle}>Contact Us</a>
                     </Link>
                     <Link href='/ourservices'>

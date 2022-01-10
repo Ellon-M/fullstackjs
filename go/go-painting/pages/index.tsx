@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { client }  from '../utils/prismichelpers';
 import { GetStaticProps } from 'next';
-import FloatingWhatsApp from 'react-floating-whatsapp'
 
 import Landing from '../components/landing'
 import About from '../components/about'
+import Whatsappwidget from '../components/whatsappwidget';
 
 const Layout = dynamic(() =>  import('../components/layout'), { ssr: false })
 const FloatingWidget = dynamic(() =>  import('../components/floatingwidget'), { ssr: false })
@@ -36,17 +36,7 @@ const Home: FunctionComponent<Homeprops> = ({aboutContent, whatsappWidget}) => {
         <About aboutContent={aboutContent}/>
       </div>
       <FloatingWidget/>
-      <FloatingWhatsApp 
-         phoneNumber={`+${whatsappWidget.data['whatsapp-number']}`} 
-         accountName={whatsappWidget.data['whatsapp-username'][0].text}
-         statusMessage={whatsappWidget.data['status-message'][0].text}
-         chatMessage={whatsappWidget.data['chat-message'][0].text}
-         placeholder={whatsappWidget.data['chat-placeholder'][0].text}
-         avatar={whatsappWidget.data['avatar-image'].url}
-         notification={whatsappWidget.data['repeated-notification']}
-         darkMode={whatsappWidget.data['darkmode']} 
-         allowClickAway={true}
-         styles={{zIndex: '12'}}/>
+      <Whatsappwidget whatsappWidget={whatsappWidget}/>
     </>
   )
 }

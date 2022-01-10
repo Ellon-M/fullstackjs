@@ -30,8 +30,10 @@
     margin-top: -22% !important;
     width: 100% !important;
     height: 100% !important;
-    padding: 5px !important;
+    padding: 0 !important;
     position: relative;
+    padding-bottom: 0 !important;
+    margin-bottom: 30px !important;
 }
 
 .nav-logo {
@@ -194,6 +196,18 @@
         background-color: white;
         border-bottom: 1px solid rgba(128, 128, 128, 0.404);
         box-shadow: rgb(82, 81, 81);
+    }
+}
+
+@include breakpoints.xhmx {
+    .actual-logo {
+        margin-top: -12% !important;
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 !important;
+        position: relative;
+        padding-bottom: 0 !important;
+        margin-bottom: 30px !important;
     }
 }
 

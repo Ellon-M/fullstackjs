@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
 import MdAdd from '@material-ui/icons/add';
-import MdClose from '@material-ui/icons/clear';
 import CallIcon from '@material-ui/icons/Call';
 import EmailIcon from '@material-ui/icons/Email'
 import { Fab, Action } from 'react-tiny-fab';

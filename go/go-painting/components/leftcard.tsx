@@ -5,13 +5,14 @@ import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import Image from 'next/image'
 import Link from 'next/link'
 
+
 import bucketIcon from '../public/paint-bucket-icon.png' 
 import toIcon from '../public/back1rev.png'
 
 interface LeftCardProps {
     pointOfInterest?: number
     isOpened?: boolean,
-    setIsOpened?: void
+    setIsOpened: (b: boolean) => void
 }
 
 interface LeftTitleProps {
@@ -40,9 +41,15 @@ const Overlay: FC<LeftCardProps> = ({
     isOpened,
     setIsOpened
 }) => (
-    <div>
-
-    </div>
+    <>
+        {
+        isOpened &&
+        <div   className="ourservices-overlay"
+        onClick={() => setIsOpened(false)}
+        >
+        </div>
+        }
+    </>
 )
 
 const dismissDragDistance: number = 100;
@@ -91,7 +98,7 @@ const LeftCard = memo(({
     return (
     <div className='card-item'>
     <AnimatePresence>
-        <Overlay isOpened={isOpened}/>
+        <Overlay isOpened={isOpened} setIsOpened={setIsOpened}/>
         <motion.div 
         onClick={openCard} 
         className={`left-card-container ${isOpened && "open"}`} 

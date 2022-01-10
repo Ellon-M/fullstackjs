@@ -9,7 +9,7 @@ import { client }  from '../utils/prismichelpers';
 import { GetStaticProps, GetServerSideProps } from 'next';
 import { getPlaiceholder } from 'plaiceholder';
 import { galleryVariants } from '../utils/galleryvariants'
-
+import Footerlinks from '../components/footerlinks';
 const Layout = dynamic(() =>  import('../components/layout'), { ssr: false })
 
 interface GalleryProps {
@@ -55,6 +55,9 @@ const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {
         })}        
         </Masonry>
         </motion.div> 
+        <div>
+        <Footerlinks/>
+        </div>
         </>
     );
     }
@@ -62,7 +65,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {
         return (
             <>
             <div className="timeout-gallery">
-                <h2 className='timeout-error-msg'>Request timeout. Try again later</h2>
+                <h2 className='timeout-error-msg'>Request timeout. Try again</h2>
             </div>
             </>
         )

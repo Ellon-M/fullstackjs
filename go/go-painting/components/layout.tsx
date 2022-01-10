@@ -6,7 +6,6 @@ import Image from 'next/image'
 const { Collapse } = require('react-burgers')
 const { motion, AnimatePresence } = require('framer-motion')
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-const { Transition } = require('react-transition-group')
 import 'animate.css'
 
 import logo from '../public/gologo2.png'
@@ -55,16 +54,16 @@ else if (!isActive) {
                         />
                 </a>
       </div>
-      <Link href='/'>
       <div className='nav-logo'>
-          <Image src={logo} width={125} height={125} className='actual-logo' />
-      </div>
-      </Link>
       <Link href='/'>
-      <div className='nav-logo-larger'>
-          <Image src={logo as any} width={160} height={160} className='actual-logo' />
-      </div>
+          <Image src={logo} width={100} height={100} className='actual-logo' />
       </Link>
+      </div>
+      <div className='nav-logo-larger'>
+      <Link href='/'>
+          <Image src={logo as any} width={160} height={160} className='actual-logo' />
+      </Link>
+      </div>
       
       <ul className='nav-links-wrap'>
             <li className='nav-link-list'>
@@ -96,10 +95,10 @@ else if (!isActive) {
                             <Link href='/gallery'><a className='nav-link-menu'>Work Gallery</a></Link>
                          </li>
                         <li className='nav-link-list-menu'>
-                            <Link href=''><a className='nav-link-menu'>Blog</a></Link>
+                            <Link href='/blog'><a className='nav-link-menu'>Blog</a></Link>
                         </li>
                         <li className='nav-link-list-menu'>
-                            <Link href=''><a className='nav-link-menu'>Shop</a></Link>
+                            <Link href='/shop'><a className='nav-link-menu'>Shop</a></Link>
                         </li>
                         <li className='nav-link-list-menu'>
                             <Link href='/contactus'><a className='nav-link-menu'>Contact us</a></Link>

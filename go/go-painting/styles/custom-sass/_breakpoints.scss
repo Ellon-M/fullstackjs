@@ -207,6 +207,8 @@ $breakpoints: (
   }
 }
 
+//nh
+
 @mixin lgw {
   @media (max-width: map-get($breakpoints, "lx")) and  (min-width: map-get($breakpoints, "lgc")) and (max-height: map-get($breakpoints, "smm")) and (min-height: map-get($breakpoints, "sm")) {
     @content;
@@ -262,7 +264,7 @@ $breakpoints: (
 
 // heights
 
-
+// ipad
 @mixin lgh {
   @media (min-height: map-get($breakpoints, "lg")) and (max-height: map-get($breakpoints, "lx")) and (max-width: map-get($breakpoints, "lgp")) {
     @content;
@@ -300,6 +302,21 @@ $breakpoints: (
   }
 } 
 
+
+// Air
+@mixin mpxh {
+  @media (max-height: map-get($breakpoints, "xl")) and (max-width: map-get($breakpoints, "mdl")) and (min-width: map-get($breakpoints, "md")) and (min-height: map-get($breakpoints, "mdx")) {
+    @content;
+  }
+} 
+
+//tab s4
+@mixin mpxx {
+  @media (max-height: map-get($breakpoints, "xl")) and (max-width: map-get($breakpoints, "mdx")) and (min-width: map-get($breakpoints, "smm")) and (min-height: map-get($breakpoints, "mdx")) {
+    @content;
+  }
+} 
+
 @mixin mxx {
   @media (min-height: map-get($breakpoints, "lg")) and (min-width: map-get($breakpoints, "xl")) {
     @content;
@@ -307,7 +324,7 @@ $breakpoints: (
 } 
 
 @mixin xlh {
-  @media (min-height: map-get($breakpoints, "xl")) and (max-width: map-get($breakpoints, "xxl")) and (max-height: map-get($breakpoints, "lx")) {
+  @media (min-height: map-get($breakpoints, "lx")) and (max-width: map-get($breakpoints, "xxl")) and (min-width: map-get($breakpoints, "lg")) {
     @content;
   }
 }
@@ -363,6 +380,13 @@ $breakpoints: (
     @content
   }
 }
+
+@mixin xhmx {
+  @media (min-height: map-get($breakpoints, "mdx")) and (max-width: map-get($breakpoints, "xsm")) {
+    @content
+  }
+}
+
 
 
 

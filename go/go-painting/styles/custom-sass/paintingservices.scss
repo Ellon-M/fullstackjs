@@ -1,6 +1,12 @@
 @use './breakpoints';
 @import 'colors';
 
+
+.service-wrap {
+  height: 100%;
+  width: 100vw;
+}
+
 .service-layout {
     width: 100%;
     height: 70px;
@@ -326,62 +332,102 @@ a .uil {
 }
 }
   
-  .service-details {
-      width: 78vw;
-      display: table-cell;
-  }
-  
-  .service-heading {
-      font-size: 135px;
-      font-weight: 800;
-      text-align: center;
-      padding-right: 15px;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
-      margin-bottom: -2px !important;
-      margin-top: 80px !important;
-  
-      &-2 {
-          margin-top: 0;
-          font-size: 40px;
-          font-weight: 500;
-          text-align: right;
-          padding-right: 55px;
-          letter-spacing: -0.01em;
-          text-transform: uppercase;
-          margin-bottom: 4vh !important;
-      }
-  }
-  
-  
-  
-  .inner-service {
-      display: inline-flex;
-  }
-  
-  .service-image-wrap {
-      width: 45%;
-      height: 60%;
-      float: right;
-      margin-left: 5vw;
-  }
-  
-  .service-main-text {
-      width: 50%;
-      font-weight: 300;
-      font-size: 20px;
-      margin-left: 15px;
-      text-align: justify;
-      margin-top: 0;
-  }
-  
-  .actual-service-image {
-      width: 100% !important;
-      height: auto !important;
-      border-radius: 0 0 0 110px;
-  }
+.service-details {
+    width: 78vw;
+    display: table-cell;
+}
 
-  @include breakpoints.lgmw {
+.service-heading {
+    font-size: 135px;
+    font-weight: 800;
+    text-align: center;
+    padding-right: 15px;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: -2px !important;
+    margin-top: 80px !important;
+    overflow-x: hidden;
+
+    &-2 {
+        margin-top: 0;
+        font-size: 40px;
+        font-weight: 500;
+        text-align: right;
+        padding-right: 55px;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        margin-bottom: 4vh !important;
+        overflow-x: hidden;
+    }
+}
+
+
+
+.inner-service {
+    display: inline-flex;
+}
+
+.service-image-wrap {
+    width: 45%;
+    height: 60%;
+    float: right;
+    margin-left: 5vw;
+}
+
+.service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 24px;
+    margin-left: 35px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+}
+
+.service-main-text-overlay {
+  width: 40%;
+  font-weight: 300;
+  font-size: 24px;
+  margin-top: 0;
+  text-align: left;
+  overflow: hidden;
+  box-shadow: inset 0px -180px 63px 0px rgb(255, 255, 255);
+  height: 40vh;
+  position: absolute;
+}
+
+.actual-service-image {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 0 0 0 110px;
+}
+
+.read-more-link {
+  text-decoration: none;
+  color: #8a8a8a;
+  font-weight: 300;
+  font-size: 15px;
+  position: absolute;
+  padding-left: 2.2rem;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; 
+}
+  
+#paragraph-content {
+    display: block;
+    width: 50%;
+}
+
+.footer-services {
+  z-index: 0;
+}
+
+@include breakpoints.lgmw {
     .service-heading {
         font-size: 75px;
         font-weight: 800;
@@ -402,10 +448,23 @@ a .uil {
             margin-bottom: 4vh !important;
         }
     }
+    .service-main-text-overlay {
+      width: 40%;
+      font-weight: 300;
+      font-size: 24px;
+      margin-top: 0;
+      text-align: left;
+      overflow: hidden;
+      box-shadow: inset 0px -420px 63px 0px rgb(255, 255, 255);
+      height: 70vh;
+      position: absolute;
+    }
+
+    .footer-services {
+      position: relative;
+      z-index: 0;
+    }
   }
-
-
-
 
 @include breakpoints.mdl {
     .side-links {
@@ -466,6 +525,77 @@ a .uil {
         margin-bottom: 4vh !important;
     }
 }
+
+  .service-main-text-overlay {
+    width: 40%;
+    font-weight: 300;
+    font-size: 24px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+    box-shadow: inset 0px -480px 63px 0px rgb(255, 255, 255);
+    height: 90vh;
+    position: absolute;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
+}
+
+@include breakpoints.mdm {
+  .service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 25px;
+    margin-left: 35px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+}
+
+  .service-main-text-overlay {
+    width: 40%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -330px 63px 0px rgb(255, 255, 255);
+    height: 97vh;
+    position: absolute;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
+
+}
+
+@include breakpoints.sml {
+  .service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 20px;
+    margin-left: 35px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+}
+
+  .service-main-text-overlay {
+    width: 40%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -300px 63px 0px rgb(255, 255, 255);
+    height: 80vh;
+    position: absolute;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
+
 }
 
 @include breakpoints.ssm {
@@ -588,6 +718,29 @@ a .uil {
     width: 100vw;
 }
 
+.service-main-text {
+  width: 100%;
+  font-weight: 300;
+  font-size: 19px;
+  margin-left: 25px;
+  margin-top: 0;
+  text-align: left;
+  overflow: hidden;
+}
+
+  .service-main-text-overlay {
+    width: 52%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -390px 63px 0px rgb(255, 255, 255);
+    height: 80vh;
+    position: absolute;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
 }
 
 
@@ -712,6 +865,97 @@ a .uil {
         margin-bottom: 4vh !important;
     }
 }
+
+.read-more-link {
+  text-decoration: none;
+  color: #8a8a8a;
+  font-weight: 300;
+  font-size: 15px;
+  position: absolute;
+  padding-left: 1.2rem;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; 
+  margin-top: -4%;
+  }
+
+
+
+  .service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 18px;
+    margin-left: 25px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+    z-index: -2;
+  }
+  
+  .service-main-text-overlay {
+    width: 52%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -330px 63px 0px rgb(255, 255, 255);
+    height: 95vh;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
+
+}
+
+@include breakpoints.xms {
+  .service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 18px;
+    margin-left: 25px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+    z-index: -2;
+  }
+  
+  .service-main-text-overlay {
+    width: 52%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -330px 63px 0px rgb(255, 255, 255);
+    height: 90vh;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
+}
+
+@include breakpoints.xbs {
+  .service-main-text-overlay {
+    width: 62%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -400px 63px 0px rgb(255, 255, 255);
+    height: 90vh;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
 }
 
 @include breakpoints.xmh {
@@ -736,6 +980,189 @@ a .uil {
         }
     }
 
+    .service-main-text-overlay {
+      width: 40%;
+      font-weight: 300;
+      font-size: 24px;
+      margin-top: 0;
+      text-align: left;
+      overflow: hidden;
+      box-shadow: inset 0px -200px 63px 0px rgb(255, 255, 255);
+      height: 130vh;
+      margin-top: 60vh;
+      position: absolute;
+    }
+}
+
+
+@include breakpoints.lghx {
+  .service-details {
+    width: 78vw;
+    display: table-cell;
+  }
+  
+  .footer-services {
+    bottom: 0;
+    margin-top: 20vh;
+  }
+}
+
+@include breakpoints.xss {
+  .service-details {
+    width: 130vw !important;
+    display: table-cell;
+}
+
+  .inner-service {
+    display: inline-flex;
+    width: 120vw
+  }
+
+  .side-links {
+    height: 5vh;
+    float: right;
+    width: 75vw;
+    padding: 1rem;
+    background-color: white;
+  }
+  
+  .for-dropdown {
+    font-size: 12px !important;
+  }
+
+  .service-image-wrap {
+    width: 55%;
+    height: 60%;
+    float: right;
+    margin-left: 10vw;
+  }
+
+  #paragraph-content {
+    display: block;
+    width: 40%;
+  }
+
+  .service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 16px;
+    margin-left: 15px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+    z-index: -2;
+  }
+  
+  .service-main-text-overlay {
+    width: 55%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -200px 63px 0px rgb(255, 255, 255);
+    height: 82vh;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
+}
+
+@include breakpoints.xxs {
+  #paragraph-content {
+    display: block;
+    width: 50%;
+  }
+
+  .service-image-wrap {
+    width: 55%;
+    height: 60%;
+    float: right;
+    margin-left: 15vw;
+  }
+
+  .service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 16px;
+    margin-left: 15px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+  }
+  
+  .service-main-text-overlay {
+    width: 55%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -200px 63px 0px rgb(255, 255, 255);
+    height: 78vh;
+    position: absolute;
+  }
 
 }
 
+@include breakpoints.xlh {
+  .footer-services {
+    margin-top: 20vh;
+  }
+
+  .service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 26px;
+    margin-left: 15px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+}
+
+  #paragraph-content {
+    display: block;
+    width: 75%;
+  }
+
+  .service-image-wrap {
+    width: 40%;
+    height: 60%;
+    float: right;
+  }
+
+  .service-heading {
+    margin-top: 200px !important;
+  }
+  
+} 
+
+@include breakpoints.sxs {
+  .service-main-text {
+    width: 100%;
+    font-weight: 300;
+    font-size: 22px;
+    margin-left: 15px;
+    margin-top: 0;
+    text-align: left;
+    overflow: hidden;
+  }
+
+  .service-main-text-overlay {
+    display: none;
+  }
+}
+
+@include breakpoints.xhmx {
+  .service-main-text-overlay {
+    width: 55%;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: inset 0px -330px 63px 0px rgb(255, 255, 255);
+    height: 70vh;
+    position: absolute;
+  }
+
+  .footer-services {
+    position: relative;
+    z-index: 0;
+  }
+}

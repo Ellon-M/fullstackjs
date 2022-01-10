@@ -9,7 +9,7 @@ import rightIcon from '../public/rightIcon.png'
 interface RightcardProps {
     pointOfInterest?: number;
     isOpened?: boolean,
-    setIsOpened?: void
+    setIsOpened: (b: boolean) => void
 }
 
 interface RightTitleProps {
@@ -39,9 +39,15 @@ const Overlay: FC<RightcardProps> = ({
     isOpened,
     setIsOpened
 }) => (
-    <div>
-
-    </div>
+    <>
+        {
+        isOpened &&
+        <div   className="ourservices-overlay-right"
+        onClick={() => setIsOpened(false)}
+        >
+        </div>
+        }
+    </>
 )
 
 const dismissDragDistance: number = 100;
@@ -66,12 +72,6 @@ const Rightcard = memo(({
         }
     }
 
-    // TODO //
-
-    
-    const checkTapToDismiss = () => {
-
-    }
 
     const checkDragToDismiss = () => {
         if (y.get() > dismissDragDistance) {
@@ -90,7 +90,7 @@ const Rightcard = memo(({
     return ( 
         <AnimatePresence>
         <div className='card-item'>
-            <Overlay isOpened={isOpened}/>
+            <Overlay isOpened={isOpened} setIsOpened={setIsOpened}/>
             <motion.div 
             className={`right-card-container ${isOpened && "open"}`} 
             style={{ zIndex, y }} 

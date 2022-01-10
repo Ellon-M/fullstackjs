@@ -6,7 +6,6 @@ const { motion } = require('framer-motion')
 import Leftcard from '../components/leftcard'
 import Rightcard from '../components/rightcard'
 import { servicesVariants } from '../utils/servicesvariants'
-
 import goLogo from '../public/gologo2.png';
 
 interface Props {
