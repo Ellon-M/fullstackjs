@@ -4,6 +4,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import EmailIcon from '@material-ui/icons/Email';
 import PhoneIcon from '@material-ui/icons/Phone';
+import Link from 'next/link'
 
 interface FooterlinksProps {
     
@@ -17,20 +18,20 @@ const Footerlinks: FunctionComponent<FooterlinksProps> = () => {
 
   <div className="footer-right">
 
-    <a href="#"><FacebookIcon/></a>
+    <a href="https://www.facebook.com/gopaintingke/"><FacebookIcon/></a>
     <a href="#"><InstagramIcon/> </a>
-    <a href="#"><EmailIcon/></a>
+    <a href="mailto:gopainting2016@gmail.com&subject=Service Inquiry"><EmailIcon/></a>
 
   </div>
 
   <div className="footer-left">
 
     <p className="footer-links">
-      <a className="link-1" href="#">Home</a>
+      <Link href="/"><a className="link-1">Home</a></Link>
 
-      <a href="#">Services</a>
+      <Link href="/ourservices">Services</Link>
 
-      <a href="#">Inquire</a>
+      <Link href="/contactus">Inquire</Link>
     </p>
 
     <p className='footer-phone'> <b><PhoneIcon/> + 254 20 2300244 </b></p>

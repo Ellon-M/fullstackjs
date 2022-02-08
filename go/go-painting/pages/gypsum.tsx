@@ -14,19 +14,18 @@ import { Fade, Slide, Bounce, Zoom, AttentionSeeker, JackInTheBox } from "react-
 import { PrismicRichText } from "@prismicio/react";
 
 
-interface IndustrialProps {
+interface GypsumProps {
     whatsappWidget: any,
-    industrialDetails: any
+    gypsumDetails: any
 }
-
  
-const Industrial: FunctionComponent<IndustrialProps> = ({whatsappWidget, industrialDetails}) => {
+const Gypsum: FunctionComponent<GypsumProps> = ({whatsappWidget, gypsumDetails}) => {
 
     const [readMore, setReadMore] = useState(false);
     const paragraphLink = !readMore ? "Read More ↘": "Read less ↖";
 
     return ( 
-    <div className='service-wrap'>
+        <div className='service-wrap'>
         <div className='service-layout'>
         <Layout/>
     </div>
@@ -36,9 +35,12 @@ const Industrial: FunctionComponent<IndustrialProps> = ({whatsappWidget, industr
             <div className="sec-center"> 	
             <input className="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
               <label className="for-dropdown" htmlFor="dropdown"><ArrowDropDownIcon className='dropdown-mui'/>Other Services </label>
-              <div className="section-dropdown"> 
-            <Link href='/residential'>
-              <a id="dropdown-links" href="#">Residential Painting <ArrowRightIcon/></a>
+              <div className="section-dropdown">
+              <Link href='/residential'>
+              <a id="dropdown-links"  href="#">Residential Painting <ArrowRightIcon/></a>
+            </Link> 
+            <Link href='/industrial'>
+              <a id="dropdown-links" href="#">Industrial Painting <ArrowRightIcon/></a>
             </Link>
             <Link href='/commercial'>
               <a id="dropdown-links" href="#">Commercial Painting <ArrowRightIcon/></a>
@@ -48,9 +50,6 @@ const Industrial: FunctionComponent<IndustrialProps> = ({whatsappWidget, industr
               <div className="section-dropdown-sub"> 
             <Link href='/drywall'>
               <a id="dropdown-links"  href="#">Dry Wall <ArrowRightIcon/></a>
-            </Link>
-            <Link href='/gypsum'>
-              <a id="dropdown-links"  href="#">Gypsum Ceilings <ArrowRightIcon/></a>
             </Link>
             <Link href='/wooden'>
             <a id="dropdown-links"  href="#">Wooden Ceilings <ArrowRightIcon/></a>
@@ -63,19 +62,19 @@ const Industrial: FunctionComponent<IndustrialProps> = ({whatsappWidget, industr
 
         <article className="service-details">
             <AttentionSeeker effect='pulse' duration={600}>
-            <h2 className='service-heading'>Industrial</h2>
+            <h2 className='service-heading'>Gypsum</h2>
             </AttentionSeeker>
             <AttentionSeeker effect='pulse'>
-            <h5 className='service-heading-2'>Painting</h5>
+            <h5 className='service-heading-2'>Ceilings</h5>
             </AttentionSeeker>
             <div className='inner-service'>
             <div id='paragraph-content'>
             <Fade delay={1200} triggerOnce>
             <p className="service-main-text">
                  {!readMore && <div className="service-main-text-overlay"></div>}
-                 <PrismicRichText field={industrialDetails.data['industrial-brief-details']}></PrismicRichText>
+            <PrismicRichText field={gypsumDetails.data['gypsum-brief-details']}></PrismicRichText>
             {readMore && <p>
-                <PrismicRichText field={industrialDetails.data['industrial-more-details']}></PrismicRichText>
+                <PrismicRichText field={gypsumDetails.data['gypsum-more-details']}></PrismicRichText>
                  </p>}
              </p>
              </Fade>
@@ -84,7 +83,7 @@ const Industrial: FunctionComponent<IndustrialProps> = ({whatsappWidget, industr
              </div>
             <div
                 className='service-image-wrap'>
-                    <Image unoptimized src={industrialDetails.data['industrial-image'].url} width={industrialDetails.data['industrial-image'].dimensions.width} height={industrialDetails.data['industrial-image'].dimensions.height}className='actual-service-image' />
+            <Image unoptimized src={gypsumDetails.data['gypsum-image'].url} width={gypsumDetails.data['gypsum-image'].dimensions.width} height={gypsumDetails.data['gypsum-image'].dimensions.height}className='actual-service-image' />
             </div>
             </div>
         </article>
@@ -96,20 +95,19 @@ const Industrial: FunctionComponent<IndustrialProps> = ({whatsappWidget, industr
     <FloatingWidget/>
     <Whatsappwidget whatsappWidget={whatsappWidget}/>
     </div>
-    );
+     );
 }
-
 
 export const getStaticProps: GetStaticProps = async () => {
     const whatsappWidget = await client.getSingle('whatsapp_widget');
-    const industrialDetails = await client.getSingle('industrial_painting');
+    const gypsumDetails = await client.getSingle('gypsum_ceilings');
   
     return {
         props: {
             whatsappWidget,
-            industrialDetails
+            gypsumDetails
         }
     }
   }
  
-export default Industrial;
+export default Gypsum;

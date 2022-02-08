@@ -3,7 +3,6 @@ import Masonry from 'react-masonry-css'
 const { motion } = require('framer-motion')
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import * as prismic from '@prismicio/client';
 import { PrismicRichText } from "@prismicio/react";
 import { client }  from '../utils/prismichelpers';
 import { GetStaticProps, GetServerSideProps } from 'next';
@@ -14,12 +13,11 @@ const Layout = dynamic(() =>  import('../components/layout'), { ssr: false })
 
 interface GalleryProps {
     images: any,
-    blurred?: any
 }
 
-const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {  
+const Gallery: FunctionComponent<GalleryProps> = ({images}) => {  
 
-    const blurredURLs = blurred[0];
+    const imgs = images.results;
 
     const galleryBreakpoints = {
         default: 4,
@@ -27,7 +25,6 @@ const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {
         450: 2,
     }
     
-    if (blurredURLs.length === images.length) {
     return (
         <>
         <div className='gallery-nav'>
@@ -37,14 +34,15 @@ const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {
         <header id="gallery-top">
             <h2 className='gallery-heading'>Work Gallery</h2>
         </header>
+
         <Masonry 
         className='my-masonry-grid' columnClassName='my-masonry-grid_column'
         breakpointCols={galleryBreakpoints}>
             { 
-            images.map((image: any, i: number) => {      
+            imgs.map((image: any, i: number) => {      
             return (
-            <div className='gallery-image-wrap'>
-            <Image src={image.data.imageitem.url} width={image.data.imageitem.dimensions.width}  height={image.data.imageitem.dimensions.height} blurDataURL={blurredURLs[i]} placeholder="blur" ></Image>
+            <div key={i}className='gallery-image-wrap'>
+            <Image unoptimized src={image.data.imageitem.url} width={image.data.imageitem.dimensions.width}  height={image.data.imageitem.dimensions.height} />
             <div className='gallery-tags-wrap'>
             <span className='gallery-tags'>
             <PrismicRichText field={image.data.imagetag}></PrismicRichText>
@@ -60,59 +58,15 @@ const Gallery: FunctionComponent<GalleryProps> = ({images, blurred}) => {
         </div>
         </>
     );
-    }
-    else {
-        return (
-            <>
-            <div className="timeout-gallery">
-                <h2 className='timeout-error-msg'>Request timeout. Try again</h2>
-            </div>
-            </>
-        )
-    }
 }
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const images = await client.getAllByType("galleryimage");
+    const images = await client.getByType('galleryimage');
 
-    if (!images) {
-        alert('The gallery currently has no images');
-    }
-
-    const getTransformedImage: () => Promise<Array<string>> = async () => {
-        const blur64Images: Array<string> = [];
-        return new Promise(async(resolve) => {
-            images.map(async(image: any) => {
-                const imageRes: string = await image.data.imageitem.url;
-                const blur64: string = (await getPlaiceholder(imageRes)).base64;
-                blur64Images.push(blur64);
-                resolve(blur64Images);
-            })
-        })
-    }
-
-    const getBlurredImages = async () => {
-        const promises: Array<Promise<Array<string>>> = [];
-
-        for (const image of images) {
-             promises.push(getTransformedImage());
-        }
-
-        const blurredImages = await Promise.all(promises).then(
-            (res) => {
-                return res;
-            }
-        )
-        return blurredImages;
-    }
-
-    const blurred = await getBlurredImages();
-    
     return {
         props: {
-            images,
-            blurred
+            images
         }
     }
 }

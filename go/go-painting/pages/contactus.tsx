@@ -18,7 +18,6 @@ interface ContactUsProps {
     whatsappWidget: any
 }
 
-
  
 const ContactUs : FunctionComponent<ContactUsProps> = ({whatsappWidget}) => {
 
@@ -28,7 +27,7 @@ const ContactUs : FunctionComponent<ContactUsProps> = ({whatsappWidget}) => {
         initialValues: {
           fullName: '', 
           reply_to: '', 
-          to_name: process.env.TO_NAME,
+          to_name: process.env.NEXT_PUBLIC_TO_NAME,
           interest: '',
           details: '', 
         },
@@ -45,7 +44,7 @@ const ContactUs : FunctionComponent<ContactUsProps> = ({whatsappWidget}) => {
         onSubmit: (values) => {
            console.log('values', values);
 
-           emailjs.send(process.env.EJS_SERVICE, process.env.EJS_TEMPLATE, values, process.env.EJS_USER_ID)
+           emailjs.send(process.env.NEXT_PUBLIC_EJS_SERVICE, process.env.NEXT_PUBLIC_EJS_TEMPLATE, values, process.env.NEXT_PUBLIC_EJS_USER_ID)
           .then((result) => {
               console.log(result.text);
               setIsSubmitted(true);
@@ -57,9 +56,10 @@ const ContactUs : FunctionComponent<ContactUsProps> = ({whatsappWidget}) => {
 
     return ( 
         <>
-        <Head>
+
         <Script src="https://smtpjs.com/v3/smtp.js"></Script>
-        </Head>
+        <Script src="https://www.google.com/recaptcha/api.js" async defer></Script>
+
         <Layout/>
     <div className="form-body">
         <Zoom delay={1000} duration={900} triggerOnce>
@@ -118,12 +118,16 @@ const ContactUs : FunctionComponent<ContactUsProps> = ({whatsappWidget}) => {
                     onChange={formik.handleChange}
                     value={formik.values.details}id="details" placeholder="Details" cols={30} rows={4}></textarea>
                 </div>
+                {/* <div className="g-recaptcha" data-sitekey="6LfPdAMeAAAAAKzvfVQ1Y4lbW0njbW1afs0rfMEO"></div> */}
+                 <br/>
                 <input type="submit" disabled={formik.isSubmitting} value={formik.isSubmitting ? 'SENDING ⏳': 'SEND 📨'} className={!formik.isSubmitting ?'form-input-btn': 'form-input-btn-sending'} />
                 </div>
             </form>
             }
             {isSubmitted && 
+            <Fade direction='down' duration={1100}>
             <h2 className='thank-you-text'>Thank you.</h2>
+            </Fade>
             }
             {isSubmitted && 
             <div className='thank-you-details'>

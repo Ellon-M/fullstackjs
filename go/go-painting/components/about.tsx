@@ -25,7 +25,7 @@ const About: FunctionComponent<AboutProps> = ({aboutContent}) => {
             </Fade>
             </section>
             <section className='about-us-image'>
-            <Image src={aboutContent.data['about-image'].url} width={2537} height={3800} className='actual-about-image'/>
+            <Image unoptimized src={aboutContent.data['about-image'].url} width={2537} height={3800} className='actual-about-image'/>
             </section>
 
             <svg xmlns="http://www.w3.org/2000/svg" id="sw-js-blob-svg" viewBox="0 0 100 100" version="1.1" className='blob-about'>

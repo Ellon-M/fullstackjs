@@ -8,7 +8,8 @@
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "export": "next export"
   },
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
@@ -19,7 +20,7 @@
     "animate.css": "^4.1.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "emailjs-com": "^3.2.0",
-    "firebase": "^9.6.1",
+    "firebase": "^9.6.2",
     "formik": "^2.2.9",
     "framer-motion": "^5.1.0",
     "fs": "^0.0.1-security",

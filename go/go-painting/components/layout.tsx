@@ -8,7 +8,6 @@ const { motion, AnimatePresence } = require('framer-motion')
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import 'animate.css'
 
-import logo from '../public/gologo2.png'
 import { layoutVariants } from '../utils/layoutvariants';
 import { slider } from '../utils/slidervariants';
 
@@ -56,12 +55,12 @@ else if (!isActive) {
       </div>
       <div className='nav-logo'>
       <Link href='/'>
-          <Image src={logo} width={100} height={100} className='actual-logo' />
+          <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/gologo2_yd2nku.png' width={100} height={100} className='actual-logo' />
       </Link>
       </div>
       <div className='nav-logo-larger'>
       <Link href='/'>
-          <Image src={logo as any} width={160} height={160} className='actual-logo' />
+          <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/gologo2_yd2nku.png' width={160} height={160} className='actual-logo' />
       </Link>
       </div>
       

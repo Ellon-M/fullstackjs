@@ -43,20 +43,22 @@ const FloatingWidget: FunctionComponent<FloatingWidgetProps> = () => {
         event='click'
         alwaysShowTitle={true}  
         >
+        <a href="mailto:gopainting2016@gmail.com&subject=Service Inquiry">
         <Action
           text="Email"
-          // onClick={handleEmailOnClick}
           style={{background: "linear-gradient(#2BED6D, #2589FF)"}}
         >
           <EmailIcon/>
         </Action>
+        </a>
+        <a href="tel:+254202300244">
         <Action
           text="Call"
           style={{background: "linear-gradient(#2BED6D, #2589FF)"}}
-          // onClick={handleCallOnClick}
          >
           <CallIcon/>
         </Action>
+        </a>
         </Fab>
     </> 
     );

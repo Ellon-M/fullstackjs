@@ -1,5 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+const Layout = dynamic(() =>  import('../components/layout'), { ssr: false })
 
 interface BlogProps {
     
@@ -8,6 +11,9 @@ interface BlogProps {
 const Blog: FunctionComponent<BlogProps> = () => {
     return ( 
     <div className='blog-wrapper'>
+      <div>
+        <Layout/>
+      </div>
         <div className='coming-soon-text-wrap'>
             <h1 className='coming-soon-text'>
              Content Unavailable <p>⚠</p>

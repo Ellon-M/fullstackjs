@@ -19,6 +19,6 @@
     "useUnknownInCatchVariables": false,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "prismicConfiguration.ts", "utils/prismichelpers.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "prismicConfiguration.ts", "utils/prismichelpers.js", "FB/firebase.js"],
   "exclude": ["node_modules"]
 }

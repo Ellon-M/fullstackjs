@@ -1,10 +1,10 @@
 declare global {
     namespace NodeJS {
         interface ProcessEnv {
-            TO_NAME: string,
-            EJS_SERVICE: string,
-            EJS_TEMPLATE: string,
-            EJS_USER_ID: string
+            NEXT_PUBLIC_TO_NAME: string,
+            NEXT_PUBLIC_EJS_SERVICE: string,
+            NEXT_PUBLIC_EJS_TEMPLATE: string,
+            NEXT_PUBLIC_EJS_USER_ID: string
         }
     }
 }

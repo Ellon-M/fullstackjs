@@ -3,13 +3,11 @@ import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import Image from 'next/image'
 import Link from 'next/link'
 
-import toIcon from '../public/back1rev.png'
-import rightIcon from '../public/rightIcon.png'
 
 interface RightcardProps {
     pointOfInterest?: number;
     isOpened?: boolean,
-    setIsOpened: (b: boolean) => void
+    setIsOpened?: (b: boolean) => void
 }
 
 interface RightTitleProps {
@@ -41,7 +39,7 @@ const Overlay: FC<RightcardProps> = ({
 }) => (
     <>
         {
-        isOpened &&
+        isOpened && setIsOpened &&
         <div   className="ourservices-overlay-right"
         onClick={() => setIsOpened(false)}
         >
@@ -105,17 +103,17 @@ const Rightcard = memo(({
             <motion.article className="right-card">
                 <RightTitle title='Dry Wall & Ceilings' isOpened={isOpened}/>
                 {!isOpened &&
-                <Image src={rightIcon} width={72} height={72} className='right-card-icon'/>
+                <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855425/rightIcon_wuqc0j.png' width={72} height={72} className='right-card-icon'/>
                 }
                 {!isOpened &&
                     <svg xmlns="http://www.w3.org/2000/svg" id="sw-js-blob-svg" viewBox="0 0 100 100" version="1.1" className='blob-right'>
                     <defs> 
                         <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
-                            <stop id="stop1" stop-color="rgba(43, 237, 109, 1)" offset="0%"/>
-                            <stop id="stop2" stop-color="rgba(37, 137, 255, 1)" offset="100%"/>
+                            <stop id="stop1" stopColor="rgba(43, 237, 109, 1)" offset="0%"/>
+                            <stop id="stop2" stopColor="rgba(37, 137, 255, 1)" offset="100%"/>
                         </linearGradient>
                     </defs>
-                        <path fill="url(#sw-gradient)" d="M26.9,-31C33.2,-26.8,35.5,-16.7,34.9,-7.9C34.3,0.8,30.9,8.3,27.2,16.7C23.6,25.1,19.7,34.3,13.1,37.1C6.5,40,-2.7,36.5,-12.2,33.2C-21.6,29.9,-31.1,26.7,-34.7,20.2C-38.2,13.7,-35.8,3.9,-31.8,-3.3C-27.8,-10.5,-22.1,-15.1,-16.6,-19.5C-11,-23.9,-5.5,-28.1,2.4,-30.9C10.3,-33.8,20.6,-35.3,26.9,-31Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0"/>
+                        <path fill="url(#sw-gradient)" d="M26.9,-31C33.2,-26.8,35.5,-16.7,34.9,-7.9C34.3,0.8,30.9,8.3,27.2,16.7C23.6,25.1,19.7,34.3,13.1,37.1C6.5,40,-2.7,36.5,-12.2,33.2C-21.6,29.9,-31.1,26.7,-34.7,20.2C-38.2,13.7,-35.8,3.9,-31.8,-3.3C-27.8,-10.5,-22.1,-15.1,-16.6,-19.5C-11,-23.9,-5.5,-28.1,2.4,-30.9C10.3,-33.8,20.6,-35.3,26.9,-31Z" width="100%" height="100%" transform="translate(50 50)" strokeWidth="0"/>
                     </svg>
                 }
                 {isOpened && 
@@ -130,17 +128,17 @@ const Rightcard = memo(({
              isOpened && 
              <div className='right-card-list-wrap'>
                  <ul className='ceilings-list'>
-                     <Link href='/residential'>
+                     <Link href='/gypsum'>
                      <li className='ceilings-list-item'>
                          Gypsum Ceilings     
                     </li>
                     </Link>
-                    <Link href='/commercial'>
+                    <Link href='/wooden'>
                      <li className='ceilings-list-item'>
                          Wooden ceilings
                     </li>
                     </Link>
-                    <Link href='/industrial'>
+                    <Link href='/drywall'>
                     <li className='ceilings-list-item'>
                         Dry Wall
                     </li>
@@ -149,17 +147,17 @@ const Rightcard = memo(({
                  <ul className='ceilings-list-icons'>
                     <Link href='/gypsum'>
                     <li className='ceilings-list-item-icon'>
-                     <Image src={toIcon} width={40} height={40}></Image>     
+                     <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855129/back1rev_wr6qtp.png' width={40} height={40}></Image>     
                     </li>
                     </Link>
                     <Link href='/wooden'>
                     <li className='ceilings-list-item-icon'>
-                    <Image src={toIcon} width={40} height={40}></Image>         
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855129/back1rev_wr6qtp.png' width={40} height={40}></Image>         
                     </li>
                     </Link>
                     <Link href='/drywall'>
                     <li className='ceilings-list-item-icon'>
-                    <Image src={toIcon} width={40} height={40}></Image>          
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855129/back1rev_wr6qtp.png' width={40} height={40}></Image>          
                     </li>
                     </Link>
                 </ul>
@@ -171,5 +169,7 @@ const Rightcard = memo(({
         </AnimatePresence>
     );
 })
+
+Rightcard.displayName = 'Rightcard';
  
-export default memo(Rightcard);
+export default Rightcard;

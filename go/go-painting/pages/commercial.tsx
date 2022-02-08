@@ -1,35 +1,32 @@
 import React, {FunctionComponent, useState} from 'react'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import Image from 'next/image'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { LoremIpsum } from 'react-lorem-ipsum'
-import Image from 'next/image'
-import dynamic from 'next/dynamic'
-const FloatingWidget = dynamic(() =>  import('../components/floatingwidget'), { ssr: false })
 const Layout = dynamic(() =>  import('../components/layout'), { ssr: false })
+const FloatingWidget = dynamic(() =>  import('../components/floatingwidget'), { ssr: false })
 import Footerlinks from '../components/footerlinks';
 import Whatsappwidget from '../components/whatsappwidget';
 import { client }  from '../utils/prismichelpers';
 import { GetStaticProps } from 'next';
 import { Fade, Slide, Bounce, Zoom, AttentionSeeker, JackInTheBox } from "react-awesome-reveal"
-
 import { PrismicRichText } from "@prismicio/react";
 
 
-interface ResidentialProps {
+interface CommercialProps {
     whatsappWidget: any,
-    residentialDetails: any
+    commercialDetails: any
 }
  
-const Residential: FunctionComponent<ResidentialProps> = ({whatsappWidget, residentialDetails}) => {
+const Commercial: FunctionComponent<CommercialProps> = ({whatsappWidget, commercialDetails}) => {
 
     const [readMore, setReadMore] = useState(false);
     const paragraphLink = !readMore ? "Read More ↘": "Read less ↖";
 
-   
     return ( 
         <div className='service-wrap'>
-        <div className='service-layout'>
+            <div className='service-layout'>
         <Layout/>
         </div>
         <div className='painting-services-wrap'>
@@ -42,8 +39,8 @@ const Residential: FunctionComponent<ResidentialProps> = ({whatsappWidget, resid
                 <Link href='/industrial'>
   			    <a id="dropdown-links" href="#">Industrial Painting <ArrowRightIcon/></a>
                 </Link>
-                <Link href='/commercial'>
-  			    <a id="dropdown-links" href="#">Commercial Painting <ArrowRightIcon/></a>
+                <Link href='/residential'>
+  			    <a id="dropdown-links" href="#">Residential Painting <ArrowRightIcon/></a>
                 </Link>
                 <input className="dropdown-sub" type="checkbox" id="dropdown-sub" name="dropdown-sub"/>
 		    	<label className="for-dropdown-sub" htmlFor="dropdown-sub">Dry Walls and Ceiling Services <ArrowDropDownIcon className='dropdown2-mui'/> </label>
@@ -65,7 +62,7 @@ const Residential: FunctionComponent<ResidentialProps> = ({whatsappWidget, resid
 
             <article className="service-details">
                 <AttentionSeeker effect='pulse' duration={600}>
-                <h2 className='service-heading'>Residential</h2>
+                <h2 className='service-heading'>Commercial</h2>
                 </AttentionSeeker>
                 <AttentionSeeker effect='pulse'>
                 <h5 className='service-heading-2'>Painting</h5>
@@ -75,9 +72,9 @@ const Residential: FunctionComponent<ResidentialProps> = ({whatsappWidget, resid
                 <Fade delay={1200} triggerOnce>
                 <p className="service-main-text">
                      {!readMore && <div className="service-main-text-overlay"></div>}
-                     <PrismicRichText field={residentialDetails.data['residential-brief-details']}></PrismicRichText>
+                     <PrismicRichText field={commercialDetails.data['commercial-brief-details']}></PrismicRichText>
                 {readMore && <p>
-                    <PrismicRichText field={residentialDetails.data['residential-more-details']}></PrismicRichText>
+                    <PrismicRichText field={commercialDetails.data['commercial-more-details']}></PrismicRichText>
                      </p>}
                  </p>
                  </Fade>
@@ -86,7 +83,7 @@ const Residential: FunctionComponent<ResidentialProps> = ({whatsappWidget, resid
                  </div>
                 <div
                     className='service-image-wrap'>
-               <Image unoptimized src={residentialDetails.data['residential-image'].url} width={residentialDetails.data['residential-image'].dimensions.width} height={residentialDetails.data['residential-image'].dimensions.height}className='actual-service-image' />
+               <Image unoptimized src={commercialDetails.data['commercial-image'].url} width={commercialDetails.data['commercial-image'].dimensions.width} height={commercialDetails.data['commercial-image'].dimensions.height}className='actual-service-image' />
                 </div>
                 </div>
             </article>
@@ -103,15 +100,14 @@ const Residential: FunctionComponent<ResidentialProps> = ({whatsappWidget, resid
 
 export const getStaticProps: GetStaticProps = async () => {
     const whatsappWidget = await client.getSingle('whatsapp_widget');
-    const residentialDetails = await client.getSingle('residential_painting');
+    const commercialDetails = await client.getSingle('commercial_painting');
   
     return {
         props: {
             whatsappWidget,
-            residentialDetails
+            commercialDetails
         }
     }
   }
-
  
-export default Residential;
+export default Commercial;

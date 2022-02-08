@@ -5,32 +5,6 @@ import { Fade, Slide, Bounce, Zoom, AttentionSeeker, JackInTheBox } from "react-
 import { motion, AnimatePresence, useAnimation, AnimationControls } from 'framer-motion'
 import { useInView } from 'react-intersection-observer';
 
-// first image
-import landing1b from '../public/newlanding1.jpg'
-import landing1c from '../public/newlanding1.jpg'
-import landing1d from '../public/newlanding1narrow.jpg'
-import landing1e from '../public/newlanding1narrow.jpg'
-import landing1f from '../public/newlanding1narrower.jpg'
-import landing1g from '../public/newlanding1.jpg'
-import landingfull from '../public/newlanding1.jpg'
-
-// second image
-import landing2 from '../public/golanding2norm.jpg'
-import landing2b from '../public/golanding2narrowish.jpg'
-import landing2c from '../public/golanding2narrow.jpg'
-import landing2d from '../public/golanding2narrower.jpg'
-
-// third image
-import landing3 from '../public/golanding3wide.jpg'
-import landing3b from '../public/golanding3.jpg'
-import landing3c from '../public/golanding3longish.jpg'
-import landing3d from '../public/golanding3long.jpg'
-import landing3e from '../public/golanding3longer.jpg'
-import landing3f from '../public/golanding3longer.jpg'
-
-// logo images
-import logo from '../public/gologo2.png'
-import logo2 from '../public/gopainting1.png'
 
 
 interface LandingProps {
@@ -198,48 +172,49 @@ const Landing: FunctionComponent<LandingProps> = () => {
                 <motion.div className='carousel-inner' variants={carouselInnerVariants} animate=    {controls} exit={carouselInnerVariants.exit}>
                     <Fade triggerOnce>
                   <div className='image-wrap'>
-                    <Image src={landingfull} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/newlanding1_alja9r.jpg' className='landing-image'/>
                     </div>
                     </Fade>
                     <Fade triggerOnce>
                     <div className='image-wrap-narrow'>
-                    <Image src={landing1b} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/newlanding1_alja9r.jpg' className='landing-image'/>
                     </div>
                     </Fade>
                     <Fade triggerOnce>
                     <div className='image-wrap-longish'>
-                    <Image src={landing1c} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/newlanding1_alja9r.jpg'
+                    className='landing-image'/>
                     </div>
                     </Fade>
                     <Fade triggerOnce>
                     <div className='image-wrap-long'>
-                    <Image src={landing1d} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855425/newlanding1narrow_jhmqiz.jpg' className='landing-image'/>
                     </div>
                     </Fade>
                     <Fade triggerOnce>
                     <div className='image-wrap-longer'>
-                    <Image src={landing1e} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855425/newlanding1narrow_jhmqiz.jpg' className='landing-image'/>
                     </div>
                     </Fade>
                     <Fade triggerOnce>
                     <div className='image-wrap-longest'>
-                    <Image src={landing1f} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855425/newlanding1narrow_jhmqiz.jpg' className='landing-image'/>
                     </div>
                     </Fade>
                     <Fade triggerOnce>
                     <div className='image-wrap-inv'>
-                    <Image src={landing1g} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/newlanding1_alja9r.jpg' className='landing-image'/>
                     </div>
                     </Fade>
                     <Fade triggerOnce>
                     <div className='image-wrap-full'>
-                    <Image src={landingfull} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/newlanding1_alja9r.jpg' className='landing-image'/>
                     </div>
                     </Fade>
                     <div className='over-image'>
                     <Slide cascade triggerOnce delay={300}>
                     <div className='logo-legend'>
-                    <Image src={logo2} width={300} height={300}></Image>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/gopainting1_mdmzlr.png' width={300} height={300}></Image>
                     </div> 
                     </Slide>
                     <Zoom triggerOnce delay={900}>
@@ -261,25 +236,25 @@ const Landing: FunctionComponent<LandingProps> = () => {
                 {!unmountSecondImage && 
                 <motion.div className='carousel-inner-2' variants={carouselInner2Variants} initial={carouselInner2Variants.initial} animate={carouselInner2Variants.show} exit={carouselInner2Variants.exit}>
                     <div className='image-wrap'>
-                    <Image src={landing2} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641858349/golanding2norm_fgfsts.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-inv-2'>
-                    <Image src={landing2c} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855422/golanding2narrow_lbom06.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-full'>
-                    <Image src={landing2} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641858349/golanding2norm_fgfsts.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-long'>
-                    <Image src={landing2c} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855422/golanding2narrow_lbom06.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-longish'>
-                    <Image src={landing2b} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855423/golanding2narrowish_lwenk2.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-longer'>
-                    <Image src={landing2c} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855422/golanding2narrow_lbom06.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-longest'>
-                    <Image src={landing2d} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855423/golanding2narrower_cgrxxn.jpg' className='landing-image'/>
                     </div>
                     <div className='over-image-2'>
                     <Bounce cascade triggerOnce duration={1000}>
@@ -299,25 +274,25 @@ const Landing: FunctionComponent<LandingProps> = () => {
                 {!unmountFinalImage && 
                 <motion.div className='carousel-inner-3'  variants={carouselInner3Variants} initial={carouselInner3Variants.initial} animate={carouselInner2Variants.show}>
                     <div className='image-wrap'>
-                     <Image src={landing3} className='landing-image'/>
+                     <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/golanding3wide_grpoax.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-inv'>
-                    <Image src={landing3b} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855423/golanding3_golen4.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-full'>
-                    <Image src={landing3b} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855423/golanding3_golen4.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-long'>
-                    <Image src={landing3c} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855423/golanding3longish_na8dlm.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-longish'>
-                    <Image src={landing3d} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855422/golanding3long_xely4r.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-longer'>
-                    <Image src={landing3e} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855423/golanding3longer_uhmz5y.jpg' className='landing-image'/>
                     </div>
                     <div className='image-wrap-longest'>
-                    <Image src={landing3f} className='landing-image'/>
+                    <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855423/golanding3longer_uhmz5y.jpg' className='landing-image'/>
                     </div>
                     <div className='over-image-2'>
                     <AttentionSeeker effect='jello' triggerOnce delay={1000}>

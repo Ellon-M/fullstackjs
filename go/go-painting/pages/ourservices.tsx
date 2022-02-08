@@ -6,7 +6,7 @@ const { motion } = require('framer-motion')
 import Leftcard from '../components/leftcard'
 import Rightcard from '../components/rightcard'
 import { servicesVariants } from '../utils/servicesvariants'
-import goLogo from '../public/gologo2.png';
+
 
 interface Props {
     
@@ -29,12 +29,12 @@ const ourServices: FunctionComponent<Props> = () => {
             <p className='our-services-top-text'>back</p>
             </Link>
             <div className='services-logo'>
-                <Image src={goLogo} width={120} height={120}></Image>
+                <Image unoptimized src='https://res.cloudinary.com/denphvygd/image/upload/v1641855424/gologo2_yd2nku.png' width={120} height={120}></Image>
             </div>
         </motion.header>
         <motion.div className='articles' variants={servicesVariants}>
         <div className='floating-article-left'>
-            <Leftcard/>
+            <Leftcard />
         </div>
         <div className='floating-article-right'>
             <Rightcard/>
