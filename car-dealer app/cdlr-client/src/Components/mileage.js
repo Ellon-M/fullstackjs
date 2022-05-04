@@ -162,7 +162,7 @@ const Mileage = () => {
     
     if (userSignedIn) {
       return (
-      <div>
+    <Container className="masonryContainer">
         <h2>Signed in</h2>
         <button onClick={signOut}>Sign Out</button>
         <div className="imageGrid">
@@ -189,12 +189,12 @@ const Mileage = () => {
       })  
     }
     </div>
-      </div>
+    </Container>
       )
     }  
 
     return ( 
-        <Container>
+    <Container className="masonryContainer">
     <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
     { data && data.map(info => {
        return (

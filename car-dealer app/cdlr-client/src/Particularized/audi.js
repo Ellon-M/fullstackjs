@@ -54,6 +54,11 @@ const useStyles = makeStyles((theme) => {
       textDecoration: 'line-through',
       whiteSpace: 'nowrap',
       fontWeight: '400',
+    },
+    moreInfo: {
+      marginTop: '-40px',
+      textAlign: 'right',
+      color: 'silver',
     }
 
 
@@ -140,7 +145,7 @@ const Audi = () => {
           if (doc.data().brand === "Audi") {
             getData.push({
               ...doc.data(), //spread operator
-              // key: doc.data().brand, 
+              key: doc.id 
             });
           }
           });
@@ -153,6 +158,8 @@ const Audi = () => {
        return () => ref();
       }, [loading]);
 
+      console.log(audi);
+
 
       const override = css`
       margin-left: 80px;
@@ -162,38 +169,7 @@ const Audi = () => {
 
     if (userSignedIn) {
         return (
-        <div>
-          <h2>Signed in</h2>
-          <button onClick={signOut}>Sign Out</button>
-          <div className="imageGrid">
-      { audi && audi.map(info => {
-         return (
-           
-          <div className="infoWrap" key={info.brand}>
-            <div className="loader">
-             {pending && <PuffLoader color="red" loading={pending}/> }
-             </div>
-            <Img width="250px" height="auto" src={info.mainUrl} alt="firebase-img"/>
-            <h3>
-              {info.brandName}
-            </h3>
-            <p>
-              {info.Price}
-            </p>
-  
-            <div className="linkWrapDetails">
-            <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>Link</Link>
-            </div>
-          </div>
-         )
-        })  
-      }
-       </div>
-      </div>
-      )
-    }
-    return (
-        <Container>
+<Container className="masonryContainer">
         <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
     { audi && audi.map(info => {
        return (
@@ -219,6 +195,50 @@ const Audi = () => {
           <h2 className={classes.oldCarPrice}>
             {info.oldPrice}$
           </h2>
+          <p className={classes.moreInfo}>
+            {info.mileage} | {info.year} | {info.bodyType}
+          </p>
+          </div>
+          <motion.div className={classes.linkWrapDetails}>
+          </motion.div>
+          </Link>
+        </motion.div>
+       )
+      })  
+    }
+    </Masonry>
+    </Container>)
+    }
+    return (
+      <Container className="masonryContainer">
+        <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+    { audi && audi.map(info => {
+       return (
+        <motion.div className="infoWrap" key={info.key}  variants={container}>
+          <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>
+          <motion.div className={classes.imageWrap} variants={container}>
+          { pending ? (
+                 <span className={classes.spinner}>
+                 <RingLoader size='50' color='white' css={override} loading speedMultiplier='0.8' />
+                 </span>
+             ) : (
+                  <Img width="250px" height="auto" class="animate__animated animate__backInUp" src={info.mainUrl} alt="firebase-img" cache lazy/>
+                 )
+             }
+            </motion.div>
+          <div className="wordsWrap">
+          <h2 className={classes.carName}>
+            {info.brand} {info.brandDesc}
+          </h2>
+          <h1 className={classes.carPrice}>
+            {info.Price}$
+          </h1>
+          <h2 className={classes.oldCarPrice}>
+            {info.oldPrice}$
+          </h2>
+          <p className={classes.moreInfo}>
+            {info.mileage} | {info.year} | {info.bodyType}
+          </p>
           </div>
           <motion.div className={classes.linkWrapDetails}>
           </motion.div>

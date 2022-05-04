@@ -5,11 +5,16 @@ import loaderImage4 from '../images/loaderimgs/loader-img4.jpg';
 
 import centerImage1 from '../images/landing/test3tuned.jpg';
 import centerImage3 from '../images/landing/test4tuned.jpg';
+import centerImage2X from '../images/landing/gclassX.png';
 
-import { Box, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { after } from 'underscore';
 import { motion } from 'framer-motion';
+
+const allImages = [loaderImage1, loaderImage2, loaderImage3, loaderImage4, centerImage1, centerImage3, centerImage2X];
+
 
 const useStyles = makeStyles(() => {
     return {
@@ -19,6 +24,9 @@ const useStyles = makeStyles(() => {
         top: '15%',
         position: 'absolute',
         transformOrigin: 'center',
+        "@media (max-width: 860px)": {
+            width: '330px' 
+          },
     },
     image2loader: {
         right: '10%',
@@ -26,6 +34,9 @@ const useStyles = makeStyles(() => {
         top: '15%',
         position: 'absolute',
         transformOrigin: 'center',
+        "@media (max-width: 860px)": {
+            width: '330px' 
+          },
     },
     image3loader: {
         left: '5%',
@@ -33,6 +44,9 @@ const useStyles = makeStyles(() => {
         bottom: '10%',
         position: 'absolute',
         transformOrigin: 'center',
+        "@media (max-width: 860px)": {
+            width: '330px' 
+          },
     },
     image4loader: {
         right: '10%',
@@ -40,10 +54,11 @@ const useStyles = makeStyles(() => {
         bottom: '10%',
         position: 'absolute',
         transformOrigin: 'center',
+        "@media (max-width: 860px)": {
+            width: '300px' 
+          },
     },
     innerLoader: {
-        // alignItems: 'center',
-        // justifyContent: 'center',
         display: 'block',
         overflow: 'hidden',
         height: '100%',
@@ -60,6 +75,9 @@ const useStyles = makeStyles(() => {
         left: '31%',
         position: 'absolute',
         clipPath: 'polygon(0% 0%, 0% 100%, 40% 100%, 73% 0%)',
+        "@media (max-width: 860px)": {
+            display: 'none'
+        }
     },
     clippedB: {
         clipPath: 'polygon(30% 0%, 0% 100%, 100% 100%, 100% 0%)',
@@ -67,12 +85,28 @@ const useStyles = makeStyles(() => {
         width: '430px',
         right: '30%',
         position: 'absolute', 
+        "@media (max-width: 860px)": {
+          clipPath: 'none',
+          width: '300px' 
+        },
+        "@media (max-width: 575px)": {
+            display: 'none'
+        }
+    },
+    clippedGL: {
+        top: '25%',
+        width: '270px',
+        marginLeft: '120px',
+        position: 'absolute',
+        display: 'none', 
+        "@media (max-width: 575px)": {
+            display: 'flex'
+        }
     }
 } 
 })
 
 // variants
-
 const container = {
     show: {
         transition: {
@@ -123,10 +157,16 @@ const itemMain = {
 
 
 const Loader = ({ setLoading }) => {
+    const [loadLoader, setLoadLoader] = useState(true);
+    
+    const onLoad = after(allImages.length, () => {
+        setLoadLoader(false);
+    })
 
     const classes = useStyles();
 
     return ( 
+        <>
         <motion.div className = {classes.loader}>
             <motion.div className = {classes.innerLoader}
              variants={container}
@@ -136,20 +176,24 @@ const Loader = ({ setLoading }) => {
              onAnimationComplete={() => {setLoading(false)}}>
 
 
-                    <motion.img className={classes.image2loader} src={loaderImage2} alt="" variants = { item }/>
+                    <motion.img className={classes.image2loader} src={loaderImage2} alt="" variants = { item }onLoad={onLoad}/>
 
-                    <motion.img className={classes.image1loader} src={loaderImage1} alt="" variants = { item } />
+                    <motion.img className={classes.image1loader} src={loaderImage1} alt="" variants = { item } onLoad={onLoad} />
 
 
-                    <motion.img className={classes.image4loader} src={loaderImage4} alt="" variants = { item }/>
+                    <motion.img className={classes.image4loader} src={loaderImage4} alt="" variants = { item }onLoad={onLoad} />
 
-                    <motion.img className={classes.image3loader} src={loaderImage3} alt="" variants = { item }/>
+                    <motion.img className={classes.image3loader} src={loaderImage3} alt="" variants = { item }onLoad={onLoad} />
+                    
 
-                    <motion.img src={centerImage1} alt="" className={classes.clippedA} layoutId="main-img-1" variants={itemMain} /> 
+                    <motion.img src={centerImage2X} alt="" className={classes.clippedGL} layoutId="main-img-1" variants={itemMain} onLoad={onLoad}/> 
 
-                    <motion.img src={centerImage3} alt="" className={classes.clippedB} layoutId="main-img-2" variants={itemMain} />
+                    <motion.img src={centerImage1} alt="" className={classes.clippedA} layoutId="main-img-1" variants={itemMain} onLoad={onLoad}/> 
+
+                    <motion.img src={centerImage3} alt="" className={classes.clippedB} layoutId="main-img-2" variants={itemMain} onLoad={onLoad}/>
             </motion.div>
         </motion.div>
+        </>
      );
 }
  

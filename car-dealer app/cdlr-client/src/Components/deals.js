@@ -10,6 +10,8 @@ import { Container, makeStyles, Typography } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import 'animate.css';
 import Masonry from 'react-masonry-css';
+import { after } from 'underscore';
+import Footer from './footer';
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -89,6 +91,7 @@ const Deals = () => {
     const [loading, setLoading] = useState(true);
     const [pending, setPending] = useState(true);
     const[userSignedIn, setUserSignedIn] = useState(false);
+    const [loadLoader, setLoader] = useState(true);
 
     const history = useHistory();
     const classes = useStyles();
@@ -169,41 +172,60 @@ const Deals = () => {
     
     if (userSignedIn) {
       return (
-      <div>
-        <h2>Signed in</h2>
-        <button onClick={signOut}>Sign Out</button>
-        <div className="imageGrid">
-    { data && data.map(info => {
-       return (
-         
-        <div className="infoWrap" key={info.key}>
-          <div className="loader">
-           {pending && <PuffLoader color="red" loading={pending}/> }
-           </div>
-          <Img width="250px" height="auto" src={info.mainUrl} alt="firebase-img"/>
-          <h3>
-            {info.brandName}
-          </h3>
-          <p>
-            {info.Price}
-          </p>
-
-          <div className="linkWrapDetails">
-          <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>Link</Link>
-          </div>
-        </div>
-       )
-      })  
-    }
-    </div>
-      </div>
+        <Container className="masonryContainer">
+        <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+        { data && data.map(info => {
+          const onLoad = after(data.length, () => {
+            setLoader(false);
+          })
+           return (
+            <motion.div className="infoWrap" key={info.key}  variants={container}>
+              <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>
+              <motion.div className={classes.imageWrap} variants={container}>
+              { pending ? (
+                     <span className={classes.spinner}>
+                     <RingLoader size='50' color='white' css={override} loading speedMultiplier='0.8' />
+                     </span>
+                 ) : (
+                      <img width="250px" height="auto" class="animate__animated animate__backInUp" src={info.mainUrl} alt="firebase-img" onLoad={onLoad}/>
+                     )
+                 }
+                </motion.div>
+              <div className="wordsWrap">
+              <h2 className={classes.carName}>
+                {info.brand} {info.brandDesc}
+              </h2>
+              <h1 className={classes.carPrice}>
+                {info.Price}$  
+              </h1>
+              <p className={classes.saveText}> (SAVE <b>{info.discountPerc}</b> %)</p>
+              <h2 className={classes.oldCarPrice}>
+                {info.oldPrice}$
+              </h2>
+              <p className={classes.moreInfo}>
+                <b>{info.topSpeed}</b> | {info.year} | {info.bodyType}
+              </p>
+              </div>
+              <motion.div className={classes.linkWrapDetails}>
+              </motion.div>
+              </Link>
+            </motion.div>
+           ) 
+          })   
+        }
+        </Masonry>
+        <Footer/>
+        </Container>
       )
     }  
 
     return ( 
-        <Container>
+      <Container className="masonryContainer">
     <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
     { data && data.map(info => {
+      const onLoad = after(data.length, () => {
+        setLoader(false);
+      })
        return (
         <motion.div className="infoWrap" key={info.key}  variants={container}>
           <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>
@@ -213,7 +235,7 @@ const Deals = () => {
                  <RingLoader size='50' color='white' css={override} loading speedMultiplier='0.8' />
                  </span>
              ) : (
-                  <Img width="250px" height="auto" class="animate__animated animate__backInUp" src={info.mainUrl} alt="firebase-img" cache lazy/>
+                  <img width="250px" height="auto" class="animate__animated animate__backInUp" src={info.mainUrl} alt="firebase-img" onLoad={onLoad}/>
                  )
              }
             </motion.div>
@@ -240,6 +262,7 @@ const Deals = () => {
       })   
     }
     </Masonry>
+    <Footer/>
     </Container>
     );
 }

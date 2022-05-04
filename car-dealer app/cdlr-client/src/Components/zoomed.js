@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useHistory } from "react-router";
 
 
-import zoom1 from '../images/others/zoom2ed.jpg';
-import zoom2 from '../images/others/zoom1ed.jpg';
+import zoom1 from '../images/others/zoomed2dark.png';
+import zoom2 from '../images/others/zoomeddark.png';
 
 import zoomIcon1 from '../images/zoom/arrow3.png';
 
@@ -12,12 +12,17 @@ import zoomIcon1 from '../images/zoom/arrow3.png';
 const useStyles = makeStyles((theme) => {
     return {
         zoomedWrap: {
-            height: '60vh',
-            width: '100%',
+            height: '80vh',
+            width: '100vw',
             margin: '0',
             padding: '0',
-            display: 'inline',
             zIndex: -1,
+            // display: 'block'
+            display: 'inline',
+
+            "@media (max-width: 646px)": {
+                display: 'block',
+            }
         },
 
         leftSide: {
@@ -29,7 +34,6 @@ const useStyles = makeStyles((theme) => {
         rightSide: {
             width: '50%',
             height: '100%',
-            float: 'right',
             overflow: 'hidden'
         },
         zoomed1: {
@@ -58,7 +62,7 @@ const useStyles = makeStyles((theme) => {
             position: 'absolute',
             display: 'inline',
             marginLeft: '-680px',
-            marginTop: '370px',
+            marginTop: '270px',
         },
         zoomed2: {
             width: '100%',
@@ -69,21 +73,22 @@ const useStyles = makeStyles((theme) => {
             transformOrigin: 'center center',
             "&:hover": {
             transform: 'scale(1.07)',
-            }
+            },
         },
         zoomed2SubTextWrap: {
             position: 'absolute',
             display: 'inline',
             marginLeft: '-550px',
-            marginTop: '370px',
+            marginTop: '270px',
         },
+
         zoomed2subText: {
             position: 'absolute',
             textAlign: 'center',
             textTransform: 'uppercase',
             display: 'inline-block',
             marginLeft: '-880px',
-            marginTop: '360px',
+            marginTop: '300px',
             fontSize: '1.2rem',
         },
         zoomedLinks: {

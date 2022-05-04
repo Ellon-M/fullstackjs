@@ -7,7 +7,6 @@ import NewVehicle from './Components/NewVehicle';
 import AdminPage from './Components/Admin';
 import NewVehicleDetails from './Components/newVehicleDetails';
 import Order from './Components/order';
-import SignIn from './Auth/SignIn';
 import { useState } from 'react';
 import firebase from 'firebase';
 import SignedOut from './Auth/signedOut';
@@ -35,12 +34,15 @@ import Subaru from './Particularized/subaru';
 import Mileage from './Components/mileage';
 import Kmph from './Components/kmph';
 import Deals from './Components/deals';
+import SignIn from './Auth/SignIn';
 
 const theme = createTheme({
     breakpoints: {
       values: {
         xs:  0,
+        xms: 250,
         sm: 500,
+        smd: 600,
         md: 700,
         lg: 1500,
         xl: 1920,
@@ -53,6 +55,7 @@ const theme = createTheme({
 
 function App() {
    const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     loading
@@ -77,18 +80,95 @@ function App() {
       <ThemeProvider theme= { theme }>
       <Router>
       <Switch>
-      <Route exact path = "/vehicles/:id/order">
-      <Order />
-      </Route>
-      <Route exact path = "/vehicles">
+      <Route exact path = "/signedin">
+    <SignIn />
+    </Route>
+    <Route exact path = "/">
+   
+    <AnimateSharedLayout type="crossfade">
+    <AnimatePresence>
+      {loading ? (
+        <motion.div key='loader'>
+           <Loader setLoading={setLoading} />
+        </motion.div>
+      ) : (
+        <>
+        <Layout>
+        <Home/>
+        </Layout>
+        </>
+      )
+      }
+      </AnimatePresence>
+      </AnimateSharedLayout>
+    </Route>
+    <Layout>
+    <Route exact path = "/signedout">
+    <SignedOut />
+    </Route>
+
+    <Route exact path = "/tests">
+    <Tests/>
+    </Route>
+    <Route exact path = "/vehicles">
     <NewVehicle /> 
     </Route>
     <Route exact path = "/vehicles/:id">
        <NewVehicleDetails/>
     </Route>
-    <Route exact path = "/">
-      <Home setLoading={setLoading} />
+    <Route exact path = "/vehicles/:id/order">
+      <Order />
+   </Route>
+    <Route exact path = "/vehicles/particular/BMW">
+       <BMW/>
     </Route>
+    <Route exact path = "/vehicles/particular/Mercedes">
+       <Merc/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Audi">
+       <Audi/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Ferrari">
+       <Ferrari/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Ford">
+       <Ford/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Nissan">
+       <Nissan/>
+    </Route>
+    <Route exact path = "/vehicles/particular/LandRover">
+       <Lr/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Jeep">
+       <Jeep/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Subaru">
+       <Subaru/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Lamborghini">
+       <Lamborghini/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Porsche">
+       <Porsche/>
+    </Route>
+    <Route exact path = "/vehicles/particular/Maserati">
+       <Maserati/>
+    </Route>
+    <Route exact path = "/vehicles/particular/VolksWagen">
+       <VW/>
+    </Route>
+    <Route exact path = "/speed">
+       <Kmph/>
+    </Route>
+    <Route exact path = "/mileage">
+       <Mileage/>
+    </Route>
+    <Route exact path = "/deals">
+       <Deals/>
+    </Route>
+
+    </Layout>
       </Switch>
       </Router>
       </ThemeProvider>
@@ -103,13 +183,14 @@ else {
     <Route exact path = "/signinemail">
     <EmailSignIn />
     </Route>
-    <Route exact path = "/signin">
+    <Route exact path = "/signedin">
     <SignIn />
     </Route>
     <Route exact path = "/admin">
     <AdminPage />
     </Route>
     <Route exact path = "/">
+   
     <AnimateSharedLayout type="crossfade">
     <AnimatePresence>
       {loading ? (

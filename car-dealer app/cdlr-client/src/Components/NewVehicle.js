@@ -7,9 +7,11 @@ import { css } from '@emotion/react'
 import { ClimbingBoxLoader, BarLoader, BounceLoader, MoonLoader, PuffLoader, RiseLoader, RingLoader, RotateLoader } from 'react-spinners';
 import Img from "react-cool-img";
 import { Container, makeStyles, Typography } from '@material-ui/core';
+import { after } from 'underscore';
 import { motion } from 'framer-motion';
 import 'animate.css';
 import Masonry from 'react-masonry-css';
+import Footer from './footer';
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -58,7 +60,13 @@ const useStyles = makeStyles((theme) => {
       marginTop: '-40px',
       textAlign: 'right',
       color: 'silver',
-    }
+      "@media (max-width: 320px)": {
+        marginTop: '0',
+        textAlign: 'center',
+        marginLeft: '-55px'
+       }
+    },
+
 
 
   }
@@ -114,6 +122,7 @@ const NewVehicle = () => {
     const [loading, setLoading] = useState(true);
     const [pending, setPending] = useState(true);
     const[userSignedIn, setUserSignedIn] = useState(false);
+    const [loader, setLoader] = useState(true);
 
     const history = useHistory();
     const classes = useStyles();
@@ -133,9 +142,9 @@ const NewVehicle = () => {
 
     const breakpoints = {
       default: 4,
-      1100: 3,
-      700: 2,
-      500: 1
+      1300: 3,
+      900: 2,
+      660: 1
     }
 
 
@@ -191,41 +200,59 @@ const NewVehicle = () => {
     
     if (userSignedIn) {
       return (
-      <div>
-        <h2>Signed in</h2>
-        <button onClick={signOut}>Sign Out</button>
-        <div className="imageGrid">
-    { data && data.map(info => {
-       return (
-         
-        <div className="infoWrap" key={info.key}>
-          <div className="loader">
-           {pending && <PuffLoader color="red" loading={pending}/> }
-           </div>
-          <Img width="250px" height="auto" src={info.mainUrl} alt="firebase-img"/>
-          <h3>
-            {info.brandName}
-          </h3>
-          <p>
-            {info.Price}
-          </p>
-
-          <div className="linkWrapDetails">
-          <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>Link</Link>
-          </div>
-        </div>
-       )
-      })  
-    }
-    </div>
-      </div>
+        <Container className="masonryContainer">
+        <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+        { data && data.map(info => {
+          const onLoad = after(data.length, () => {
+            setLoader(false);
+          })
+           return (
+            <motion.div className="infoWrap" key={info.key}  variants={container}>
+              <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>
+              <motion.div className={classes.imageWrap} variants={container}>
+              { pending ? (
+                     <span className={classes.spinner}>
+                     <RingLoader size='50' color='white' css={override} loading speedMultiplier='0.8' />
+                     </span>
+                 ) : (
+                      <img width="250px" height="auto" class="animate__animated animate__backInUp" src={info.mainUrl} alt="firebase-img" onLoad={onLoad}/>
+                     )
+                 }
+                </motion.div>
+              <div className="wordsWrap">
+              <h2 className={classes.carName}>
+                {info.brand} {info.brandDesc}
+              </h2>
+              <h1 className={classes.carPrice}>
+                {info.Price}$
+              </h1>
+              <h2 className={classes.oldCarPrice}>
+                {info.oldPrice}$
+              </h2>
+              <p className={classes.moreInfo}>
+                {info.mileage} | {info.year} | {info.bodyType}
+              </p>
+              </div>
+              <motion.div className={classes.linkWrapDetails}>
+              </motion.div>
+              </Link>
+            </motion.div>
+           ) 
+          })   
+        }
+        </Masonry>
+        </Container>
       )
     }  
 
     return (
-    <Container>
+      <>
+    <Container className="masonryContainer">
     <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
     { data && data.map(info => {
+      const onLoad = after(data.length, () => {
+        setLoader(false);
+      })
        return (
         <motion.div className="infoWrap" key={info.key}  variants={container}>
           <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>
@@ -235,7 +262,7 @@ const NewVehicle = () => {
                  <RingLoader size='50' color='white' css={override} loading speedMultiplier='0.8' />
                  </span>
              ) : (
-                  <Img width="250px" height="auto" class="animate__animated animate__backInUp" src={info.mainUrl} alt="firebase-img" cache lazy/>
+                  <img width="250px" height="auto" class="animate__animated animate__backInUp" src={info.mainUrl} alt="firebase-img" onLoad={onLoad}/>
                  )
              }
             </motion.div>
@@ -261,7 +288,9 @@ const NewVehicle = () => {
       })   
     }
     </Masonry>
-    </Container>);
+    <Footer/>
+    </Container>
+    </>);
 }
 
  

@@ -160,7 +160,7 @@ const Kmph = () => {
     
     if (userSignedIn) {
       return (
-      <div>
+      <Container className="masonryContainer">
         <h2>Signed in</h2>
         <button onClick={signOut}>Sign Out</button>
         <div className="imageGrid">
@@ -187,14 +187,15 @@ const Kmph = () => {
       })  
     }
     </div>
-      </div>
+      </Container>
       )
     }  
 
     return ( 
-        <Container>
+    <Container className="masonryContainer">
     <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
     { data && data.map(info => {
+      
        return (
         <motion.div className="infoWrap" key={info.key}  variants={container}>
           <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>

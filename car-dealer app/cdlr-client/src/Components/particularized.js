@@ -4,13 +4,12 @@ import  { db }  from '../FB/Firebase';
 import firebase from 'firebase';
 import { useHistory, useParams } from 'react-router';
 import { css } from '@emotion/react'
-import { ClimbingBoxLoader, BarLoader, BounceLoader, MoonLoader, PuffLoader, RiseLoader, RingLoader, RotateLoader } from 'react-spinners';
+import { PuffLoader, RingLoader } from 'react-spinners';
 import Img from "react-cool-img";
-import { Container, makeStyles, Typography } from '@material-ui/core';
+import { Container, makeStyles } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import 'animate.css';
 import Masonry from 'react-masonry-css';
-
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -55,8 +54,6 @@ const useStyles = makeStyles((theme) => {
       whiteSpace: 'nowrap',
       fontWeight: '400',
     }
-
-
   }
 })
 
@@ -65,7 +62,7 @@ const container = {
     transition: {
         staggerChildren: 0.75,
     }
-}
+  }
 }
 
 const item = {
@@ -81,8 +78,8 @@ const item = {
       y: 250,
     },
   },
-  
 }
+
 const spinItem = {
   show: {
     opacity: 1,
@@ -147,7 +144,6 @@ const Particularized = () => {
       500: 1
     }
 
-
     useEffect(() => {
       const getData = [];
       const ref = db
@@ -156,8 +152,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "BMW") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
           });
         }
         });
@@ -179,8 +174,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Mercedes") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
           });
         }
         });
@@ -203,8 +197,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Audi") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(),
           });
         }
         });
@@ -226,8 +219,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Ferrari") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
           });
         }
         });
@@ -250,8 +242,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Ford") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
           });
         }
         });
@@ -274,8 +265,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Jeep") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(),
           });
         }
         });
@@ -297,8 +287,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "KIA") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
           });
         }
         });
@@ -320,8 +309,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Lamborghini") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
           });
         }
         });
@@ -344,8 +332,8 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Land Rover") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
+ 
           });
         }
         });
@@ -367,8 +355,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Nissan") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
           });
         }
         });
@@ -391,8 +378,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Porsche") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(), 
           });
         }
         });
@@ -414,8 +400,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Maserati") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(),
           });
         }
         });
@@ -438,8 +423,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "Subaru") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(),
           });
         }
         });
@@ -461,8 +445,7 @@ const Particularized = () => {
         querySnapshot.forEach((doc) => {
         if (doc.data().brand === "VolksWagen") {
           getData.push({
-            ...doc.data(), //spread operator
-            // key: doc.data().brand, 
+            ...doc.data(),
           });
         }
         });
@@ -504,11 +487,10 @@ const Particularized = () => {
     justify-self: center;
     transition-timing-function: ease-out;
   `;
-
-    
+   
     if (userSignedIn) {
       return (
-      <div>
+      <Container className="masonryContainer">
         <h2>Signed in</h2>
         <button onClick={signOut}>Sign Out</button>
         <div className="imageGrid">
@@ -822,14 +804,14 @@ const Particularized = () => {
     }
 
     </div>
-      </div>
+      </Container>
       )
     }
     
     
 // not signed in
     return (
-    <Container>
+    <Container className="masonryContainer">
     <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
     { BMW && BMW.map(info => {
        return (
@@ -1279,11 +1261,8 @@ const Particularized = () => {
        )
       })  
     }
-  
     </Masonry>
     </Container>);
 }
 
-
- 
 export default Particularized;

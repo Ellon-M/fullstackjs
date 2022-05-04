@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/cheese.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -15,190 +15,14 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <style>
-      body {
-        background-color: black;
-      }
-
-      #root {
-        display: none;
-      }
-
-      #preload-title {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: inline;
-        text-align: center;
-        margin: 0;
-        overflow: hidden;
-      }
-
-
-  /* loader styles */
-
-  /* loader text */
-    .load-letters {
-      margin: 0;
-      padding: 0;
-      font-family: ‘Arial Narrow’, sans-serif;
-      font-weight: 100;
-      font-size: 3.0rem;
-      color: #bbbbbb;
-      opacity: 0.6;
-    }
-
-    .span {
-      position: relative;
-      top: 0.63em;  
-      display: inline-block;
-      text-transform: uppercase;  
-      opacity: 0;
-      transform: rotateX(-90deg);
-    }
-
-    #let1 {
-      animation: drop 1.2s ease-in-out infinite;
-      animation-delay: 0.1s;
-    }
-
-    #let2 {
-      animation: drop 1.2s ease-in-out infinite;
-      animation-delay: 0.2s;
-    }
-
-    #let3 {
-      animation: drop 1.2s ease-in-out infinite;
-      animation-delay: 0.3s;
-    }
-
-    #let4 {
-      animation: drop 1.2s ease-in-out infinite;
-      animation-delay: 0.4s;
-    }
-
-    #let5 {
-      animation: drop 1.2s ease-in-out infinite;
-      animation-delay: 0.5s;
-    }
-
-    #let6 {
-      animation: drop 1.2s ease-in-out infinite;
-      animation-delay: 0.6s;
-    }
-
-    #let7 {
-      animation: drop 1.2s ease-in-out infinite;
-      animation-delay: 0.7s;
-    }
-
-    @keyframes drop {
-        10% {
-            opacity: 0.5;
-        }
-        20% {
-            opacity: 1;
-            top: 3.78em;
-            transform: rotateX(-360deg);
-        }
-        80% {
-            opacity: 1;
-            top: 3.78em;
-            transform: rotateX(-360deg);
-        }
-        90% {
-            opacity: 0.5;
-        }
-        100% {
-            opacity: 0;
-            top: 6.94em
-        }
-    }
-
-    /* loader icons */
-    .loader-start {
-        color: #fff;
-        font-family: Consolas, Menlo, Monaco, monospace;
-        font-weight: bold;
-        font-size: 100px;
-        opacity: 0.7;
-        align-items: center;
-        text-align: center;
-        position: absolute;
-        margin-top: 250px;
-        margin-left: 46%;
-
-      }
-      .loader-start:before {
-        content: "{";
-        display: inline-block;
-        animation: pulse 0.4s alternate infinite ease-in-out;
-      }
-      .loader-start:after {
-        content: "}";
-        display: inline-block;
-        animation: pulse 0.4s 0.3s alternate infinite ease-in-out;
-      }
-
-      @keyframes pulse {
-        to {
-          transform: scale(0.8);
-          opacity: 0.4;
-        }
-      }
-    </style>
-
-
-    <script>
-      
-      setTimeout(() => {
-        document.getElementById("root").style.display = "block";
-        document.getElementById("preload-title").style.display = "none";
-        document.getElementById("logo-loader").style.display = "none";
-      }, 1200);
-
-    </script>
-
-
-    <title>Ongoing..</title>
+    <title>Car Dealers</title>
 
 
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="preload-title">
-      <h1 class="load-letters">
-        <span class="span" id="let1">l</span>  
-        <span class="span" id="let2">o</span>  
-        <span class="span" id="let3">a</span>  
-        <span class="span" id="let4">d</span>  
-        <span class="span" id="let5">i</span>  
-        <span class="span" id="let6">n</span>  
-        <span class="span" id="let7">g</span>  
-      </h1>
-    </div>
-    <span id="logo-loader" class="loader-start"></span>
     <div id="root"> 
     </div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <div class="elfsight-app-927dbd61-953e-4484-988b-dab6f21e6d19"></div>

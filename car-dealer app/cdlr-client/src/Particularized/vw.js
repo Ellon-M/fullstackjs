@@ -162,38 +162,46 @@ const VW = () => {
 
     if (userSignedIn) {
         return (
-        <div>
-          <h2>Signed in</h2>
-          <button onClick={signOut}>Sign Out</button>
-          <div className="imageGrid">
-      { vw && vw.map(info => {
+          <Container className="masonryContainer">
+          <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+          { vw && vw.map(info => {
          return (
-           
-          <div className="infoWrap" key={info.brand}>
-            <div className="loader">
-             {pending && <PuffLoader color="red" loading={pending}/> }
-             </div>
-            <Img width="250px" height="auto" src={info.mainUrl} alt="firebase-img"/>
-            <h3>
-              {info.brandName}
-            </h3>
-            <p>
-              {info.Price}
-            </p>
-  
-            <div className="linkWrapDetails">
-            <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>Link</Link>
+          <motion.div className="infoWrap" key={info.key}  variants={container}>
+            <Link className={classes.moreDetailsLink} to={`/vehicles/${info.key}`}>
+            <motion.div className={classes.imageWrap} variants={container}>
+            { pending ? (
+                   <span className={classes.spinner}>
+                   <RingLoader size='50' color='white' css={override} loading speedMultiplier='0.8' />
+                   </span>
+               ) : (
+                    <Img width="250px" height="auto" class="animate__animated animate__backInUp" src={info.mainUrl} alt="firebase-img" cache lazy/>
+                   )
+               }
+              </motion.div>
+            <div className="wordsWrap">
+            <h2 className={classes.carName}>
+              {info.brand} {info.brandDesc}
+            </h2>
+            <h1 className={classes.carPrice}>
+              {info.Price}$
+            </h1>
+            <h2 className={classes.oldCarPrice}>
+              {info.oldPrice}$
+            </h2>
             </div>
-          </div>
+            <motion.div className={classes.linkWrapDetails}>
+            </motion.div>
+            </Link>
+          </motion.div>
          )
         })  
       }
-       </div>
-      </div>
+       </Masonry>
+      </Container>
       )
     }
     return (
-        <Container>
+      <Container className="masonryContainer">
         <Masonry breakpointCols = {breakpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
         { vw && vw.map(info => {
        return (

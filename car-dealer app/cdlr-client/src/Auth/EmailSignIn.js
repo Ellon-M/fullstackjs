@@ -40,6 +40,9 @@ const EmailSignIn = () => {
     const handleLogin = () => {
         clearErrors();
         firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((user) => {
+            history.push('/signedin');
+        })
         .catch((err) => {
             switch (err.code) {
                 case "auth/invalid-email":
@@ -69,7 +72,6 @@ const EmailSignIn = () => {
                     break;
             }
         })
-        console.log('user created');
         }
         else {
             setPasswordError('Passwords do not match');
@@ -98,33 +100,46 @@ const EmailSignIn = () => {
     }, [])
 
     return ( 
-        <div>
-         <form onSubmit={handleSubmit}>
-             <label>Email</label>
-             <input type="email" autoFocus required value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <div className="signUpContainer">
+            <div className="sideSignUp">
+
+            </div>
+            <div className="signUpInner">
+            <h3 className="signUpHeading">
+            { hasAccount ? (
+                <span>
+                Sign In
+                </span>
+            ) : (
+                <span>Sign Up</span>
+                )}</h3>
+         <form className="signUpForm" onSubmit={handleSubmit}>
+             <label className="signUpLabels">Email</label>
+             <input className="inputSignUp" type="email" autoFocus required value={email} onChange={(e) => setEmail(e.target.value)}/>
              <p className="errormsg">{emailError}</p>
              <br/>
-             <label>Password</label>
-             <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} 
+             <label className="signUpLabels">Password</label>
+             <input className="inputSignUp" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} 
              />
-             <p className="errmsg">{passwordError}</p>
+             <p className="errormsg">{passwordError}</p>
              <br/>
              <div>
              { hasAccount ? (
                  <>
-                 <button onClick={handleLogin}>Sign In</button>
-                 <p>Don't have an account? <span onClick={() => setHasAccount(!hasAccount)}>Sign Up</span></p>
+                 <button className="inputSignUpBtn" onClick={handleLogin}>Sign In</button>
+
+                 <p>Don't have an account? <span className="switchLink" onClick={() => setHasAccount(!hasAccount)}>Sign Up</span></p>
                  </>
              ) : (
                  <>
                  <label>Confirm Password</label>
-             <input type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} 
+             <input className="inputSignUp" type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} 
              />
              <p className="errmsg">{passwordError}</p>
              <br/>
-                <button onClick={handleSignUp}>Sign Up</button>
+                <button className="inputSignUpBtn" onClick={handleSignUp}>Sign Up</button>
                 <p>
-                    Have an account? <span onClick={() => setHasAccount(!hasAccount)}>Sign In</span>
+                    Have an account? <span className="switchLink" onClick={() => setHasAccount(!hasAccount)}>Sign In</span>
                     
                 </p>
                 </>
@@ -132,8 +147,9 @@ const EmailSignIn = () => {
              }
              </div>
          </form>
+         <button className="bottomBtn" onClick={SignInWithGoogle}>Sign In with Google</button>
+         </div>
          <div>
-         <button onClick={SignInWithGoogle}>Sign In with Google</button>
          </div>
         </div>
      );
