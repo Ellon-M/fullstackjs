@@ -1,6 +1,6 @@
 # Web App Development ft React
 
-- [ ]  Car Dealers -   *ongoing*
+- [x]  Car Dealers -   *complete* - [here](https://car-dealer-40c1f.web.app/)
 - > w/ Node, GraphQL API, Firebase Cloud Storage
 
 ![car-dealer-gif](https://res.cloudinary.com/denphvygd/image/upload/v1644281650/github-readme/Hnet-image_1_b8pfso.gif)
